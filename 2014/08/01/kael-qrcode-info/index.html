@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    爱上一匹二维马可我家里没有草原… |
+    
+    Hexo</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-kael-qrcode-info" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      爱上一匹二维马可我家里没有草原…
+    </h1>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2014/08/01/kael-qrcode-info/" class="article-date">
+  <time datetime="2014-08-01T15:52:00.000Z" itemprop="datePublished">2014-08-01</time>
+</a>
+        
+      </div>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <p>#Kael-Qrcode </p>
+<blockquote>
+<p>基于html5 canvas，灵活轻巧，美观多变的二维码生成库                   </p>
+</blockquote>
+<p>一直觉得二维码长得太单一，抽空做了一个生成库：<a href="https://github.com/litten/Kael-Qrcode" target="_blank" rel="noopener">github here</a>。<br>取名卡尔，缘由dota英雄Kael；一生二，二生三，三生万物 ，简单地配置Kael-Qrcode，帮助你变换出无穷样式的二维码。        </p>
+<p>二维码不应只是那只黑白的斑马，它还可以是骏马野马海马河马草泥马…<br><a id="more"></a></p>
+<h3 id="使用-Usage"><a href="#使用-Usage" class="headerlink" title="使用 Usage:"></a>使用 Usage:</h3><p><strong>1、入手</strong></p>
+<p><strong>Demo Base - 基本</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> kaelBase = <span class="keyword">new</span> KaelQrcode();</span><br><span class="line">kaelBase.init(<span class="built_in">document</span>.getElementById(<span class="string">"qr-base"</span>), <span class="string">"hello KaelQrcode"</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>2、进阶</strong></p>
+<p>随手可配，变化无穷！           </p>
+<p><strong>Demo Pic - “有图有真相”</strong></p>
+<p>关键词：附图，图片边框，尺寸            </p>
+<p><img src="http://littendomo.sinaapp.com/kaer-qrcode/qrcode-pic.jpg" alt="demo"><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> kaelPic = <span class="keyword">new</span> KaelQrcode();</span><br><span class="line">kaelBase.init(<span class="built_in">document</span>.getElementById(<span class="string">"qr-pic"</span>), &#123;</span><br><span class="line">	text : <span class="string">"hello KaelQrcode"</span>,</span><br><span class="line">	size: <span class="number">300</span>,</span><br><span class="line">	img: &#123;</span><br><span class="line">		src : <span class="string">"kael-ico.jpg"</span>,</span><br><span class="line">		border: <span class="string">"#fff"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>Demo Sae - “如果大海能够带走我的哀愁”</strong>        </p>
+<p>关键词：圆角，前景色，背景色，渐变           </p>
+<p><img src="http://littendomo.sinaapp.com/kaer-qrcode/qrcode-sea.jpg" alt="demo"><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> kaelSea = <span class="keyword">new</span> KaelQrcode();</span><br><span class="line">kaelSea.init(<span class="built_in">document</span>.getElementById(<span class="string">"qr-sea"</span>), &#123;</span><br><span class="line">	text : <span class="string">"hello KaelQrcode"</span>,</span><br><span class="line">	size: <span class="number">300</span>,</span><br><span class="line">	color: &#123;</span><br><span class="line">		<span class="string">'0'</span>: <span class="string">'rgb(1, 158, 213)'</span>,</span><br><span class="line">		<span class="string">'0.2'</span>: <span class="string">'rgb(30, 169, 224)'</span>,</span><br><span class="line">		<span class="string">'0.6'</span>: <span class="string">'rgb(0, 120, 191)'</span>,</span><br><span class="line">		<span class="string">'1'</span>: <span class="string">'rgb(1, 119, 255)'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	background: <span class="string">"#d3e3f0"</span>,</span><br><span class="line">	type: <span class="string">"round"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>Demo Iron - “钢铁是怎样炼成的”</strong>     </p>
+<p>关键词：阴影            </p>
+<p><img src="http://littendomo.sinaapp.com/kaer-qrcode/qrcode-iron.jpg" alt="demo"><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> kaelIron = <span class="keyword">new</span> KaelQrcode();</span><br><span class="line">kaelIron.init(<span class="built_in">document</span>.getElementById(<span class="string">"qr-iron"</span>), &#123;</span><br><span class="line">	text : <span class="string">"hello KaelQrcode"</span>,</span><br><span class="line">	size: <span class="number">300</span>,</span><br><span class="line">	color: &#123;</span><br><span class="line">		<span class="string">'0'</span>: <span class="string">'rgb(30, 30, 30)'</span>,</span><br><span class="line">		<span class="string">'0.2'</span>: <span class="string">'rgb(100, 100, 100)'</span>,</span><br><span class="line">		<span class="string">'1'</span>: <span class="string">'rgb(40, 40, 40)'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	background: &#123;</span><br><span class="line">		<span class="string">'0'</span>: <span class="string">'rgb(233, 233, 233)'</span>,</span><br><span class="line">		<span class="string">'0.2'</span>: <span class="string">'rgb(246, 246, 246)'</span>,</span><br><span class="line">		<span class="string">'1'</span>: <span class="string">'rgb(212, 212, 212)'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	shadow: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>Demo Iron - “万紫千红总是春”</strong>      </p>
+<p>关键词：单点        </p>
+<p><img src="http://littendomo.sinaapp.com/kaer-qrcode/qrcode-point.jpg" alt="demo"><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> kaelPoint = <span class="keyword">new</span> KaelQrcode();</span><br><span class="line">kaelPoint.init(<span class="built_in">document</span>.getElementById(<span class="string">"qr-point"</span>), &#123;</span><br><span class="line">	text : <span class="string">"hello KaelQrcode"</span>,</span><br><span class="line">	size: <span class="number">300</span>,</span><br><span class="line">	color: <span class="string">"#50528f"</span>,</span><br><span class="line">	background: <span class="string">"e7e0cf"</span>,</span><br><span class="line">	pointColor: <span class="string">"#ee256c"</span>,</span><br><span class="line">	type: <span class="string">"round"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="正在做-Todo："><a href="#正在做-Todo：" class="headerlink" title="正在做 Todo："></a>正在做 Todo：</h3><ol>
+<li>阴影效果优化</li>
+<li>高光</li>
+<li>正方形识别</li>
+<li>动画</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/08/01/kael-qrcode-info/" data-id="cjpmgqwq7002aex5ryemiao3l" class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2014/08/14/reduce-http-requests/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            再议减少HTTP请求
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2014/07/25/folder-to-tree/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">一个文件夹的自我介绍</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  
+  <div class="outer">
+    <ul class="list-inline">
+      <li>&copy; 2018 Hexo</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://zhwangart.github.io">zhwangart</a></li>
+      <!--
+      <li><a href="/">John Doe</a></li>
+      -->
+    </ul>
+  </div>
+</footer>
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="Hexo"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>
