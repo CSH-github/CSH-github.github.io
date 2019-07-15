@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="最近参加夏令营，到了新的实验室，开始研究新的方向，在已有的两个项目中暂时选择了手势识别相关的方向研究(总觉得这个方向和我之前的方向很像，，)，所以最近开始要看看手势识别相关的论文了，正好最近又打算开始写博客了，刚好就开始在这里记录研究过程了，还是要脚踏实地一步步的往前走啊！ 今天看的论文的名字是《3D Hand Shape and Pose Estimation from a Single RGB">
+<meta name="keywords" content="Hand Pose Estimation,Paper Reading">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hand Pose Estimation(1)">
+<meta property="og:url" content="http://yoursite.com/2019/07/13/Hand-Pose-Estimation-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近参加夏令营，到了新的实验室，开始研究新的方向，在已有的两个项目中暂时选择了手势识别相关的方向研究(总觉得这个方向和我之前的方向很像，，)，所以最近开始要看看手势识别相关的论文了，正好最近又打算开始写博客了，刚好就开始在这里记录研究过程了，还是要脚踏实地一步步的往前走啊！ 今天看的论文的名字是《3D Hand Shape and Pose Estimation from a Single RGB">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/Hand-Pose-Estimation-1/network.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/13/Hand-Pose-Estimation-1/1.png">
+<meta property="og:updated_time" content="2019-07-14T01:54:36.141Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hand Pose Estimation(1)">
+<meta name="twitter:description" content="最近参加夏令营，到了新的实验室，开始研究新的方向，在已有的两个项目中暂时选择了手势识别相关的方向研究(总觉得这个方向和我之前的方向很像，，)，所以最近开始要看看手势识别相关的论文了，正好最近又打算开始写博客了，刚好就开始在这里记录研究过程了，还是要脚踏实地一步步的往前走啊！ 今天看的论文的名字是《3D Hand Shape and Pose Estimation from a Single RGB">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/13/Hand-Pose-Estimation-1/network.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/13/Hand-Pose-Estimation-1/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hand Pose Estimation(1) | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/13/Hand-Pose-Estimation-1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hand Pose Estimation(1)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-13 10:20:15" itemprop="dateCreated datePublished" datetime="2019-07-13T10:20:15+08:00">2019-07-13</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-14 09:54:36" itemprop="dateModified" datetime="2019-07-14T09:54:36+08:00">2019-07-14</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近参加夏令营，到了新的实验室，开始研究新的方向，在已有的两个项目中暂时选择了<strong>手势识别</strong>相关的方向研究(总觉得这个方向和我之前的方向很像，，)，所以最近开始要看看手势识别相关的论文了，正好最近又打算开始写博客了，刚好就开始在这里记录研究过程了，还是要脚踏实地一步步的往前走啊！</p>
+<p>今天看的论文的名字是《3D Hand Shape and Pose Estimation from a Single RGB Image》，是2019年的CVPR的论文。</p>
+<a id="more"></a>
+<h3 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h3><p>现有的基于RGB信息的3D的手势识别的方法，都只是预测出手的关键点的3D坐标信息，但是还没有方法，从RGB信息中同时估计出手的完整的表面形状以及手的姿势，而这篇论文就是解决了这样一个具有挑战性的问题。</p>
+<h3 id="难点与挑战"><a href="#难点与挑战" class="headerlink" title="难点与挑战"></a>难点与挑战</h3><p>本文提出，这个问题现在有两大挑战：</p>
+<blockquote>
+<ol>
+<li>首先，与稀疏的3D坐标相比(一个手有21个骨骼关节点要预测)，本文的预测目标要复杂的多(一个手的mesh图中，有1280个未知顶点要预测(<strong>dense的很</strong>))，现有的解决方法主要是像身体姿态预测里面的那样，将原模型回归成一个预定义的低维参数的可变形的模型，如MANO那样。</li>
+<li>目前还缺少真实场景下的<strong>3D hand mesh</strong>的训练数据集，而人工的给真实场景的RGB图片标记<strong>hand mesh</strong>真值，相当的麻烦。</li>
+</ol>
+</blockquote>
+<h3 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h3><ol>
+<li>提出了一个基于<strong>Graph CNN</strong>的端到端的生成<strong>hand mesh</strong>的可训练网络，可以很好的表示手的变化过程以及捕捉到局部细节。</li>
+<li>提出了一个基于真实数据集的弱监督策略来将预训练的网络进行微调，即直接将网络生成的<strong>3D mesh</strong>渲染成一个<strong>depth map</strong>，无需在真实数据集上标记就能利用真实场景数据进行训练。</li>
+<li>合成了一个大型的基于RGB的数据集，里面有<strong>3D hand mesh</strong>及<strong>hand pose</strong>的真值。</li>
+</ol>
+<h3 id="Proposed-MethodのDetails"><a href="#Proposed-MethodのDetails" class="headerlink" title="Proposed MethodのDetails"></a>Proposed MethodのDetails</h3><p>提出的网络图如下：<br><img src="/2019/07/13/Hand-Pose-Estimation-1/network.png" alt=""></p>
+<p>总的来说，网络首先在合成的数据集上训练(<strong>heat-map loss, 3D mesh loss, and 3D pose loss</strong>)，之后再将网络放在真实数据集上进行弱监督微调，将生成的<strong>mesh</strong>渲染成<strong>depth map</strong>进行监督</p>
+<p>和<strong>MANO</strong>的模型变形转换不同，本文将<strong>mesh</strong>看成一种间接的<strong>graph</strong>，表示为$<br>\mathcal{M}=(\mathcal{V}, \mathcal{E}, W)$，其中$\mathcal{V}=\left\{\boldsymbol{v}_{i}\right\}_{i=1}^{N}$表示了<strong>mesh</strong>的${N}$个顶点，$\mathcal{E}=\left\{\boldsymbol{e}_{i}\right\}_{i=1}^{E}$表示了<strong>mesh</strong>的${E}$个边，$W=\left(w_{i j}\right)_{N \times N}$则是<strong>mesh</strong>的邻接矩阵，那么正则化的graph拉普拉斯算子可为$L=I_{N}-D^{-1 / 2} W D^{-1 / 2}$，其中$D=\operatorname{diag}\left(\sum_{j} w_{i j}\right)$为对角的度数矩阵，$I_{N}$为单位矩阵，在本文训练过程中，假设<strong>mesh</strong>的拓扑不变，即，邻接矩阵$W$不变，以及graph $\mathcal{M}$的拉普拉斯算子$L$不变，$\mathbf{f}=\left(f_{1}, \cdots, f_{N}\right)^{T} \in \mathbb{R}^{N \times F}$为特征，每一个$f$代表了一个顶点的$F$-dim的特征。</p>
+<p>网络首先从<strong>backbone network</strong>中生成需要的<strong>feature</strong>，再通过以下网络：<br><img src="/2019/07/13/Hand-Pose-Estimation-1/1.png" alt=""><br>这是一个分层次的结构，不断在<strong>graph</strong>上执行图卷积操作，让<strong>graph</strong>由<strong>coarse</strong>到<strong>fine</strong>渐渐优化，，，</p>
+<h3 id="Loss学习"><a href="#Loss学习" class="headerlink" title="Loss学习"></a>Loss学习</h3><p>由于第一次接触<strong>Hand Pose Estimation</strong>，和之前的显著性物体检测不太一样，之前的loss比较简单，而这个领域的loss感觉比较复杂，刚好这篇论文的loss也挺多的，就正好一起分析一下。</p>
+<h4 id="Fully-supervised-Training-on-Synthetic-Dataset"><a href="#Fully-supervised-Training-on-Synthetic-Dataset" class="headerlink" title="Fully-supervised Training on Synthetic Dataset"></a>Fully-supervised Training on Synthetic Dataset</h4><p>Heat-map Loss：<script type="math/tex">\mathcal{L}_{\mathcal{H}}=\sum_{j=1}^{J}\left\|\mathcal{H}_{j}-\hat{\mathcal{H}}_{j}\right\|_{2}^{2}</script><br>其中$\mathcal{H}_{j}$为真值，$\hat{\mathcal{H}}_{j}$为估计的热力图，其中估计的热力图为64×64 px，而热力图的真值是在以真值的关节点的周围偏离4 px的区域上进行2D高斯操作得到的。</p>
+<p>Mesh Loss：<script type="math/tex">\mathcal{L}_{\mathcal{M}}=\lambda_{v} \mathcal{L}_{v}+\lambda_{n} \mathcal{L}_{n}+\lambda_{e} \mathcal{L}_{e}+\lambda_{l} \mathcal{L}_{l}</script><br>由方程可以发现<strong>Mesh Loss</strong>由四部分组成，<strong>vertex loss</strong> $\mathcal{L}_{v}$, <strong>normal loss</strong> $\mathcal{L}_{n}$, <strong>edge loss</strong> $\mathcal{L}_{e}$, and <strong>Laplacian loss</strong> $\mathcal{L}_{l}$，并且$\lambda_{v}=1, \lambda_{n}=1, \lambda_{e}=1, \lambda_{l}=50$。</p>
+<p>其中<strong>vertex loss</strong>是：</p>
+<script type="math/tex; mode=display">\mathcal{L}_{v}=\sum_{i=1}^{N}\left\|v_{i}^{3 D}-\hat{v}_{i}^{3 D}\right\|_{2}^{2}+\left\|\boldsymbol{v}_{i}^{2 D}-\hat{v}_{i}^{2 D}\right\|_{2}^{2}</script><p>${v}_{i}$是指3D或2D的坐标。</p>
+<p>其中<strong>normal loss</strong>是：</p>
+<script type="math/tex; mode=display">\mathcal{L}_{n}=\sum_{t} \sum_{(i, j) \in t}\left\|\left\langle\hat{v}_{i}^{3 D}-\hat{v}_{j}^{3 D}, \boldsymbol{n}_{t}\right\rangle\right\|_{2}^{2}</script><p>用于保证表面法向量的一致性。</p>
+<p>其中<strong>edge loss</strong>是：</p>
+<script type="math/tex; mode=display">\mathcal{L}_{e}=\sum_{i=1}^{E}\left(\left\|e_{i}\right\|_{2}^{2}-\left\|\hat{e}_{i}\right\|_{2}^{2}\right)^{2}</script><p>用于保证边长度的一致性。</p>
+<p>其中<strong>Laplacian loss</strong>是：</p>
+<script type="math/tex; mode=display">\mathcal{L}_{l}=\sum_{i=1}^{N}\left\|\boldsymbol{\delta}_{i}-\sum_{\boldsymbol{v}_{k} \in \mathcal{N}\left(\boldsymbol{v}_{i}\right)} \boldsymbol{\delta}_{k} / B_{i}\right\|_{2}^{2}</script><p>用于保证局部表面的平滑度。</p>
+<p>3D Pose Loss：<script type="math/tex">\mathcal{L}_{\mathcal{J}}=\sum_{j=1}^{J}\left\|\phi_{j}^{3 D}-\hat{\phi}_{j}^{3 D}\right\|_{2}^{2}</script></p>
+<p>先用<strong>heat map loss</strong>和<strong>3D pose loss</strong>分别训练<strong>stacked hourglass</strong>网络和<strong>3D pose regressor</strong>，最后再用$\mathcal{L}_{f u l l y}=\lambda_{\mathcal{H}} \mathcal{L}_{\mathcal{H}}+\lambda_{\mathcal{M}} \mathcal{L}_{\mathcal{M}}+\lambda_{\mathcal{J}} \mathcal{L}_{\mathcal{J}}$($\lambda_{\mathcal{H}}=0.5, \lambda_{\mathcal{M}}=1, \lambda_{\mathcal{J}}=1$)联合训练<strong>stacked hourglass</strong>网络, <strong>residual</strong>网络和<strong>the Graph CNN</strong>。</p>
+<h4 id="Weakly-supervised-Fine-tuning"><a href="#Weakly-supervised-Fine-tuning" class="headerlink" title="Weakly-supervised Fine-tuning"></a>Weakly-supervised Fine-tuning</h4><p>Depth Map Loss：</p>
+<script type="math/tex; mode=display">\mathcal{L}_{\mathcal{D}}=\operatorname{smooth}_{L 1}(D, \hat{D}), \hat{\mathcal{D}}=\mathcal{R}(\hat{\mathcal{M}})</script><p>若只用Depth Map Loss，可发现它会导致恶化的结果，因为depth map只会给看得到的那部分表面加以限制，并且对捕捉到的depth map的噪声很敏感，所以<strong>Pseudo-Ground Truth Mesh Loss</strong>也相当有必要。所以就先用之前预训练的网络和heat-maps的真值在真实场景训练数据上运行，生成“假”的mesh真值。进过发现，这个“假”的真值具有较好的边长度和好的表面光滑度，所以弱监督部分的<strong>mesh loss</strong>只有<strong>edge loss</strong>和<strong>Laplacian loss</strong>。</p>
+<p>Pseudo-Ground Truth Mesh Loss：</p>
+<script type="math/tex; mode=display">\mathcal{L}_{p \mathcal{M}}=\lambda_{e} \mathcal{L}_{e}+\lambda_{l} \mathcal{L}_{l}, \text { where } \lambda_{e}=1, \lambda_{l}=50</script><p>所以总的弱监督loss为：</p>
+<script type="math/tex; mode=display">\mathcal{L}_{\text {weakly}}=\lambda_{\mathcal{H}} \mathcal{L}_{\mathcal{H}}+\lambda_{\mathcal{D}} \mathcal{L}_{\mathcal{D}}+\lambda_{p \mathcal{M}} \mathcal{L}_{p \mathcal{M}}</script><p>where $\lambda_{\mathcal{H}}=0.1, \lambda_{\mathcal{D}}=0.1, \lambda_{p \mathcal{M}}=1$</p>
+<h3 id="另：coarsen及finner过程"><a href="#另：coarsen及finner过程" class="headerlink" title="另：coarsen及finner过程"></a>另：coarsen及finner过程</h3>
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Hand-Pose-Estimation/" rel="tag"># Hand Pose Estimation</a>
+          
+            <a href="/tags/Paper-Reading/" rel="tag"># Paper Reading</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/25/diary-2019-0220-0225/" rel="next" title="新学期 大改变 02.20-02.25">
+                <i class="fa fa-chevron-left"></i> 新学期 大改变 02.20-02.25
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/14/Stacked-Hourglass-Network/" rel="prev" title="Stacked Hourglass Network">
+                Stacked Hourglass Network <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#研究背景"><span class="nav-number">1.</span> <span class="nav-text">研究背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#难点与挑战"><span class="nav-number">2.</span> <span class="nav-text">难点与挑战</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#贡献"><span class="nav-number">3.</span> <span class="nav-text">贡献</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proposed-MethodのDetails"><span class="nav-number">4.</span> <span class="nav-text">Proposed MethodのDetails</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loss学习"><span class="nav-number">5.</span> <span class="nav-text">Loss学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Fully-supervised-Training-on-Synthetic-Dataset"><span class="nav-number">5.1.</span> <span class="nav-text">Fully-supervised Training on Synthetic Dataset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Weakly-supervised-Fine-tuning"><span class="nav-number">5.2.</span> <span class="nav-text">Weakly-supervised Fine-tuning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另：coarsen及finner过程"><span class="nav-number">6.</span> <span class="nav-text">另：coarsen及finner过程</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
