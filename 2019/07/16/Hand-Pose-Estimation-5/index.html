@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="这篇文章也是现在的这个实验室研究的，关于EMG的手势识别论文了，论文名称及链接如下：  Paper: Semi-Supervised Learning for Surface EMG-based Gesture Recognition">
+<meta name="keywords" content="Hand Pose Estimation,Paper Reading">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hand Pose Estimation(5)">
+<meta property="og:url" content="http://yoursite.com/2019/07/16/Hand-Pose-Estimation-5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这篇文章也是现在的这个实验室研究的，关于EMG的手势识别论文了，论文名称及链接如下：  Paper: Semi-Supervised Learning for Surface EMG-based Gesture Recognition">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/07/16/Hand-Pose-Estimation-5/1.png">
+<meta property="og:updated_time" content="2019-07-16T08:27:41.733Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hand Pose Estimation(5)">
+<meta name="twitter:description" content="这篇文章也是现在的这个实验室研究的，关于EMG的手势识别论文了，论文名称及链接如下：  Paper: Semi-Supervised Learning for Surface EMG-based Gesture Recognition">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/16/Hand-Pose-Estimation-5/1.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/16/Hand-Pose-Estimation-5/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hand Pose Estimation(5) | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/16/Hand-Pose-Estimation-5/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hand Pose Estimation(5)
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-16 08:31:49 / Modified: 16:27:41" itemprop="dateCreated datePublished" datetime="2019-07-16T08:31:49+08:00">2019-07-16</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章也是现在的这个实验室研究的，关于EMG的手势识别论文了，论文名称及链接如下：</p>
+<blockquote>
+<p>Paper: <a href="https://www.ijcai.org/proceedings/2017/0225.pdf" target="_blank" rel="noopener">Semi-Supervised Learning for Surface EMG-based Gesture Recognition</a></p>
+</blockquote>
+<a id="more"></a>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>本文首先提出，现有的深度学习方法都需要一个很强监督的学习算法和一个很大尺度的<strong>sEMG</strong>标注数据，而现有的与<strong>sEMG</strong>相关的手势识别数据集的数量和质量都太差了，而本文发现，其实<strong>sEMG</strong>信号和数据手套(<strong>Data Glove</strong>)在时间的空间上有一定的联系，这能给网络提供一种隐式的监督，所以本文设计了一种半监督的孪生网络(<strong>Siamese architecture</strong>)，即，本文使用了一种辅助的任务来帮助学习：通过预测两个连续<strong>sEMG</strong>帧的时间顺序，然后选择性的预测其中一个<strong>sEMG</strong>帧的3D手姿势。</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>现有的方法为了增加数据集的质量，有的方法选择了数据增强，或者将<strong>sEMG</strong>分割，只使用一小部分的原信号，但是现有数据还有一点不足，就是，记录下来的采样数据也许并不完美地和<strong>label</strong>匹配，因为人会有一定的反应时间，并且人会有一定的过渡动作。再加上数据集的质量不高，纯粹的监督学习就不能完全发挥作用，这种情况下，就可以考虑半监督(<strong>Semi-Supervised Learning</strong>)。</p>
+<h3 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h3><p>半监督通常需要多个学习任务来辅助。所以本文的贡献在于：提出了一个半监督框架来训练一个分类器去发现信号之间的时间连贯性，而这个任务能辅助主任务。</p>
+<p>即，用一个<strong>ConvNet</strong>，基于<strong>sEMG</strong>信号的一帧，来同时预测三个目标：手的姿势，两个连续<strong>sEMG</strong>帧的时间顺序，以及(可选)3D手姿势的数据。而后两者需要动态数据(从sEMg信号中获得)和手运动的形状(从数据手套中)获得。</p>
+<p>本文的网络如下:<br><img src="/2019/07/16/Hand-Pose-Estimation-5/1.png" alt=""><br>前六层的参数共享，不同的颜色代表不同的任务。</p>
+<h3 id="Proposed-Method-Details"><a href="#Proposed-Method-Details" class="headerlink" title="Proposed Method Details"></a>Proposed Method Details</h3><p>本文中说到，之所以使用一个相邻帧的时间的顺序的预测，是因为它在一定程度反应了肌肉的启动(Firing)顺序，这与速度和姿势的丰富度是没有太大关系的，本文假设这个预测任务是需要隐式的知道肌肉活动的动态特征信息的。</p>
+<p>本文选择3D姿态数据预测作为第三个任务，是因为3D手势序列，直接决定了识别到的手势，并且相对姿势label来说有更强的监督力度。但第三个任务是可选的，因为用来采集3D真值的数据手套有时可能没有。</p>
+<h4 id="Problem-Statement"><a href="#Problem-Statement" class="headerlink" title="Problem Statement"></a>Problem Statement</h4><p>让$\mathcal{L}=\left\{\left(\mathbf{x}_{i}^{l}, y_{i}\right)\right\}_{i=1}^{N_{l}}$表示有label的训练数据，$\mathcal{U}=\left\{\mathbf{x}_{i}^{u}\right\}_{i=1}^{N_{u}}$表示没有label的帧数据，<br>而最后的目标就是优化：</p>
+<script type="math/tex; mode=display">\begin{aligned} \underset{\Theta}{\operatorname{argmin}} \frac{1}{N_{l}} \sum_{(\mathbf{x}, y) \in \mathcal{L}} L_{l}(\mathbf{x}, y | \Theta)+\frac{\alpha}{2 N_{s}} \sum_{\mathbf{x} \in \mathcal{X}, \delta \in \mathcal{D}} L_{u}(\mathbf{x}, \overline{\mathbf{x}} | \Theta) \\+\frac{\beta}{N_{v}} \sum_{(\mathbf{x}, \mathbf{z}) \in \mathcal{V}} L_{v}(\mathbf{x}, \mathbf{z} | \Theta) \end{aligned}</script><p>这个方程了。</p>
+<p>本文设计了一个ConvNet来根据上式建立模型，在训练阶段，给定<strong>sEMG</strong>图片，最后在三个子任务上输出三个预测。</p>
+<p>具体的${L}_{l}$可以写为$L_{l}(\mathbf{x}, y | \theta)=-\sum_{i=1}^{G} \mathbf{1}_{i}(y) \log f_{\theta}^{i}(\mathbf{x})$</p>
+<h4 id="Temporal-Order-Prediction-of-sEMG-frames"><a href="#Temporal-Order-Prediction-of-sEMG-frames" class="headerlink" title="Temporal Order Prediction of sEMG frames"></a>Temporal Order Prediction of sEMG frames</h4><p>sEMG帧的预测问题可以定义为一个二元分类问题，其中分类器为：</p>
+<script type="math/tex; mode=display">h_{u}\left(\mathbf{x}_{i}, \mathbf{x}_{j} | \Theta\right)=\hat{h}_{u}\left(\left[h_{c}\left(\mathbf{x}_{i} | \theta_{c}\right)^{\top} h_{c}\left(\mathbf{x}_{j} | \theta_{c}\right)^{\top}\right]^{\top} | \theta_{u}\right)</script><p>来预测两帧之间的时间先后顺序。</p>
+<h4 id="3D-Hand-Pose-Statistics-Prediction"><a href="#3D-Hand-Pose-Statistics-Prediction" class="headerlink" title="3D Hand Pose Statistics Prediction"></a>3D Hand Pose Statistics Prediction</h4><p>与直接从<strong>sEMG</strong>图片中回归出结点角度和位置不同，本文显式的定义了手的姿态种类，并且确切的将预测问题定义为一个分类问题，这是因为对于每个节点来说，直接从sEMG映射到节点角度是很困难的，然后在计算<strong>Loss</strong>时就更难平衡好不同点之间的权重。</p>
+<p>同样的，本文也将3D手姿势的数据预测看成一个分类问题，其中训练了一个分类器$h_{v}(\mathbf{x} | \Theta)=\hat{h}_{v}\left(h_{c}\left(\mathbf{x} | \theta_{c}\right) | \theta_{v}\right)$来预测给定x的手姿态label。</p>
+<p>另外，训练集的3D手姿势首先用K均值方法聚类，然后每个pose都标上<strong>Label</strong>，且聚类的个数应该比姿势的个数多，因为本文需要为手的姿态(<strong>Hand Pose</strong>)<strong>labels</strong>提供比手势Labels更加细颗粒度的监督。</p>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Hand-Pose-Estimation/" rel="tag"># Hand Pose Estimation</a>
+          
+            <a href="/tags/Paper-Reading/" rel="tag"># Paper Reading</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/15/Hand-Pose-Estimation-4/" rel="next" title="Hand Pose Estimation(4)">
+                <i class="fa fa-chevron-left"></i> Hand Pose Estimation(4)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contribution"><span class="nav-number">3.</span> <span class="nav-text">Contribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proposed-Method-Details"><span class="nav-number">4.</span> <span class="nav-text">Proposed Method Details</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problem-Statement"><span class="nav-number">4.1.</span> <span class="nav-text">Problem Statement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Temporal-Order-Prediction-of-sEMG-frames"><span class="nav-number">4.2.</span> <span class="nav-text">Temporal Order Prediction of sEMG frames</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3D-Hand-Pose-Statistics-Prediction"><span class="nav-number">4.3.</span> <span class="nav-text">3D Hand Pose Statistics Prediction</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

@@ -95,13 +95,13 @@
 
 
 
-  <meta name="description" content="今天看的论文还是与Hand Pose Estimation相关，链接如下：  Paper: CrossInfoNet: Multi-Task Information Sharing Based Hand Pose Estimation  Abstract与之前的网络不同，这篇网络是基于Depth map的，并将手势识别任务分成两个，分别是手掌姿态识别的子任务，和手指识别的子任务(这点我感觉还蛮新奇">
+  <meta name="description" content="今天看的论文还是与Hand Pose Estimation相关，链接如下：  Paper: CrossInfoNet: Multi-Task Information Sharing Based Hand Pose Estimation">
 <meta name="keywords" content="Hand Pose Estimation,Paper Reading">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hand Pose Estimation(2)">
 <meta property="og:url" content="http://yoursite.com/2019/07/14/Hand-Pose-Estimation-2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="今天看的论文还是与Hand Pose Estimation相关，链接如下：  Paper: CrossInfoNet: Multi-Task Information Sharing Based Hand Pose Estimation  Abstract与之前的网络不同，这篇网络是基于Depth map的，并将手势识别任务分成两个，分别是手掌姿态识别的子任务，和手指识别的子任务(这点我感觉还蛮新奇">
+<meta property="og:description" content="今天看的论文还是与Hand Pose Estimation相关，链接如下：  Paper: CrossInfoNet: Multi-Task Information Sharing Based Hand Pose Estimation">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/14/Hand-Pose-Estimation-2/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/14/Hand-Pose-Estimation-2/2.png">
@@ -109,10 +109,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/14/Hand-Pose-Estimation-2/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/14/Hand-Pose-Estimation-2/6.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/14/Hand-Pose-Estimation-2/7.png">
-<meta property="og:updated_time" content="2019-07-14T15:55:56.034Z">
+<meta property="og:updated_time" content="2019-07-15T06:47:58.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hand Pose Estimation(2)">
-<meta name="twitter:description" content="今天看的论文还是与Hand Pose Estimation相关，链接如下：  Paper: CrossInfoNet: Multi-Task Information Sharing Based Hand Pose Estimation  Abstract与之前的网络不同，这篇网络是基于Depth map的，并将手势识别任务分成两个，分别是手掌姿态识别的子任务，和手指识别的子任务(这点我感觉还蛮新奇">
+<meta name="twitter:description" content="今天看的论文还是与Hand Pose Estimation相关，链接如下：  Paper: CrossInfoNet: Multi-Task Information Sharing Based Hand Pose Estimation">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/14/Hand-Pose-Estimation-2/1.png">
 
 
@@ -333,13 +333,23 @@
                 
               
 
-              <time title="Created: 2019-07-14 20:39:35 / Modified: 23:55:56" itemprop="dateCreated datePublished" datetime="2019-07-14T20:39:35+08:00">2019-07-14</time>
+              <time title="Created: 2019-07-14 20:39:35" itemprop="dateCreated datePublished" datetime="2019-07-14T20:39:35+08:00">2019-07-14</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-15 14:47:58" itemprop="dateModified" datetime="2019-07-15T14:47:58+08:00">2019-07-15</time>
+              </span>
             
           
 
@@ -381,6 +391,7 @@
 <blockquote>
 <p>Paper: <a href="http://openaccess.thecvf.com/content_CVPR_2019/papers/Du_CrossInfoNet_Multi-Task_Information_Sharing_Based_Hand_Pose_Estimation_CVPR_2019_paper.pdf" target="_blank" rel="noopener">CrossInfoNet: Multi-Task Information Sharing Based Hand Pose Estimation</a></p>
 </blockquote>
+<a id="more"></a>
 <h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>与之前的网络不同，这篇网络是基于<strong>Depth map</strong>的，并将手势识别任务分成两个，分别是手掌姿态识别的子任务，和手指识别的子任务(这点我感觉还蛮新奇的，感觉以后可以用到<strong>Salient Detection</strong>里面试试)，并采用了一种两路交叉连接网络，来在子任务之间进行信息的互相补充(这一点也挺有趣的，可以考虑放到<strong>Fuse</strong>模块)，并且本文还提出了一种热力图引导式的特征提取结构，来提取出更好的特征。<br>另：由于3D的信息会有过多的参数，所以本文尝试着用2D CNN，从2D信息(<strong>Depth Map</strong>)中，提取出更多的信息，</p>
 <h3 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h3><blockquote>
 <ol>
@@ -529,7 +540,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
