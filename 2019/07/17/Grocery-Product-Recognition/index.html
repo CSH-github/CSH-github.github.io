@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning  Abstract因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的">
+<meta name="keywords" content="Object Detection,Paper Reading">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grocery Product Recognition">
+<meta property="og:url" content="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning  Abstract因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/2.png">
+<meta property="og:updated_time" content="2019-07-23T06:40:51.514Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grocery Product Recognition">
+<meta name="twitter:description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning  Abstract因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/2.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Grocery Product Recognition | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Grocery Product Recognition
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-17 18:26:40" itemprop="dateCreated datePublished" datetime="2019-07-17T18:26:40+08:00">2019-07-17</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-23 14:40:51" itemprop="dateModified" datetime="2019-07-23T14:40:51+08:00">2019-07-23</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Paper-Reading/" itemprop="url" rel="index"><span itemprop="name">Paper Reading</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。</p>
+<blockquote>
+<p>paper:<a href="https://dl.acm.org/citation.cfm?id=3240522" target="_blank" rel="noopener">Fine-Grained Grocery Product Recognition by One-Shot Learning</a></p>
+</blockquote>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的(<strong>Hybrid</strong>)分类方法，将基于特征的匹配方法(<strong>Feature-based Matching</strong>)和单张照片的深度学习(<strong>One-Shot Deep Learning</strong>)融合在一起，让结果由<strong>coarse</strong>到<strong>fine</strong>。首先将商品的候选区域检测出来，然后使用，从商品图片里提取出来的循环特征粗略的标上<strong>label</strong>，然后，生成<strong>attention</strong>图，通过放大候选感兴趣区域（<strong>ROI</strong>）中的特征的影响并且抑制外部特征的干扰，来引导(<strong>Guide</strong>)分类器，让分类器集中于精细的细节(<strong>Fine Discriminative Details</strong>)，从而提高细粒杂货产品的准确性。</p>
+<p>本文的网络表现出了高度的可适应性，让现有的分类器再进行细化，而无需重新训练新的商品种类。</p>
+<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>随着移动设备的快速发展，以及高质量摄像头的出现，出现了新的应用，比如自动购物(<strong>Automatic Shopping</strong>)、自助购物(<strong>Self-Assisted Shopping</strong>)、物品追踪(<strong>Product Tracking</strong>)和实时的存货管理(<strong>Real-time Management of Inventory</strong>)。</p>
+<p>数据集中的商品图片通常只有一张，受到这种限制，因此，商品识别只能是单张图片的学习。</p>
+<p>细颗粒度的物体识别，需要识别观察的物体所下属的种类，大多数的现有的网络的目标都是搭建一个普适(<strong>generalized</strong>)的网络，比如动物或者植物识别。</p>
+<p>商品识别的难度在于商品在形状，颜色，材质和公制尺寸(<strong>Metric Size</strong>)上只有很小的差别，另外的难度在于数据库中的商品图片都是理想状态的，而不是真实环境下的，真实情况下的图片都与实际物品非常不同，所以网络也需要能区分这些微妙的细节。</p>
+<p>由于商品通常设计的时候，都是故意设计的很吸引购物者的注意力，所以人眼能识别出细颗粒度的类之间的区别，所以本文就引入了注意力机制，</p>
+<h3 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h3><ul>
+<li>本文通过循环的特征，定位并检测出了候选的商品区域，并粗略的对商品进行分类。</li>
+<li>本文使用<strong>attention</strong>图，而不是显著图，来放大感兴趣的候选区域的特征的影响，并抑制非候选区域的特征的影响。</li>
+<li>本文提出了一个又粗到细的融合手段，通过基于CNN的(单张图片)分类器将attention图与循环特征整合到一起，大大的提高了表现。</li>
+<li>本文提出了一个高适应性的框架，能让已有的<strong>N</strong>类分类器无需额外训练就能重新变成<strong>N+1</strong>类分类器。</li>
+</ul>
+<h3 id="Proposed-Approach"><a href="#Proposed-Approach" class="headerlink" title="Proposed Approach"></a>Proposed Approach</h3><h4 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h4><p>作为商品，它的包装一定要有特色，才能醒目，有辨识度，所以各产品的不同之处能轻易被人眼识别。而在现有的方法中，注意力和识别结果之间已被证实有一定的关系，只要有足够的数据集就可以训练出来。</p>
+<p>总的网络图由下所示：<br><img src="/2019/07/17/Grocery-Product-Recognition/2.png" alt=""><br>由三个部分组成，通过循环特征检测出候选产品实例，计算注意力图来放大细节，将循环特征和注意力图融合到单张图片识别中来识别出物品。</p>
+<h4 id="Candidate-Region-Detection-by-Recurring-Pattern"><a href="#Candidate-Region-Detection-by-Recurring-Pattern" class="headerlink" title="Candidate Region Detection by Recurring Pattern"></a>Candidate Region Detection by Recurring Pattern</h4><p>候选区域即是检测物品的最值得注意的位置，候选区域应该保留有辨识度的地方，并将没必要的信息抛弃掉，所有本文将LOGO区域选择出来作为感兴趣区域，具体过程为：首先定位产品位置，之后，logo区域就能被选择出来作为最具识别度的区域来实现召回率的产品检测。</p>
+<p>现有的方法都需要过大的训练集，且有可能生成过多的候选区域，所以本文提出一个非监督的产品检测方法，来定位候选区域，并辨认出产品的粗略的label：首先找到相似区域，然后将它们分组到一个聚类里面作为候选区域。</p>
+<p>正是通过以上的方法，本文首先定位最Logo区域，然后提取出logo区域的特征，生成了特征集，之后，对商品，首先针对每个商品，生成自身的logo区域的特征，与已有的各个特征簇匹配。</p>
+<h4 id="Attention-Map-Generation"><a href="#Attention-Map-Generation" class="headerlink" title="Attention Map Generation"></a>Attention Map Generation</h4><p>本文的关键就是精准的定位并抓取同一种类下类似商品的微弱区别，除此之外，还要抓取新的商品的ROI区域的与之前已经学习外的商品所共有的信息。而本文解决这个办法的关键就是引入<strong>Attention</strong>机制，且本文是从ROI区域中匹配的特征的密度和幅度两个角度计算<strong>Attention</strong>图的。</p>
+<h4 id="Classification-for-Product-Instances"><a href="#Classification-for-Product-Instances" class="headerlink" title="Classification for Product Instances"></a>Classification for Product Instances</h4><p>现有方法的学习过程都是基于图片本身，而忽视了图片里面的特征，所以本文为了达到对细节的提取，本文使用了一种循环的特征和细节特征的注意力图两种办法，由Coarse到Fine的优化结果。</p>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Object-Detection/" rel="tag"># Object Detection</a>
+          
+            <a href="/tags/Paper-Reading/" rel="tag"># Paper Reading</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/17/Object-Detection-2/" rel="next" title="Object Detection(2)">
+                <i class="fa fa-chevron-left"></i> Object Detection(2)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/23/Object-Detection-3/" rel="prev" title="Object Detection(3)">
+                Object Detection(3) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Background"><span class="nav-number">2.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contribution"><span class="nav-number">3.</span> <span class="nav-text">Contribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proposed-Approach"><span class="nav-number">4.</span> <span class="nav-text">Proposed Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Motivation"><span class="nav-number">4.1.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Candidate-Region-Detection-by-Recurring-Pattern"><span class="nav-number">4.2.</span> <span class="nav-text">Candidate Region Detection by Recurring Pattern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Attention-Map-Generation"><span class="nav-number">4.3.</span> <span class="nav-text">Attention Map Generation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Classification-for-Product-Instances"><span class="nav-number">4.4.</span> <span class="nav-text">Classification for Product Instances</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
