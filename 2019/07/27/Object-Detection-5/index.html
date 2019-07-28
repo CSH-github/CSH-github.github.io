@@ -95,20 +95,21 @@
 
 
 
-  <meta name="description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning  Abstract因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的">
+  <meta name="description" content="今天看的这篇文章还是物体识别的，链接如下：  paper: Focal Loss for Dense Object Detection">
 <meta name="keywords" content="Paper Reading,Object Detection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Grocery Product Recognition">
-<meta property="og:url" content="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/index.html">
+<meta property="og:title" content="Object Detection(5)">
+<meta property="og:url" content="http://yoursite.com/2019/07/27/Object-Detection-5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning  Abstract因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的">
+<meta property="og:description" content="今天看的这篇文章还是物体识别的，链接如下：  paper: Focal Loss for Dense Object Detection">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/2.png">
-<meta property="og:updated_time" content="2019-07-23T06:40:51.514Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/Object-Detection-5/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/Object-Detection-5/3.png">
+<meta property="og:updated_time" content="2019-07-28T03:25:06.424Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Grocery Product Recognition">
-<meta name="twitter:description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning  Abstract因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/2.png">
+<meta name="twitter:title" content="Object Detection(5)">
+<meta name="twitter:description" content="今天看的这篇文章还是物体识别的，链接如下：  paper: Focal Loss for Dense Object Detection">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/27/Object-Detection-5/1.png">
 
 
 
@@ -116,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/27/Object-Detection-5/">
 
 
 
@@ -126,7 +127,7 @@
   };
 </script>
 
-  <title>Grocery Product Recognition | Hexo</title>
+  <title>Object Detection(5) | Hexo</title>
   
 
 
@@ -317,7 +318,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/Object-Detection-5/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -334,7 +335,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Grocery Product Recognition
+          <h1 class="post-title" itemprop="name headline">Object Detection(5)
 
               
             
@@ -360,7 +361,7 @@
                 
               
 
-              <time title="Created: 2019-07-17 18:26:40" itemprop="dateCreated datePublished" datetime="2019-07-17T18:26:40+08:00">2019-07-17</time>
+              <time title="Created: 2019-07-27 18:28:45" itemprop="dateCreated datePublished" datetime="2019-07-27T18:28:45+08:00">2019-07-27</time>
             </span>
           
 
@@ -375,7 +376,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-23 14:40:51" itemprop="dateModified" datetime="2019-07-23T14:40:51+08:00">2019-07-23</time>
+                <time title="Modified: 2019-07-28 11:25:06" itemprop="dateModified" datetime="2019-07-28T11:25:06+08:00">2019-07-28</time>
               </span>
             
           
@@ -429,30 +430,37 @@
       
 
       
-        <p>现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。</p>
+        <p>今天看的这篇文章还是物体识别的，链接如下：</p>
 <blockquote>
-<p>paper:<a href="https://dl.acm.org/citation.cfm?id=3240522" target="_blank" rel="noopener">Fine-Grained Grocery Product Recognition by One-Shot Learning</a></p>
+<p>paper: <a href="https://arxiv.org/pdf/1708.02002" target="_blank" rel="noopener">Focal Loss for Dense Object Detection</a></p>
 </blockquote>
-<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的(<strong>Hybrid</strong>)分类方法，将基于特征的匹配方法(<strong>Feature-based Matching</strong>)和单张照片的深度学习(<strong>One-Shot Deep Learning</strong>)融合在一起，让结果由<strong>coarse</strong>到<strong>fine</strong>。首先将商品的候选区域检测出来，然后使用，从商品图片里提取出来的循环特征粗略的标上<strong>label</strong>，然后，生成<strong>attention</strong>图，通过放大候选感兴趣区域（<strong>ROI</strong>）中的特征的影响并且抑制外部特征的干扰，来引导(<strong>Guide</strong>)分类器，让分类器集中于精细的细节(<strong>Fine Discriminative Details</strong>)，从而提高细粒杂货产品的准确性。</p>
-<p>本文的网络表现出了高度的可适应性，让现有的分类器再进行细化，而无需重新训练新的商品种类。</p>
-<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>随着移动设备的快速发展，以及高质量摄像头的出现，出现了新的应用，比如自动购物(<strong>Automatic Shopping</strong>)、自助购物(<strong>Self-Assisted Shopping</strong>)、物品追踪(<strong>Product Tracking</strong>)和实时的存货管理(<strong>Real-time Management of Inventory</strong>)。</p>
-<p>数据集中的商品图片通常只有一张，受到这种限制，因此，商品识别只能是单张图片的学习。</p>
-<p>细颗粒度的物体识别，需要识别观察的物体所下属的种类，大多数的现有的网络的目标都是搭建一个普适(<strong>generalized</strong>)的网络，比如动物或者植物识别。</p>
-<p>商品识别的难度在于商品在形状，颜色，材质和公制尺寸(<strong>Metric Size</strong>)上只有很小的差别，另外的难度在于数据库中的商品图片都是理想状态的，而不是真实环境下的，真实情况下的图片都与实际物品非常不同，所以网络也需要能区分这些微妙的细节。</p>
-<p>由于商品通常设计的时候，都是故意设计的很吸引购物者的注意力，所以人眼能识别出细颗粒度的类之间的区别，所以本文就引入了注意力机制，</p>
-<h3 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h3><ul>
-<li>本文通过循环的特征，定位并检测出了候选的商品区域，并粗略的对商品进行分类。</li>
-<li>本文使用<strong>attention</strong>图，而不是显著图，来放大感兴趣的候选区域的特征的影响，并抑制非候选区域的特征的影响。</li>
-<li>本文提出了一个又粗到细的融合手段，通过基于CNN的(单张图片)分类器将attention图与循环特征整合到一起，大大的提高了表现。</li>
-<li>本文提出了一个高适应性的框架，能让已有的<strong>N</strong>类分类器无需额外训练就能重新变成<strong>N+1</strong>类分类器。</li>
-</ul>
-<h3 id="Proposed-Approach"><a href="#Proposed-Approach" class="headerlink" title="Proposed Approach"></a>Proposed Approach</h3><h4 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h4><p>作为商品，它的包装一定要有特色，才能醒目，有辨识度，所以各产品的不同之处能轻易被人眼识别。而在现有的方法中，注意力和识别结果之间已被证实有一定的关系，只要有足够的数据集就可以训练出来。</p>
-<p>总的网络图由下所示：<br><img src="/2019/07/17/Grocery-Product-Recognition/2.png" alt=""><br>由三个部分组成，通过循环特征检测出候选产品实例，计算注意力图来放大细节，将循环特征和注意力图融合到单张图片识别中来识别出物品。</p>
-<h4 id="Candidate-Region-Detection-by-Recurring-Pattern"><a href="#Candidate-Region-Detection-by-Recurring-Pattern" class="headerlink" title="Candidate Region Detection by Recurring Pattern"></a>Candidate Region Detection by Recurring Pattern</h4><p>候选区域即是检测物品的最值得注意的位置，候选区域应该保留有辨识度的地方，并将没必要的信息抛弃掉，所有本文将LOGO区域选择出来作为感兴趣区域，具体过程为：首先定位产品位置，之后，logo区域就能被选择出来作为最具识别度的区域来实现召回率的产品检测。</p>
-<p>现有的方法都需要过大的训练集，且有可能生成过多的候选区域，所以本文提出一个非监督的产品检测方法，来定位候选区域，并辨认出产品的粗略的label：首先找到相似区域，然后将它们分组到一个聚类里面作为候选区域。</p>
-<p>正是通过以上的方法，本文首先定位最Logo区域，然后提取出logo区域的特征，生成了特征集，之后，对商品，首先针对每个商品，生成自身的logo区域的特征，与已有的各个特征簇匹配。</p>
-<h4 id="Attention-Map-Generation"><a href="#Attention-Map-Generation" class="headerlink" title="Attention Map Generation"></a>Attention Map Generation</h4><p>本文的关键就是精准的定位并抓取同一种类下类似商品的微弱区别，除此之外，还要抓取新的商品的ROI区域的与之前已经学习外的商品所共有的信息。而本文解决这个办法的关键就是引入<strong>Attention</strong>机制，且本文是从ROI区域中匹配的特征的密度和幅度两个角度计算<strong>Attention</strong>图的。</p>
-<h4 id="Classification-for-Product-Instances"><a href="#Classification-for-Product-Instances" class="headerlink" title="Classification for Product Instances"></a>Classification for Product Instances</h4><p>现有方法的学习过程都是基于图片本身，而忽视了图片里面的特征，所以本文为了达到对细节的提取，本文使用了一种循环的特征和细节特征的注意力图两种办法，由Coarse到Fine的优化结果。</p>
+<a id="more"></a>
+<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>对于目标检测来说，比较好的方法主要是<strong>Two-Stage</strong>的，以<strong>R-CNN</strong>为例，其中一个<strong>Stage</strong>负责生成稀疏的候选目标，第二个<strong>Stage</strong>就负责在各个目标中进行分类(前后背景分离)，而<strong>One-Stage</strong>则是输出一个稠密的proposal，然后丢进分类器中，直接进行类别分类，该方法的结构比较简单，所以速度较快，但较<strong>Two-Stage</strong>来说，准确率会差些。</p>
+<h3 id="Why-One-Stage-Method-not-Effective"><a href="#Why-One-Stage-Method-not-Effective" class="headerlink" title="Why One-Stage Method not Effective"></a>Why One-Stage Method not Effective</h3><p>基于已有的这些知识，就可以提出疑问：单Stage检测器能否达到相似的准确性呢？</p>
+<p>首先本文通过观察提出，之所以<strong>One-Stage</strong>的方法(稠密分类)精度不够好，是因为在稠密检测训练时，前景和背景极度不平衡。且单阶段检测器必须处理一个从图像中均匀采样的超大的候选目标区域集合。且这个集合通常会到达100k的一个数量，密集的覆盖空间位置，尺度和纵横比。比如在PASCAL VOC数据集中，每张图片上标注的目标可能也就几个。但是YOLO V2最后一层的输出是13×13×5，也就是845个候选目标！大量（简单易区分）的负样本在loss中占据了很大比重，使得有用的loss不能回传回来。</p>
+<p>相反，类不平衡的问题在双<strong>Stage</strong>里面不是这么棘手，因为双<strong>Stage</strong>里有两阶段级联(<strong>Two-Stage Cascade</strong>)和启发式采样(<strong>Sampling Heuristics</strong>)，比如<strong>Selective Search</strong>, <strong>EdgeBoxes</strong>, <strong>DeepMask</strong>, <strong>RPN</strong>, 前一个<strong>Stage</strong>能迅速地将候选目标区域的数量减小到了一个很小的数量(e.g., 1-2k), 这无疑已经过滤掉了大部分的背景区域，而后一个<strong>Stage</strong>所用的启发式采样，比如固定前后背景比值(1:3)或者在线的困难例子的挖掘(Online Hard Example Mining(OHEM)), 都让前后景样本维持了一定平衡。</p>
+<p>基于此，作者将传统的交叉熵损失做了如下变形:</p>
+<script type="math/tex; mode=display">\mathrm{FL}\left(p_{t}\right)=-\left(1-p_{t}\right)^{\gamma} \log \left(p_{t}\right)</script><p>能给那些易于被分类的简单例子小的权重，给不易区分的难例更大的权重。基于此，作者提出了一个新的Loss：Focal Loss和<strong>one-stage</strong>的检测器<strong>RetinaNet</strong>，让速度和精度很好地平衡好。</p>
+<h3 id="Focal-Loss"><a href="#Focal-Loss" class="headerlink" title="Focal Loss"></a>Focal Loss</h3><p>这个Loss主要是为了解决单<strong>Stage</strong>方法在训练过程中前后背景类出现的极度不平衡问题而设计的，首先从二分类交叉熵入手(cross entropy(CE))：</p>
+<script type="math/tex; mode=display">\operatorname{CE}(p, y)=\left\{\begin{array}{ll}{-\log (p)} & {\text { if } y=1} \\ {-\log (1-p)} & {\text { otherwise }}\end{array}\right.</script><p>其中$y \in\{ \pm 1\}$代表了真值的类，$p \in[0,1]$则代表了为1的可能性估计值，同时定义：</p>
+<script type="math/tex; mode=display">p_{\mathrm{t}}=\left\{\begin{array}{ll}{p} & {\text { if } y=1} \\ {1-p} & {\text { otherwise }}\end{array}\right.</script><p>那么$\operatorname{CE}(p, y)=\operatorname{CE}\left(p_{\mathrm{t}}\right)=-\log \left(p_{\mathrm{t}}\right)$</p>
+<p>如图所示：<br><img src="/2019/07/27/Object-Detection-5/1.png" alt=""><br>CE loss就是那条蓝色的曲线, 可以发现它的一个显著特点是：即使对于容易分类的样本(pt≫.5)也会引起loss，即便是很小的量级。当大量的简单样本加到一起时，这些小的loss就会吞噬掉较难处理的类。</p>
+<h4 id="Balanced-Cross-Entropy"><a href="#Balanced-Cross-Entropy" class="headerlink" title="Balanced Cross Entropy"></a>Balanced Cross Entropy</h4><p>对于这个问题，通常的解决办法是引入一个权重因子，用$\alpha \in[0,1]$表示类1，用$1-\alpha \in[0,1]$表示类-1，实际中<br>$\alpha$可能被设置为类的频率的倒数或者被当做是一个由交叉验证所设置的超参数：</p>
+<script type="math/tex; mode=display">\mathrm{CE}\left(p_{\mathrm{t}}\right)=-\alpha_{\mathrm{t}} \log \left(p_{\mathrm{t}}\right)</script><h4 id="Focal-Loss-Definition"><a href="#Focal-Loss-Definition" class="headerlink" title="Focal Loss Definition"></a>Focal Loss Definition</h4><p>虽然$\alpha$能帮助平衡正负例子，但它不能区分简单和难的例子，所以本文又提出了新的Loss，以便能降低简单例子的权重以便集中训练难的负例子</p>
+<script type="math/tex; mode=display">\mathrm{FL}\left(p_{\mathrm{t}}\right)=-\left(1-p_{\mathrm{t}}\right)^{\gamma} \log \left(p_{\mathrm{t}}\right)</script><p>由上图可以发现，<strong>focal loss</strong>有以下特点：</p>
+<blockquote>
+<p>当一个例子被误分类了且$p_{\mathrm{t}}$很小时，调节因子将接近1，反之若$p_{\mathrm{t}} \rightarrow 1$，因子将接近0，且那些正确分类的例子的<strong>loss</strong>的权重会被降低。<br><strong>Focusing</strong>参数$\gamma$能平滑的调节简单例子被调低权重的速度，$\gamma$为0时，FL近似于CE，而当$\gamma$增加时，调节速度将会加快。<br>直观来看，调制因子会减小正确分类的例子的loss权重，且拓展了会得到低loss的样本的范围。</p>
+</blockquote>
+<p>而最后的<strong>Loss</strong>还加入了$\alpha$，会比不加稍微好一些：</p>
+<script type="math/tex; mode=display">\mathrm{FL}\left(p_{\mathrm{t}}\right)=-\alpha_{\mathrm{t}}\left(1-p_{\mathrm{t}}\right)^{\gamma} \log \left(p_{\mathrm{t}}\right)</script><h3 id="RetinaNet-Detector"><a href="#RetinaNet-Detector" class="headerlink" title="RetinaNet Detector"></a>RetinaNet Detector</h3><p><strong>RetinaNet Detector</strong>是一个单一的且统一的网络结构，由<strong>Backbone</strong>网络和两个有特定任务的子网络组成，其中<strong>Backbone</strong>网络负责从整个输入图中，计算出一个卷积的特征图，而第一个子网络负责从主网络的输出中执行卷积的物体识别，而第二个子网络则是本文提出的一个专门为了单<strong>Stage</strong>的紧密检测(<strong>Dense Detection</strong>)设计的简单结构。总网络见下图所示：<br><img src="/2019/07/27/Object-Detection-5/3.png" alt=""></p>
+<h4 id="Feature-Pyramid-Network-Backbone"><a href="#Feature-Pyramid-Network-Backbone" class="headerlink" title="Feature Pyramid Network Backbone"></a>Feature Pyramid Network Backbone</h4><p>本文的主网络采用了特征金字塔结构(Feature Pyramid Network(FPN))，它通过使用一个自上而下的结构以及横向连接，让网络能够有效的提取出丰富多尺度的特征。</p>
+<h4 id="Anchors"><a href="#Anchors" class="headerlink" title="Anchors"></a>Anchors</h4><p>本文使用了与RPN变体(<strong>Variant</strong>)类似的平移不变的<strong>Anchor</strong>框，且每个<strong>Anchor</strong>都附加了一个长度为K的分类目标的<strong>One-hot</strong>向量(其中K是物体类别数)以及一个4维的边框回归目标。本文使RPN中的赋值规则但修改了阈值以满足类别检测的要求。</p>
+<p>而又因为每个<strong>Anchor</strong>是能赋给最多一个物体框，本文将长度为K的标签向量里的对应<strong>entry</strong>设为1，而其他<strong>entry</strong>设为0。如果没有被赋予框的话，训练的时候就直接忽略。</p>
+<h4 id="Classification-Subnet"><a href="#Classification-Subnet" class="headerlink" title="Classification Subnet"></a>Classification Subnet</h4><p>针对分类的子网络在每A个<strong>anchor</strong>和K个目标类中的每个空间位置预测目标出现的概率，这个子网络其实是在每个<strong>FPN</strong>层上增加一个小的<strong>FCN</strong>，这个子网络的参数在所有的金字塔层间共享。与<strong>RPN</strong>相比，本文的目标分类子网络更深一点，且不与另一个子网络共享参数。</p>
+<h4 id="Box-Regression-Subnet"><a href="#Box-Regression-Subnet" class="headerlink" title="Box Regression Subnet"></a>Box Regression Subnet</h4><p>与第一个子网络并行，本文对每个金字塔层都附加了另一个小的<strong>FCN</strong>，以将每个<strong>Anchor</strong>框的偏移量(<strong>Offset</strong>)回归到一个邻近的目标真值。对每A个<strong>Anchor</strong>的每个空间位置，这四个输出预测了<strong>Anchor</strong>框的真值之间对应的偏移量。</p>
+<h4 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h4><p>对于一般的分类网络，在初始化之后，其输出的预测结果通常情况下是均等的。但是本文认为，这种初始化方式在类别极度不均衡的时候会对结构产生不利影响。所以本文提出应该初始化模型参数，然后模型输出稀有类别的概率将会变小（如0.01）。本文发现这种初始化方法对于CE和Focal Loss的性能提升都有帮助。</p>
+<p>在后续的模型介绍部分，本文较为详细地说明了模型初始化方法。首先，从<strong>imagenet</strong>预训练得到的<strong>base net</strong>不做调整，新加入的卷积层权重均初始化为$\sigma=0.01$的高斯分布，偏置项为0。对于分类网络的最后一个卷积层，将偏置项置为$b=-\log ((1-\pi) / \pi)$。这里的π参数是一个超参数，能在训练的初始阶段，增加每个anchor被分类为前景的概率。</p>
+<p>这样进行模型初始化造成的结果就是，在初始阶段，不会产生大量的<strong>False Positive</strong>，使得训练更加稳定。</p>
 
       
     </div>
@@ -498,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/17/Object-Detection-2/" rel="next" title="Object Detection(2)">
-                <i class="fa fa-chevron-left"></i> Object Detection(2)
+              <a href="/2019/07/26/Visual-Tracking-1/" rel="next" title="Visual Tracking(1)">
+                <i class="fa fa-chevron-left"></i> Visual Tracking(1)
               </a>
             
           </div>
@@ -507,10 +515,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/23/Object-Detection-3/" rel="prev" title="Object Detection(3)">
-                Object Detection(3) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -665,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Background"><span class="nav-number">2.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contribution"><span class="nav-number">3.</span> <span class="nav-text">Contribution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proposed-Approach"><span class="nav-number">4.</span> <span class="nav-text">Proposed Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Motivation"><span class="nav-number">4.1.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Candidate-Region-Detection-by-Recurring-Pattern"><span class="nav-number">4.2.</span> <span class="nav-text">Candidate Region Detection by Recurring Pattern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Attention-Map-Generation"><span class="nav-number">4.3.</span> <span class="nav-text">Attention Map Generation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Classification-for-Product-Instances"><span class="nav-number">4.4.</span> <span class="nav-text">Classification for Product Instances</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-One-Stage-Method-not-Effective"><span class="nav-number">2.</span> <span class="nav-text">Why One-Stage Method not Effective</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Focal-Loss"><span class="nav-number">3.</span> <span class="nav-text">Focal Loss</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Balanced-Cross-Entropy"><span class="nav-number">3.1.</span> <span class="nav-text">Balanced Cross Entropy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Focal-Loss-Definition"><span class="nav-number">3.2.</span> <span class="nav-text">Focal Loss Definition</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RetinaNet-Detector"><span class="nav-number">4.</span> <span class="nav-text">RetinaNet Detector</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-Pyramid-Network-Backbone"><span class="nav-number">4.1.</span> <span class="nav-text">Feature Pyramid Network Backbone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Anchors"><span class="nav-number">4.2.</span> <span class="nav-text">Anchors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Classification-Subnet"><span class="nav-number">4.3.</span> <span class="nav-text">Classification Subnet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Box-Regression-Subnet"><span class="nav-number">4.4.</span> <span class="nav-text">Box Regression Subnet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Initialization"><span class="nav-number">4.5.</span> <span class="nav-text">Initialization</span></a></li></ol></li></ol></div>
             
 
           </div>
