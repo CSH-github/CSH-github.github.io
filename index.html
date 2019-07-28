@@ -1261,7 +1261,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-23 14:40:51" itemprop="dateModified" datetime="2019-07-23T14:40:51+08:00">2019-07-23</time>
+                <time title="Modified: 2019-07-28 17:28:23" itemprop="dateModified" datetime="2019-07-28T17:28:23+08:00">2019-07-28</time>
               </span>
             
           
@@ -1316,33 +1316,19 @@
 
       
         
-          
-            <p>现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。</p>
+          <p>现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。</p>
 <blockquote>
 <p>paper:<a href="https://dl.acm.org/citation.cfm?id=3240522" target="_blank" rel="noopener">Fine-Grained Grocery Product Recognition by One-Shot Learning</a></p>
 </blockquote>
-<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的(<strong>Hybrid</strong>)分类方法，将基于特征的匹配方法(<strong>Feature-based Matching</strong>)和单张照片的深度学习(<strong>One-Shot Deep Learning</strong>)融合在一起，让结果由<strong>coarse</strong>到<strong>fine</strong>。首先将商品的候选区域检测出来，然后使用，从商品图片里提取出来的循环特征粗略的标上<strong>label</strong>，然后，生成<strong>attention</strong>图，通过放大候选感兴趣区域（<strong>ROI</strong>）中的特征的影响并且抑制外部特征的干扰，来引导(<strong>Guide</strong>)分类器，让分类器集中于精细的细节(<strong>Fine Discriminative Details</strong>)，从而提高细粒杂货产品的准确性。</p>
-<p>本文的网络表现出了高度的可适应性，让现有的分类器再进行细化，而无需重新训练新的商品种类。</p>
-<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>随着移动设备的快速发展，以及高质量摄像头的出现，出现了新的应用，比如自动购物(<strong>Automatic Shopping</strong>)、自助购物(<strong>Self-Assisted Shopping</strong>)、物品追踪(<strong>Product Tracking</strong>)和实时的存货管理(<strong>Real-time Management of Inventory</strong>)。</p>
-<p>数据集中的商品图片通常只有一张，受到这种限制，因此，商品识别只能是单张图片的学习。</p>
-<p>细颗粒度的物体识别，需要识别观察的物体所下属的种类，大多数的现有的网络的目标都是搭建一个普适(<strong>generalized</strong>)的网络，比如动物或者植物识别。</p>
-<p>商品识别的难度在于商品在形状，颜色，材质和公制尺寸(<strong>Metric Size</strong>)上只有很小的差别，另外的难度在于数据库中的商品图片都是理想状态的，而不是真实环境下的，真实情况下的图片都与实际物品非常不同，所以网络也需要能区分这些微妙的细节。</p>
-<p>由于商品通常设计的时候，都是故意设计的很吸引购物者的注意力，所以人眼能识别出细颗粒度的类之间的区别，所以本文就引入了注意力机制，</p>
-<h3 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h3><ul>
-<li>本文通过循环的特征，定位并检测出了候选的商品区域，并粗略的对商品进行分类。</li>
-<li>本文使用<strong>attention</strong>图，而不是显著图，来放大感兴趣的候选区域的特征的影响，并抑制非候选区域的特征的影响。</li>
-<li>本文提出了一个又粗到细的融合手段，通过基于CNN的(单张图片)分类器将attention图与循环特征整合到一起，大大的提高了表现。</li>
-<li>本文提出了一个高适应性的框架，能让已有的<strong>N</strong>类分类器无需额外训练就能重新变成<strong>N+1</strong>类分类器。</li>
-</ul>
-<h3 id="Proposed-Approach"><a href="#Proposed-Approach" class="headerlink" title="Proposed Approach"></a>Proposed Approach</h3><h4 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h4><p>作为商品，它的包装一定要有特色，才能醒目，有辨识度，所以各产品的不同之处能轻易被人眼识别。而在现有的方法中，注意力和识别结果之间已被证实有一定的关系，只要有足够的数据集就可以训练出来。</p>
-<p>总的网络图由下所示：<br><img src="/2019/07/17/Grocery-Product-Recognition/2.png" alt=""><br>由三个部分组成，通过循环特征检测出候选产品实例，计算注意力图来放大细节，将循环特征和注意力图融合到单张图片识别中来识别出物品。</p>
-<h4 id="Candidate-Region-Detection-by-Recurring-Pattern"><a href="#Candidate-Region-Detection-by-Recurring-Pattern" class="headerlink" title="Candidate Region Detection by Recurring Pattern"></a>Candidate Region Detection by Recurring Pattern</h4><p>候选区域即是检测物品的最值得注意的位置，候选区域应该保留有辨识度的地方，并将没必要的信息抛弃掉，所有本文将LOGO区域选择出来作为感兴趣区域，具体过程为：首先定位产品位置，之后，logo区域就能被选择出来作为最具识别度的区域来实现召回率的产品检测。</p>
-<p>现有的方法都需要过大的训练集，且有可能生成过多的候选区域，所以本文提出一个非监督的产品检测方法，来定位候选区域，并辨认出产品的粗略的label：首先找到相似区域，然后将它们分组到一个聚类里面作为候选区域。</p>
-<p>正是通过以上的方法，本文首先定位最Logo区域，然后提取出logo区域的特征，生成了特征集，之后，对商品，首先针对每个商品，生成自身的logo区域的特征，与已有的各个特征簇匹配。</p>
-<h4 id="Attention-Map-Generation"><a href="#Attention-Map-Generation" class="headerlink" title="Attention Map Generation"></a>Attention Map Generation</h4><p>本文的关键就是精准的定位并抓取同一种类下类似商品的微弱区别，除此之外，还要抓取新的商品的ROI区域的与之前已经学习外的商品所共有的信息。而本文解决这个办法的关键就是引入<strong>Attention</strong>机制，且本文是从ROI区域中匹配的特征的密度和幅度两个角度计算<strong>Attention</strong>图的。</p>
-<h4 id="Classification-for-Product-Instances"><a href="#Classification-for-Product-Instances" class="headerlink" title="Classification for Product Instances"></a>Classification for Product Instances</h4><p>现有方法的学习过程都是基于图片本身，而忽视了图片里面的特征，所以本文为了达到对细节的提取，本文使用了一种循环的特征和细节特征的注意力图两种办法，由Coarse到Fine的优化结果。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/17/Grocery-Product-Recognition/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>

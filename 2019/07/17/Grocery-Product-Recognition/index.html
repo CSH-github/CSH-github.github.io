@@ -95,19 +95,19 @@
 
 
 
-  <meta name="description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning  Abstract因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的">
+  <meta name="description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning">
 <meta name="keywords" content="Paper Reading,Object Detection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Grocery Product Recognition">
 <meta property="og:url" content="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning  Abstract因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的">
+<meta property="og:description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/2.png">
-<meta property="og:updated_time" content="2019-07-23T06:40:51.514Z">
+<meta property="og:updated_time" content="2019-07-28T09:28:23.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grocery Product Recognition">
-<meta name="twitter:description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning  Abstract因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的">
+<meta name="twitter:description" content="现在看的这篇文章，是实验室的相关论文，讲的是基于单张图片的细颗粒度的商品识别，终于开始接触实验室的相关工作了，这篇要好好研究。  paper:Fine-Grained Grocery Product Recognition by One-Shot Learning">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/17/Grocery-Product-Recognition/2.png">
 
 
@@ -375,7 +375,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-23 14:40:51" itemprop="dateModified" datetime="2019-07-23T14:40:51+08:00">2019-07-23</time>
+                <time title="Modified: 2019-07-28 17:28:23" itemprop="dateModified" datetime="2019-07-28T17:28:23+08:00">2019-07-28</time>
               </span>
             
           
@@ -433,6 +433,7 @@
 <blockquote>
 <p>paper:<a href="https://dl.acm.org/citation.cfm?id=3240522" target="_blank" rel="noopener">Fine-Grained Grocery Product Recognition by One-Shot Learning</a></p>
 </blockquote>
+<a id="more"></a>
 <h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>因为有些商品之间的差别很小，所以细颗粒度的商品识别是一件很有挑战性的任务，所以为了解决这个难题，本文提出了一种杂交的(<strong>Hybrid</strong>)分类方法，将基于特征的匹配方法(<strong>Feature-based Matching</strong>)和单张照片的深度学习(<strong>One-Shot Deep Learning</strong>)融合在一起，让结果由<strong>coarse</strong>到<strong>fine</strong>。首先将商品的候选区域检测出来，然后使用，从商品图片里提取出来的循环特征粗略的标上<strong>label</strong>，然后，生成<strong>attention</strong>图，通过放大候选感兴趣区域（<strong>ROI</strong>）中的特征的影响并且抑制外部特征的干扰，来引导(<strong>Guide</strong>)分类器，让分类器集中于精细的细节(<strong>Fine Discriminative Details</strong>)，从而提高细粒杂货产品的准确性。</p>
 <p>本文的网络表现出了高度的可适应性，让现有的分类器再进行细化，而无需重新训练新的商品种类。</p>
 <h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>随着移动设备的快速发展，以及高质量摄像头的出现，出现了新的应用，比如自动购物(<strong>Automatic Shopping</strong>)、自助购物(<strong>Self-Assisted Shopping</strong>)、物品追踪(<strong>Product Tracking</strong>)和实时的存货管理(<strong>Real-time Management of Inventory</strong>)。</p>
