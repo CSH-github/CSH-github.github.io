@@ -95,20 +95,18 @@
 
 
 
-  <meta name="description" content="在看Hand Pose Estimation(5)那篇论文的时候，了解到Siamese Network，觉得是一个很值得学习的网络，所以这里单独写一篇文章，总结一下相关知识。">
-<meta name="keywords" content="Representive Network Module,Deep Learning">
+  <meta name="description" content="这里的真是因为，虽然之前也有跑过很多次代码，也按照自己的想法修改过代码，但是之前都是基于现成的机器和环境，像这次这样自己搭环境，从零开始，还是第一次，之前也没有写过这方面的笔记，正好代码正在跑，一时半会儿还弄不完，也没有别的事情，就姑且仔细的写写笔记记录一下吧。">
+<meta name="keywords" content="Ubuntu,Cuda">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Siamese Network">
-<meta property="og:url" content="http://yoursite.com/2019/07/16/Siamese-Network/index.html">
+<meta property="og:title" content="训练网络之初体验(真)">
+<meta property="og:url" content="http://yoursite.com/2019/07/31/训练网络之初体验-真/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在看Hand Pose Estimation(5)那篇论文的时候，了解到Siamese Network，觉得是一个很值得学习的网络，所以这里单独写一篇文章，总结一下相关知识。">
+<meta property="og:description" content="这里的真是因为，虽然之前也有跑过很多次代码，也按照自己的想法修改过代码，但是之前都是基于现成的机器和环境，像这次这样自己搭环境，从零开始，还是第一次，之前也没有写过这方面的笔记，正好代码正在跑，一时半会儿还弄不完，也没有别的事情，就姑且仔细的写写笔记记录一下吧。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/07/16/Siamese-Network/1.jpg">
-<meta property="og:updated_time" content="2019-07-16T12:03:56.573Z">
+<meta property="og:updated_time" content="2019-08-01T05:52:45.040Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Siamese Network">
-<meta name="twitter:description" content="在看Hand Pose Estimation(5)那篇论文的时候，了解到Siamese Network，觉得是一个很值得学习的网络，所以这里单独写一篇文章，总结一下相关知识。">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/16/Siamese-Network/1.jpg">
+<meta name="twitter:title" content="训练网络之初体验(真)">
+<meta name="twitter:description" content="这里的真是因为，虽然之前也有跑过很多次代码，也按照自己的想法修改过代码，但是之前都是基于现成的机器和环境，像这次这样自己搭环境，从零开始，还是第一次，之前也没有写过这方面的笔记，正好代码正在跑，一时半会儿还弄不完，也没有别的事情，就姑且仔细的写写笔记记录一下吧。">
 
 
 
@@ -116,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/16/Siamese-Network/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/31/训练网络之初体验-真/">
 
 
 
@@ -126,7 +124,7 @@
   };
 </script>
 
-  <title>Siamese Network | Hexo</title>
+  <title>训练网络之初体验(真) | Hexo</title>
   
 
 
@@ -317,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/16/Siamese-Network/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/31/训练网络之初体验-真/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -334,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Siamese Network
+          <h1 class="post-title" itemprop="name headline">训练网络之初体验(真)
 
               
             
@@ -360,7 +358,7 @@
                 
               
 
-              <time title="Created: 2019-07-16 18:24:25 / Modified: 20:03:56" itemprop="dateCreated datePublished" datetime="2019-07-16T18:24:25+08:00">2019-07-16</time>
+              <time title="Created: 2019-07-31 20:11:06" itemprop="dateCreated datePublished" datetime="2019-07-31T20:11:06+08:00">2019-07-31</time>
             </span>
           
 
@@ -368,8 +366,33 @@
             
 
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-01 13:52:45" itemprop="dateModified" datetime="2019-08-01T13:52:45+08:00">2019-08-01</time>
+              </span>
+            
           
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Struggling-in-Coding/" itemprop="url" rel="index"><span itemprop="name">Struggling in Coding</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -404,15 +427,25 @@
       
 
       
-        <p>在看<strong>Hand Pose Estimation(5)</strong>那篇论文的时候，了解到<strong>Siamese Network</strong>，觉得是一个很值得学习的网络，所以这里单独写一篇文章，总结一下相关知识。</p>
+        <p>这里的真是因为，虽然之前也有跑过很多次代码，也按照自己的想法修改过代码，但是之前都是基于现成的机器和环境，像这次这样自己搭环境，从零开始，还是第一次，之前也没有写过这方面的笔记，正好代码正在跑，一时半会儿还弄不完，也没有别的事情，就姑且仔细的写写笔记记录一下吧。</p>
 <a id="more"></a>
-<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>首先关于<strong>Siamese</strong>这个名字，我最开始以为是暹罗，翻译里面只有这个意思，之后谷歌才发现原来泰国有一个很著名的双胞胎，最后这个词也代指双胞胎了，而这里可以翻译成孪生神经网络，或者说连体的神经网络。而这里的连体就是指共享权值，如下图：<br><img src="/2019/07/16/Siamese-Network/1.jpg" alt=""></p>
-<p>这里的共享权值就是指左右两个神经网络的权值一致，在实际训练的时候，甚至都可以是同一个网络，不用是实现另一个(比如都是<strong>LSTM</strong>或<strong>CNN</strong>)。</p>
-<p>另外也有变种，比如当不共享权值的时候，网络就变成伪孪生神经网络(<strong>Pseudo-Siamese Network</strong>)了，两边的网络可以不一样(一个<strong>LSTM</strong>，一个<strong>CNN</strong>)。</p>
-<h3 id="The-Usage-of-Siamese-Network"><a href="#The-Usage-of-Siamese-Network" class="headerlink" title="The Usage of Siamese Network"></a>The Usage of Siamese Network</h3><p>在最开始，孪生神经网络被用于衡量两个输入的相似程度，具体情况下，两个神经网络将输入映射到新的空间，通过计算新空间下生成的两个特征的距离，就可以得到<strong>Loss</strong>，就可以得到两个输入的相似度。具体可用来计算两个句子或者词汇的语义相似度（输入比较类似）。</p>
-<h3 id="The-Usage-of-Pseudo-Siamese-Network"><a href="#The-Usage-of-Pseudo-Siamese-Network" class="headerlink" title="The Usage of Pseudo-Siamese Network"></a>The Usage of Pseudo-Siamese Network</h3><p>相比孪生神经网路，伪孪生神经网络则用来处理两个输入”有一定差别”的情况，比如验证标题与正文的描述是否一致（标题和正文长度差别很大），或者文字是否描述了一幅图片（图片和文字差别也较大）。</p>
-<h3 id="Loss"><a href="#Loss" class="headerlink" title="Loss"></a>Loss</h3><p>计算距离的时候，有很多种选择，传统的使用<strong>Contrastive Loss</strong>，而实际情况下，<strong>Cosine</strong>、<strong>Exp Function</strong>、欧式距离什么的都可以，但各自的使用场景不太一致，比如<strong>Cosine</strong>更适用于词汇级别的语义相似度度量，而<strong>Exp Function</strong>更适用于句子级别、段落级别的文本相似性度量。</p>
-<h3 id="Extend-of-Siamese-Network"><a href="#Extend-of-Siamese-Network" class="headerlink" title="Extend of Siamese Network"></a>Extend of Siamese Network</h3><p>也有用三连体网络的，输入是三个，一个正例+两个负例，或者一个负例+两个正例，训练的目标是让相同类别间的距离尽可能的小，让不同类别间的距离尽可能的大，其结果挺好的。</p>
+<p>本来一直都是要用Teamviewer连接学校的电脑跑代码，但是笔电早早的被封了Ip，无论怎么办都解决不了这个问题，所以今天鼓起勇气找实验室的学长们帮忙开了服务器的账号，话说实验室是真的有钱啊，数了数，有二十几台主机，学长快速几条命令打完后，我就可以直接在电脑上ssh连接跑代码了，找学长要了92G的数据集(真的太可怕了)，最后决定用<strong>scp</strong>的方法直接从硬盘传到服务器下好了，正好到晚上十一点了，就暂时放在这儿了，想着明天应该就能传好了吧。</p>
+<p>还是太年轻了。</p>
+<p>第二天一早就来看，结果发现只传了一点点，这里就学到了一个新命令:</p>
+<p><code>//查看当前系统磁盘使用空间</code><br><code>df -h</code><br><code>//查看当前目录文件占用空间大小</code><br><code>du -sh *</code></p>
+<p>结果发现是因为空间太小了，没办法装，所以打算还是到自己实验室电脑上跑吧，想着应该可以用ssh连，就不用teamviewer了，但是用apt-get下载openssh的时候出错了：</p>
+<p><code>Package &#39;openssh-server&#39; has no installation candidate</code></p>
+<p>应该是<strong>ubuntu</strong>的更新源没有用，所以更改为清华源后，执行update和upgrade(等了超久)，最后下载了openSSH，但是还是连不上。。</p>
+<p>但是这个时候和学长交流，发现不是实验室的电脑没有空间了，而是文件放的地方放错了(感觉要好好研究一下Linux的文件地址方面的知识了)，学长在电脑上创建了一个软连接:</p>
+<p><code>ln -s /HDD/cui/ ./HDD</code></p>
+<p>就自动的在最开始的地方创建了HDD文件，里面的cui文件自动连接到HDD里面了，在这下面就有1T的空间可以使用。。</p>
+<p>然后就可以将数据集传过去了，对了这个数据集要用VPN，但是我自己的VPN和学长的VPN(都是自己搭的)在实验室的WIFI下要么连不上，要么断断续续的，数据集始终下不来，最后买了一个星期专业的VPN，才终于下下来了。</p>
+<p>Ok，传上去了，由于不想影响修改原来的环境，就下载了Conda，配置了环境，修改了路径，跑起来了，但是怎么看了代码，感觉代码好像跑得很慢啊，这时候才反应过来，忘记装GPU版的TensorFlow了，但是装了相同版本的TensorFlow后，还是报错了，好像是什么没有利用到TensorFlow的资源，反正也不是说没有安装这个库，之后上网查了之后，发现TensorFlow是要根据Cuda和CuDnn版本，下载对应版本的，我检查后发现Cuda是9.0，CuDnn是v7，所以下载了TensorFlow-GPU==1.9.0，但是还是报错了，本来打算继续查，但是这个时候学长过来看了一眼就说我是TensorFlow版本没下对(其实感觉虽然尽量自己的难题自己解决，但是有时候问学长真的能少走很多弯路，节省很多时间)，但是我觉得我是根据对应版本下的啊，学长于是用了这个命令：</p>
+<p><code>nvcc -V</code></p>
+<p>结果返回的是7.0，所以学长说，我应该是没有在全局文件<strong>./bashrc</strong>里面加路径，所以最后我根据网上的内容加了这个，就跑起来了，速度飞快，但是我的那台服务器里面有三个GPU，我用了学长的那个，所以赶紧就停下来了，关键我按的还是<strong>ctrl+z</strong>，所以赶紧又在后台杀掉进程了，查看进程命令是:</p>
+<p><code>ps -ef</code><br><code>#杀死进程</code><br><code>kill -pid</code></p>
+<p>之后知道了是要显示的在最前面加上<strong>CUDA_VISIBLE_DEVICES=ID</strong>，选择哪个GPU来跑当然也可以同时用几个，但是这个时候，我发现用<code>nvcc -V</code>还是会报错，所以学长过来一顿操作，首先用<code>which nvcc</code>查看nvcc在哪儿，果然不再正确的地方，之后再正确的地方，使用<code>./nvcc -V</code>，就是9.0了，所以把错误地方的nvcc删掉，再把正确地方的<strong>nvcc</strong>，cp过去就OK了，暂时解决问题了。</p>
+<p>话说GPU真的好快啊，出去跑个步回来就执行很多了，但是看着看着，突然就暂停了，也不知道为什么，结果发现，ssh连接断开了，也不知道是网断了，还是有时限，但是关键的是，这边停了，进程也停了啊，代码又没有从中间继续训练的能力，所以我又重新训练，突然想起来之前搭建<strong>Aria</strong>的时候，好像有后台执行这一说，所以有以下代码：<strong>nohup command &gt;out.file 2&gt;&amp;1 &amp;</strong>，执行后，命令的输出都到<strong>out.file</strong>里面，并返回一个进程数，太方便了，这样就不用保持电脑始终开着了，好像就算你最开始没这么写，也可以先用<strong>ctrl+z</strong>直接暂停(挂起)程序，再后台运行，之后可以试试，同时，另一个终端界面用<strong>watch -n 1 nvidia-smi</strong>，每一秒就输出一下GPU情况，太高级了，さいこう！</p>
 
       
     </div>
@@ -443,9 +476,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Representive-Network-Module/" rel="tag"># Representive Network Module</a>
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           
-            <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+            <a href="/tags/Cuda/" rel="tag"># Cuda</a>
           
         </div>
       
@@ -458,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/16/Hand-Pose-Estimation-5/" rel="next" title="Hand Pose Estimation(5)">
-                <i class="fa fa-chevron-left"></i> Hand Pose Estimation(5)
+              <a href="/2019/07/29/GRASP-Recurring-Patterns/" rel="next" title="GRASP Recurring Patterns">
+                <i class="fa fa-chevron-left"></i> GRASP Recurring Patterns
               </a>
             
           </div>
@@ -467,10 +500,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/17/Object-Detection-1/" rel="prev" title="Object Detection(1)">
-                Object Detection(1) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -514,17 +543,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -620,23 +640,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Usage-of-Siamese-Network"><span class="nav-number">2.</span> <span class="nav-text">The Usage of Siamese Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Usage-of-Pseudo-Siamese-Network"><span class="nav-number">3.</span> <span class="nav-text">The Usage of Pseudo-Siamese Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loss"><span class="nav-number">4.</span> <span class="nav-text">Loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extend-of-Siamese-Network"><span class="nav-number">5.</span> <span class="nav-text">Extend of Siamese Network</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       

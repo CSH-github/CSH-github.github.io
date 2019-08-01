@@ -95,20 +95,20 @@
 
 
 
-  <meta name="description" content="在看Hand Pose Estimation(5)那篇论文的时候，了解到Siamese Network，觉得是一个很值得学习的网络，所以这里单独写一篇文章，总结一下相关知识。">
-<meta name="keywords" content="Representive Network Module,Deep Learning">
+  <meta name="description" content="实验室给的关于商品识别的论文中，只剩下这篇关于从单张图片中提取循环特征的文章了，是2013年的CVPR，但还不知道和商品识别有什么关系，看看再说吧，链接如下：  paper: GRASP Recurring Patterns from a Single View">
+<meta name="keywords" content="Object Detection,Paper Reading">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Siamese Network">
-<meta property="og:url" content="http://yoursite.com/2019/07/16/Siamese-Network/index.html">
+<meta property="og:title" content="GRASP Recurring Patterns">
+<meta property="og:url" content="http://yoursite.com/2019/07/29/GRASP-Recurring-Patterns/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在看Hand Pose Estimation(5)那篇论文的时候，了解到Siamese Network，觉得是一个很值得学习的网络，所以这里单独写一篇文章，总结一下相关知识。">
+<meta property="og:description" content="实验室给的关于商品识别的论文中，只剩下这篇关于从单张图片中提取循环特征的文章了，是2013年的CVPR，但还不知道和商品识别有什么关系，看看再说吧，链接如下：  paper: GRASP Recurring Patterns from a Single View">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/07/16/Siamese-Network/1.jpg">
-<meta property="og:updated_time" content="2019-07-16T12:03:56.573Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/29/GRASP-Recurring-Patterns/2.png">
+<meta property="og:updated_time" content="2019-07-29T02:59:35.170Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Siamese Network">
-<meta name="twitter:description" content="在看Hand Pose Estimation(5)那篇论文的时候，了解到Siamese Network，觉得是一个很值得学习的网络，所以这里单独写一篇文章，总结一下相关知识。">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/16/Siamese-Network/1.jpg">
+<meta name="twitter:title" content="GRASP Recurring Patterns">
+<meta name="twitter:description" content="实验室给的关于商品识别的论文中，只剩下这篇关于从单张图片中提取循环特征的文章了，是2013年的CVPR，但还不知道和商品识别有什么关系，看看再说吧，链接如下：  paper: GRASP Recurring Patterns from a Single View">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/29/GRASP-Recurring-Patterns/2.png">
 
 
 
@@ -116,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/16/Siamese-Network/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/29/GRASP-Recurring-Patterns/">
 
 
 
@@ -126,7 +126,7 @@
   };
 </script>
 
-  <title>Siamese Network | Hexo</title>
+  <title>GRASP Recurring Patterns | Hexo</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/16/Siamese-Network/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/GRASP-Recurring-Patterns/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Siamese Network
+          <h1 class="post-title" itemprop="name headline">GRASP Recurring Patterns
 
               
             
@@ -360,7 +360,7 @@
                 
               
 
-              <time title="Created: 2019-07-16 18:24:25 / Modified: 20:03:56" itemprop="dateCreated datePublished" datetime="2019-07-16T18:24:25+08:00">2019-07-16</time>
+              <time title="Created: 2019-07-29 08:21:37 / Modified: 10:59:35" itemprop="dateCreated datePublished" datetime="2019-07-29T08:21:37+08:00">2019-07-29</time>
             </span>
           
 
@@ -370,6 +370,21 @@
             
           
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Paper-Reading/" itemprop="url" rel="index"><span itemprop="name">Paper Reading</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -404,16 +419,24 @@
       
 
       
-        <p>在看<strong>Hand Pose Estimation(5)</strong>那篇论文的时候，了解到<strong>Siamese Network</strong>，觉得是一个很值得学习的网络，所以这里单独写一篇文章，总结一下相关知识。</p>
+        <p>实验室给的关于商品识别的论文中，只剩下这篇关于从单张图片中提取循环特征的文章了，是2013年的CVPR，但还不知道和商品识别有什么关系，看看再说吧，链接如下：</p>
+<blockquote>
+<p>paper: <a href="https://www.cv-foundation.org/openaccess/content_cvpr_2013/papers/Liu_GRASP_Recurring_Patterns_2013_CVPR_paper.pdf" target="_blank" rel="noopener">GRASP Recurring Patterns from a Single View</a></p>
+</blockquote>
 <a id="more"></a>
-<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>首先关于<strong>Siamese</strong>这个名字，我最开始以为是暹罗，翻译里面只有这个意思，之后谷歌才发现原来泰国有一个很著名的双胞胎，最后这个词也代指双胞胎了，而这里可以翻译成孪生神经网络，或者说连体的神经网络。而这里的连体就是指共享权值，如下图：<br><img src="/2019/07/16/Siamese-Network/1.jpg" alt=""></p>
-<p>这里的共享权值就是指左右两个神经网络的权值一致，在实际训练的时候，甚至都可以是同一个网络，不用是实现另一个(比如都是<strong>LSTM</strong>或<strong>CNN</strong>)。</p>
-<p>另外也有变种，比如当不共享权值的时候，网络就变成伪孪生神经网络(<strong>Pseudo-Siamese Network</strong>)了，两边的网络可以不一样(一个<strong>LSTM</strong>，一个<strong>CNN</strong>)。</p>
-<h3 id="The-Usage-of-Siamese-Network"><a href="#The-Usage-of-Siamese-Network" class="headerlink" title="The Usage of Siamese Network"></a>The Usage of Siamese Network</h3><p>在最开始，孪生神经网络被用于衡量两个输入的相似程度，具体情况下，两个神经网络将输入映射到新的空间，通过计算新空间下生成的两个特征的距离，就可以得到<strong>Loss</strong>，就可以得到两个输入的相似度。具体可用来计算两个句子或者词汇的语义相似度（输入比较类似）。</p>
-<h3 id="The-Usage-of-Pseudo-Siamese-Network"><a href="#The-Usage-of-Pseudo-Siamese-Network" class="headerlink" title="The Usage of Pseudo-Siamese Network"></a>The Usage of Pseudo-Siamese Network</h3><p>相比孪生神经网路，伪孪生神经网络则用来处理两个输入”有一定差别”的情况，比如验证标题与正文的描述是否一致（标题和正文长度差别很大），或者文字是否描述了一幅图片（图片和文字差别也较大）。</p>
-<h3 id="Loss"><a href="#Loss" class="headerlink" title="Loss"></a>Loss</h3><p>计算距离的时候，有很多种选择，传统的使用<strong>Contrastive Loss</strong>，而实际情况下，<strong>Cosine</strong>、<strong>Exp Function</strong>、欧式距离什么的都可以，但各自的使用场景不太一致，比如<strong>Cosine</strong>更适用于词汇级别的语义相似度度量，而<strong>Exp Function</strong>更适用于句子级别、段落级别的文本相似性度量。</p>
-<h3 id="Extend-of-Siamese-Network"><a href="#Extend-of-Siamese-Network" class="headerlink" title="Extend of Siamese Network"></a>Extend of Siamese Network</h3><p>也有用三连体网络的，输入是三个，一个正例+两个负例，或者一个负例+两个正例，训练的目标是让相同类别间的距离尽可能的小，让不同类别间的距离尽可能的大，其结果挺好的。</p>
-
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>在现实生活中，一个很重要的认识就是我们对这个世界的大部分认识都是基于对共享或重复的结构的感知和识别，那么为了在这样的模式中捕捉到这种重现的本质的东西，本文使用了一种循环模式(<strong>Recurring Pattern</strong>), 来进行识别。</p>
+<p>对于循环模式检测来说，主要有两种经典的方法：</p>
+<blockquote>
+<p>Pairwise visual-word-matching: 在所有的物体间匹配一对一对的视觉的字(<strong>Visual Words</strong>)<br>Pairwise object-matching: 在一对物体间匹配特征点的相似性(<strong>Feature point correspondences</strong>)</p>
+</blockquote>
+<p>但这两种方法都有局限性，后者虽然简单，但是不能完全利用所有的可利用信息，而前者同样也会有遗失特征点的可能性，但是要说这两种方法谁比较好，在缺乏全局的决策机制的情况下，现有的系统很难提供既灵活适应性又好的转化。</p>
+<p>本文基于这个现状提出了一个可选择的联合优化框架(同时匹配视觉的字和物体两个维度)，和一个贪心的随机化的可适应搜索程序(<strong>Greedy Randomized Adaptie Serarch Procedure</strong>(<strong>GRASP</strong>))来进行优化。</p>
+<h3 id="Approach"><a href="#Approach" class="headerlink" title="Approach"></a>Approach</h3><h4 id="Formalization-of-Recurring-Patterns"><a href="#Formalization-of-Recurring-Patterns" class="headerlink" title="Formalization of Recurring Patterns"></a>Formalization of Recurring Patterns</h4><p>首先单个循环模式及其组成成分开始，由下图所示：<br><img src="/2019/07/29/GRASP-Recurring-Patterns/2.png" alt=""><br>每个循环模式都至少有两个视觉物体，同样的，每个物体也都要求至少有两个不同的视觉字。这种定义一定程度上在最大化物体个数的同时能保证每个循环模式的唯一性。</p>
+<p>本文根据每个模式，搭建了一个矩阵，如上图(b)。</p>
+<h4 id="Visual-Word-Extraction"><a href="#Visual-Word-Extraction" class="headerlink" title="Visual Word Extraction"></a>Visual Word Extraction</h4><p>给定一系列特征点$\mathbf{F}=\left\{f_{i} | i=1, \ldots, K\right\}$，那一个视觉字$W$就是$F$的一个子集，且$W$中的所有特征点都有很强的外表上的相似性，那么如果用$v_{i}$表示规范化的$f_{i}$，那么本文就能将两个特征之间的规范化相似性算法定义为：</p>
+<script type="math/tex; mode=display">A(i, j)=\frac{v_{i}^{T} v_{j}-\operatorname{avg}\left\{v_{p}^{T} v_{q} | p, q=1,2, \ldots, K\right\}}{\operatorname{std}\left\{v_{p}^{T} v_{q} | p, q=1,2, \ldots, K\right\}}</script><p>那么每个$W$中的视觉字相似性为：</p>
+<script type="math/tex; mode=display">s_{\mathbf{W}}=\frac{1}{|\mathbf{W}|} \sum_{i, j \in \mathbf{W}} A(i, j)</script><p>先在$F$找一个最大A值的点加入到$W$, 然后再找能够增加上式的点加入到$W$中，直到找不到了，就将现有的$W$作为一个视觉字。</p>
+<h4 id="Object-Geometric-Affinity-and-a-Joint-Opti-mization-Problem"><a href="#Object-Geometric-Affinity-and-a-Joint-Opti-mization-Problem" class="headerlink" title="Object Geometric Affinity and a Joint Opti- mization Problem"></a>Object Geometric Affinity and a Joint Opti- mization Problem</h4>
       
     </div>
 
@@ -443,9 +466,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Representive-Network-Module/" rel="tag"># Representive Network Module</a>
+            <a href="/tags/Object-Detection/" rel="tag"># Object Detection</a>
           
-            <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+            <a href="/tags/Paper-Reading/" rel="tag"># Paper Reading</a>
           
         </div>
       
@@ -458,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/16/Hand-Pose-Estimation-5/" rel="next" title="Hand Pose Estimation(5)">
-                <i class="fa fa-chevron-left"></i> Hand Pose Estimation(5)
+              <a href="/2019/07/27/Object-Detection-5/" rel="next" title="Object Detection(5)">
+                <i class="fa fa-chevron-left"></i> Object Detection(5)
               </a>
             
           </div>
@@ -468,8 +491,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/17/Object-Detection-1/" rel="prev" title="Object Detection(1)">
-                Object Detection(1) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/31/训练网络之初体验-真/" rel="prev" title="训练网络之初体验(真)">
+                训练网络之初体验(真) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -631,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Usage-of-Siamese-Network"><span class="nav-number">2.</span> <span class="nav-text">The Usage of Siamese Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Usage-of-Pseudo-Siamese-Network"><span class="nav-number">3.</span> <span class="nav-text">The Usage of Pseudo-Siamese Network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loss"><span class="nav-number">4.</span> <span class="nav-text">Loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extend-of-Siamese-Network"><span class="nav-number">5.</span> <span class="nav-text">Extend of Siamese Network</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Approach"><span class="nav-number">2.</span> <span class="nav-text">Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Formalization-of-Recurring-Patterns"><span class="nav-number">2.1.</span> <span class="nav-text">Formalization of Recurring Patterns</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Visual-Word-Extraction"><span class="nav-number">2.2.</span> <span class="nav-text">Visual Word Extraction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-Geometric-Affinity-and-a-Joint-Opti-mization-Problem"><span class="nav-number">2.3.</span> <span class="nav-text">Object Geometric Affinity and a Joint Opti- mization Problem</span></a></li></ol></li></ol></div>
             
 
           </div>
