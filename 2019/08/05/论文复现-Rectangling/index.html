@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+
+
+  <meta name="description" content="由于各种各样的原因，上上周花了差不多一个星期复现一篇关于图形学的传统算法的论文，现在稍微闲下来了，想着还是要写一下笔记，毕竟也学习到了一些东西。 复现的这篇文章如下：  Paper: Rectangling Panoramic Images via Warping">
+<meta name="keywords" content="Paper Reading,Computer Graphics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文复现: Rectangling">
+<meta property="og:url" content="http://yoursite.com/2019/08/05/论文复现-Rectangling/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="由于各种各样的原因，上上周花了差不多一个星期复现一篇关于图形学的传统算法的论文，现在稍微闲下来了，想着还是要写一下笔记，毕竟也学习到了一些东西。 复现的这篇文章如下：  Paper: Rectangling Panoramic Images via Warping">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/论文复现-Rectangling/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/论文复现-Rectangling/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/论文复现-Rectangling/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/论文复现-Rectangling/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/论文复现-Rectangling/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/论文复现-Rectangling/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/论文复现-Rectangling/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/论文复现-Rectangling/8.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/论文复现-Rectangling/9.png">
+<meta property="og:updated_time" content="2019-08-05T10:41:52.613Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文复现: Rectangling">
+<meta name="twitter:description" content="由于各种各样的原因，上上周花了差不多一个星期复现一篇关于图形学的传统算法的论文，现在稍微闲下来了，想着还是要写一下笔记，毕竟也学习到了一些东西。 复现的这篇文章如下：  Paper: Rectangling Panoramic Images via Warping">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/05/论文复现-Rectangling/1.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/08/05/论文复现-Rectangling/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>论文复现: Rectangling | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/论文复现-Rectangling/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">论文复现: Rectangling
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-05 16:08:51 / Modified: 18:41:52" itemprop="dateCreated datePublished" datetime="2019-08-05T16:08:51+08:00">2019-08-05</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Paper-Reproducing/" itemprop="url" rel="index"><span itemprop="name">Paper Reproducing</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>由于各种各样的原因，上上周花了差不多一个星期复现一篇关于图形学的传统算法的论文，现在稍微闲下来了，想着还是要写一下笔记，毕竟也学习到了一些东西。</p>
+<p>复现的这篇文章如下：</p>
+<blockquote>
+<p>Paper: <a href="http://kaiminghe.com/publications/sig13pano.pdf" target="_blank" rel="noopener">Rectangling Panoramic Images via Warping</a></p>
+</blockquote>
+<a id="more"></a>
+<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><ul>
+<li>在大多数情况下，全景图在最原始的情况下是不规则的，可能是因为用相机拍照的时候手抖了，或者是用算法拼接的时候，结果本来就很难直接拼成矩形，所以全景图大部分都是非规则的。</li>
+<li>在<strong>Instagram</strong>或者<strong>Flickr</strong>上的受欢迎的全景图中，大部分都是矩形化的，可以发现矩形化的全景图更受欢迎。</li>
+<li>综上所述，将非规则的图片矩形规则化是一个很重要的课题。</li>
+</ul>
+<h3 id="Conventional-Method"><a href="#Conventional-Method" class="headerlink" title="Conventional Method"></a>Conventional Method</h3><ul>
+<li><strong>Crop</strong>: 最直接的办法就是直接从非规则的原图中尽可能的裁剪出最大的矩形，这种方法虽然简单，但是缺点也很明显：会遗失大量的信息。</li>
+<li><strong>Inpainting</strong>: 这是在<strong>Crop</strong>之后出现的算法，通过图像修复预测空白区域的图像本来应该是什么，在某些程度上能有很好的效果，但是有时候会出现<strong>Artifact</strong>的地方：如下图中右下角的半身所示：<img src="/2019/08/05/论文复现-Rectangling/1.png" alt=""></li>
+<li><strong>Warping</strong>: 然后就是本文所提出的这个方法，用变形的办法将非规则原图“拉”成矩形，这种办法的优点，其一，与其它办法相比来说，轻微的变形对于人眼来说不太明显，与对比度的显眼特征不同，其二，全景图本身就是有变形的效果，那么同用变形的办法在一定程度上会有好处，但是这种方法也会有难点，于是本文也提出了优化的地方。</li>
+</ul>
+<h3 id="Challenge"><a href="#Challenge" class="headerlink" title="Challenge"></a>Challenge</h3><ul>
+<li>第一点就是输入图片的边界不规则，那怎么把不同的规则规整为适合长宽比尺寸的矩形就是第一个难题。</li>
+<li>第二点就是即使图片变成矩形了，怎么保证其中的内容也能保持一定的形状呢？</li>
+</ul>
+<h3 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h3><p>本文主要用两个步骤来执行这个算法：</p>
+<h4 id="Local-Warp"><a href="#Local-Warp" class="headerlink" title="Local Warp"></a>Local Warp</h4><p>该算法主要采用了[Avidan and Shamir 2007]论文中的Seam Carving (以下称为<strong>SC</strong>) 算法，主要算法如下所示：<br><img src="/2019/08/05/论文复现-Rectangling/2.png" alt=""><br>首先根据图像的形状，画出要生成的图片的框(最高的像素的那一行就是图像的上边框，其它边框也是一样)，然后在所有的边上找到最长的一条空白边长，然后根据这个边长从原图中截取出子图，然后从子图中执行<strong>SC</strong>算法，即，根据能量图:<br><img src="/2019/08/05/论文复现-Rectangling/3.png" alt=""><br>其实就是梯度图(边缘检测：<strong>Sobel</strong>)，生成一条最小能量线(<strong>Seam</strong>)，然后朝着最长边长的那边将所有像素复制并移动一格，然后继续找最长边，就这样不停的迭代直到所有的像素都被填满了，就可以得到矩阵化的图片：<br><img src="/2019/08/05/论文复现-Rectangling/4.png" alt=""><br>可以看到，形状都畸变了，且有相当多的锯齿，效果很不好，不过不用担心，这肯定不是最后的结果，本文首先，根据该图和原图，生成每个像素的移动矩阵，然后在该图上防止一个标准的<strong>Grid</strong>网格，这个时候，将<strong>Grid</strong>根据移动矩阵<strong>Warp</strong>回去，网格的顶点也是要移动回去，就能得到一个在原图上的<strong>Grid</strong>网格：<br><img src="/2019/08/05/论文复现-Rectangling/5.png" alt=""><br>这个网格就是第一步所需要的结果。</p>
+<h4 id="Global-Warp"><a href="#Global-Warp" class="headerlink" title="Global Warp"></a>Global Warp</h4><p>由于这个网格一定程度上能将图像矩形化，所以这个网格有很大的作用，那么在这个网格的基础上，优化原图像，就是第二个算法的主要途径、<br>那第二个方法主要是通过赋予图像，其实是网格，一个能量值，通过最小化这个能量值，就能驱使原图像渐渐生成优化后的矩形图。</p>
+<h4 id="能量值设计的思路如下："><a href="#能量值设计的思路如下：" class="headerlink" title="能量值设计的思路如下："></a>能量值设计的思路如下：</h4><ul>
+<li><p>第一个便是<strong>Boundary Constraints</strong>，由于这个算法主要的还是矩形化图像，所以最重要的底线就是保持边界一定是矩形的，所以首先给予网格如下限制：出于左侧的所有网格顶点的纵坐标必须保持一致，上面的所有网格顶点的横坐标也必须保持一致，其他边也是。具体的方程如下所示：</p>
+<script type="math/tex; mode=display">
+E_{B}(\mathbf{V})=\sum_{\mathbf{v}_{i} \in \mathrm{L}} x_{i}^{2}+\sum_{\mathbf{v}_{i} \in \mathbb{R}}\left(x_{i}-w\right)^{2}+\sum_{\mathbf{v}_{i} \in \mathbb{T}} y_{i}^{2}+\sum_{\mathbf{v}_{i} \in \mathbf{B}}\left(y_{i}-h\right)^{2}</script></li>
+<li><p>第二个便是<strong>Shape Preservation</strong>，这个能量值的定义是从[Zhang et al. 2009]这篇论文里面得来的，其目的就是保持所有矩形块在优化前后不要有太大的变化，但是不同的是原算法中还要关注变形图的显著性物体的形状，所以会给予这些块一定的权重，但是对于全景图来说，没有所谓的显著性物体，所以没有特意设置权重。</p>
+<script type="math/tex; mode=display">
+E_{S}(\mathbf{V})=\frac{1}{N} \sum_{q}\left\|\left(A_{q}\left(A_{q}^{T} A_{q}\right)^{-1} A_{q}^{T}-I\right) \mathbf{V}_{q}\right\|^{2}</script><p>其中$N$是块的数量，$q$是块的系数，$I$是单位矩阵，$A_{q}$和${V}_{q}$如下所示：</p>
+<script type="math/tex; mode=display">
+A_{q}=\left[\begin{array}{cccc}{\hat{x}_{0}} & {-\hat{y}_{0}} & {1} & {0} \\ {\hat{y}_{0}} & {\hat{x}_{0}} & {0} & {1} \\ {\vdots} & {\vdots} & {\vdots} & {\vdots} \\ {\hat{x}_{3}} & {-\hat{y}_{3}} & {1} & {0} \\ {\hat{y}_{3}} & {\hat{x}_{3}} & {0} & {1}\end{array}\right] \quad, \quad \mathbf{V}_{q}=\left[\begin{array}{c}{x_{0}} \\ {y_{0}} \\ {\vdots} \\ {x_{3}} \\ {y_{3}}\end{array}\right]</script></li>
+<li><p>第三个能量值是<strong>Line Preservation</strong>，主要是从[Chang and Chuang 2012]论文中得来的算法，主要的目的就是让平行的线保持平行，让直线继续保持直直的(与原算法不一样的是不用保持倾斜角度不变)，而实现的途径，首先用<strong>LSD</strong>(<strong>LineSegmentDetection</strong>)算法检测出图片中的所有线，再用网格分割所有的线到各自的格子里面，再根据每个线的倾斜角度，将线分到预先设置的盒子里面(将180度均分50份)，通过在优化过程中，约束每个格子里的所有线保持一致的倾斜角度，就能一定程度上保证图像的线不变形了。</p>
+</li>
+</ul>
+<h3 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h3><p>优化过程如下，第一、二个矩阵不用实时更新，都可以直接计算，但是第三个不同，所以本文首先固定每个线的倾斜角度，计算优化之后的网格是怎样的，再根据优化之后的网格计算每个线的新的倾斜角度，然后再更新那50个装线的盒子中，每个盒子的平均倾斜角度(每个线的倾斜角度和其顶点满足一定的双线性插值关系)，再计算新的倾斜条件下，优化后的网格状况，不断迭代，就能得到更好的结果了。</p>
+<h3 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h3><p>本算法在<strong>Release</strong>版本下基本上普通的一张图只需要1000ms以内的时间就可以完成。<br>但是不是越优化，结果就越好，如下面两个图的比较：<br><img src="/2019/08/05/论文复现-Rectangling/6.png" alt=""><br><img src="/2019/08/05/论文复现-Rectangling/7.png" alt=""><br>上面那个是20次迭代，下面那个是100次迭代，可以发现20次迭代的效果还行，但是100次就完全不能看了。</p>
+<h3 id="Failure"><a href="#Failure" class="headerlink" title="Failure"></a>Failure</h3><p>每个算法都有它的<strong>Limitation</strong>，本算法也不例外，本算法在处理相机直出图像的时候，效果还好，但是在以下条件下会效果不太好：</p>
+<ul>
+<li>当然在场景没有被完全拍完的情况下，比如在一组要拼接的图片组中缺失了几张时，效果会不会。</li>
+<li>本文在非常凹的边界会变形的比较厉害，当然，算法使然：<br><img src="/2019/08/05/论文复现-Rectangling/8.png" alt=""><br>本文说可以将一部分白色没有照片的地方当场有照片的地方(强行变凸)，变形完后，再用图像修补(<strong>Image Completion</strong>)算法填补缺失的地方。<br><img src="/2019/08/05/论文复现-Rectangling/9.png" alt=""></li>
+<li>当一个块里面有过多的线的时候，本算法会有些力不从心，不能保持所有线的形状。</li>
+</ul>
+<h3 id="Comparison-in-Resizing"><a href="#Comparison-in-Resizing" class="headerlink" title="Comparison in Resizing"></a>Comparison in Resizing</h3><p>说到本文，最需要思考的就是，本文是第一个将变形(<strong>Warping</strong>)的思想用到矩形化(<strong>Rectangling</strong>)里面的，且本文引用的算法中<strong>SC</strong>算法和<strong>Shape Preservation</strong>算法的原论文都是做图像<strong>Resize</strong>的，它们分别从去除像素和变形的角度解决问题，那这两个思想在<strong>Resize</strong>这个问题下分别有哪些优点和缺点呢？(这真的是一个相当值得思考的问题)：</p>
+<h4 id="Seam-Carving"><a href="#Seam-Carving" class="headerlink" title="Seam Carving"></a>Seam Carving</h4><h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
+<li>首先就是这个算法是通过去除像素来实现的，那么首先最大的优点就是像本文里面用到的这样，能灵活的，将图像变形(正方形变圆形？)。</li>
+<li>其次就是本文是一个离散的一步一步根据当前的状态的形式，这就与一次性的优化的算法不同，一次性的优化就难免会造成特定区域过度优化，而其他区域欠优化。</li>
+<li>在处理整齐的图像或高度纹理化的图像的时候，<strong>SC</strong>算法比较有效</li>
+<li>由于<strong>SC</strong>算法在像素上允许算法有高度的灵活性，所以基于这个算法，还能基于这个算法有很多其它的用途，比如目标消除(<strong>Object Removal</strong>)。</li>
+</ul>
+<h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h5><ul>
+<li>首先这个算法相比<strong>Warping</strong>来说，它执行比较慢。</li>
+<li>其实，该算法的离散的性质在一定程度上也算是缺点，会导致结果的边缘有明显的锯齿状，会去掉边缘的一部分。</li>
+<li>当然，在图像存在很多线型形状的时候，效果就完全不行了。</li>
+<li>当一张图片的显著性物体的宽比目标图像的宽长的时候，本算法不能很好的应对，效果很差，锯齿很明显(当然了，要去除很多的边缘像素)。</li>
+</ul>
+<h4 id="Warping"><a href="#Warping" class="headerlink" title="Warping"></a>Warping</h4><h5 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h5><ul>
+<li>在处理目标物体有很明显的结构的时候相对于<strong>SC</strong>算法很有效</li>
+<li>执行速度快。</li>
+<li>执行结果能很好的保持边缘信息，能应对线型物体较多的情况。</li>
+</ul>
+<h5 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h5><ul>
+<li>相对于<strong>SC</strong>算法，该算法的应用可能没有那么多。</li>
+<li>因为本算法的限制大都是软限制，所以可能不能很好地保持线的形状，</li>
+</ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li>AVIDAN, S., AND SHAMIR, A. 2007. Seam carving for content- aware image resizing. In SIGGRAPH 2007.</li>
+<li>ZHANG, G., CHENG, M., HU, S., AND MARTIN, R. 2009. A shape- preserving approach to image resizing. In Computer Graphics Forum, Wiley Online Library, 1897–1906.</li>
+<li>CHANG, C.-H., AND CHUANG, Y.-Y. 2012. A line-structure- preserving approach to image resizing. In IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 1075 –1082.</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Paper-Reading/" rel="tag"># Paper Reading</a>
+          
+            <a href="/tags/Computer-Graphics/" rel="tag"># Computer Graphics</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/31/训练网络之初体验-真/" rel="next" title="训练网络之初体验(真)">
+                <i class="fa fa-chevron-left"></i> 训练网络之初体验(真)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conventional-Method"><span class="nav-number">2.</span> <span class="nav-text">Conventional Method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Challenge"><span class="nav-number">3.</span> <span class="nav-text">Challenge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method"><span class="nav-number">4.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-Warp"><span class="nav-number">4.1.</span> <span class="nav-text">Local Warp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Global-Warp"><span class="nav-number">4.2.</span> <span class="nav-text">Global Warp</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#能量值设计的思路如下："><span class="nav-number">4.3.</span> <span class="nav-text">能量值设计的思路如下：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimization"><span class="nav-number">5.</span> <span class="nav-text">Optimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Results"><span class="nav-number">6.</span> <span class="nav-text">Results</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Failure"><span class="nav-number">7.</span> <span class="nav-text">Failure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparison-in-Resizing"><span class="nav-number">8.</span> <span class="nav-text">Comparison in Resizing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Seam-Carving"><span class="nav-number">8.1.</span> <span class="nav-text">Seam Carving</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点"><span class="nav-number">8.1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点："><span class="nav-number">8.1.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Warping"><span class="nav-number">8.2.</span> <span class="nav-text">Warping</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#优点："><span class="nav-number">8.2.1.</span> <span class="nav-text">优点：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缺点：-1"><span class="nav-number">8.2.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-number">9.</span> <span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
