@@ -104,7 +104,11 @@
 <meta property="og:description" content="虽然想要做的事情太多，但是还是要踏踏实实的学，近来准备把几本书陆陆续续都看完，但是如果只是看的话，实在是容易走神，所以打算看书也用记笔记的形式好了，这里的笔记不会很详细，大都只是对个人认为重要的章节的一点总结和记录。 今天准备开始看的这本书叫《机器学习实战》，之前看过一遍西瓜书，所以这本书应该不会花很长时间。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/08/30/读书笔记-机器学习实战/4.1.png">
-<meta property="og:updated_time" content="2019-08-30T10:03:05.170Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/30/读书笔记-机器学习实战/5.1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/30/读书笔记-机器学习实战/5.2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/30/读书笔记-机器学习实战/5.2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/30/读书笔记-机器学习实战/6.2.png">
+<meta property="og:updated_time" content="2019-09-01T10:35:23.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记-机器学习实战">
 <meta name="twitter:description" content="虽然想要做的事情太多，但是还是要踏踏实实的学，近来准备把几本书陆陆续续都看完，但是如果只是看的话，实在是容易走神，所以打算看书也用记笔记的形式好了，这里的笔记不会很详细，大都只是对个人认为重要的章节的一点总结和记录。 今天准备开始看的这本书叫《机器学习实战》，之前看过一遍西瓜书，所以这本书应该不会花很长时间。">
@@ -360,13 +364,23 @@
                 
               
 
-              <time title="Created: 2019-08-30 13:48:50 / Modified: 18:03:05" itemprop="dateCreated datePublished" datetime="2019-08-30T13:48:50+08:00">2019-08-30</time>
+              <time title="Created: 2019-08-30 13:48:50" itemprop="dateCreated datePublished" datetime="2019-08-30T13:48:50+08:00">2019-08-30</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-09-01 18:35:23" itemprop="dateModified" datetime="2019-09-01T18:35:23+08:00">2019-09-01</time>
+              </span>
             
           
 
@@ -477,7 +491,66 @@ p\left(c_{i} | x, y\right)=\frac{p\left(x, y | c_{i}\right) p\left(c_{i}\right)}
 p\left(c_{i} | w\right)=\frac{p\left(w | c_{i}\right) p\left(c_{i}\right)}{p(w)}</script><p>这里的w是一个向量，由多个数值组成(个数等于词汇表中的词个数)，这里用<strong>朴素</strong>贝叶斯假设，即特征相互独立，即可用$p\left(w_{0} | c_{1}\right) p\left(w_{1} | c_{1}\right) p\left(w_{2} | c_{1}\right) \dots p\left(w_{n} | c_{1}\right)$表示$\mathbf{p}\left(\mathbf{w}_{0}, w_{1}, w_{2}, \dots w_{n} | \mathbf{c}_{1}\right)$</p>
 <h3 id="4-5-3-测试算法：根据现实情况修改分类器"><a href="#4-5-3-测试算法：根据现实情况修改分类器" class="headerlink" title="4.5.3 测试算法：根据现实情况修改分类器"></a>4.5.3 测试算法：根据现实情况修改分类器</h3><p>计算$p\left(w_{0} | c_{1}\right) p\left(w_{1} | c_{1}\right) p\left(w_{2} | c_{1}\right) \dots p\left(w_{n} | c_{1}\right)$时，若其中一个概率值为0，最后结果也为0了，为减低这种影响，可初始化为1，并将分母初始化为2。<br>另一问题是下溢出，因为太多很小的数相乘，所以会下溢出或得到不正确的答案。一种解决办法是对乘积取自然对数，而由于$f(x)$与$\ln (f(x))$在相同区域内同增同减，并在相同点上取到极值，它们虽然取值不同，但不影响最终结果。</p>
 <h3 id="4-8-本章小结"><a href="#4-8-本章小结" class="headerlink" title="4.8 本章小结"></a>4.8 本章小结</h3><p>对于分类而言，使用概率要比硬规则更有效，而贝叶斯准则提供了一种利用已知值来估计未知概率的有效方法。<br>尽管条件独立性假设并不正确，但是朴素贝叶斯仍然是一种有效的分类器。  </p>
-<h2 id="第五章-Logistic回归"><a href="#第五章-Logistic回归" class="headerlink" title="第五章 Logistic回归"></a>第五章 Logistic回归</h2>
+<h2 id="第五章-Logistic回归"><a href="#第五章-Logistic回归" class="headerlink" title="第五章 Logistic回归"></a>第五章 Logistic回归</h2><p>从这一章开始，将接触到最优化算法。<br>而至于回归，假设现在有一些数据点，我们用一条直线对这些点进行拟合（该线称为最佳拟合直线），这个拟合过程就称作回归。<br>而利用 <strong>Logistic</strong> 回归进行分类的主要思想即：根据现有数据对分类边界线建立回归公式，以此进行分类。这里的回归源于最佳拟合，表示要找到最佳拟合参数集。</p>
+<p>一般流程：  </p>
+<blockquote>
+<p>收集数据：采用任意方法收集数据。<br>准备数据：由于需要进行距离计算，因此要求数据类型为数值型。且结构化数据格式则最佳。<br>分析数据：采用任意方法对数据进行分析。<br>训练算法：大部分时间将用于训练，目的是为了找到最佳的分类回归系数。<br>测试算法：一旦训练步骤完成，分类将会很快。<br>使用算法：首先，需要输入一些数据，并将其转换成对应的结构化数值；接着基于训练好的回归系数就可以对这些数值进行简单的回归计算，判定它们属于哪个类别；在这之后，我们就可以在输出的类别上做一些其他分析工作。</p>
+</blockquote>
+<h3 id="5-1-基于-Logistic-回归和-Sigmoid-函数的分类"><a href="#5-1-基于-Logistic-回归和-Sigmoid-函数的分类" class="headerlink" title="5.1 基于 Logistic 回归和 Sigmoid 函数的分类"></a>5.1 基于 Logistic 回归和 Sigmoid 函数的分类</h3><p><strong>Logistic</strong> 回归</p>
+<blockquote>
+<p>优点：计算代价不高，易于理解和实现。<br>缺点：容易欠拟合，分类精度可能不高。<br>使用数据类型：数值型和标称型数据。</p>
+</blockquote>
+<p>需要的函数是，能接受所有的输入，然后预测出类别(eg. 两个类)，输出0或1，比如海维赛德阶跃函数(单位阶跃函数)，但是若在跳跃点直接从0跳到1，这不太好处理，所以可以用 <strong>Sigmoid</strong> 函数：</p>
+<script type="math/tex; mode=display">
+\sigma(z)=\frac{1}{1+\mathrm{e}^{-z}}</script><p>其特性如下所示：<br><img src="/2019/08/30/读书笔记-机器学习实战/5.1.png" alt=""><br>确定了分类器的函数形式后，就要确定最佳回归系数了。</p>
+<h3 id="5-2-基于最优化方法的最佳回归系数确定"><a href="#5-2-基于最优化方法的最佳回归系数确定" class="headerlink" title="5.2 基于最优化方法的最佳回归系数确定"></a>5.2 基于最优化方法的最佳回归系数确定</h3><p>记 <strong>Sigmoid</strong> 函数的输入记为z，可由以下公式得出：</p>
+<script type="math/tex; mode=display">
+z=w_{0} x_{0}+w_{1} x_{1}+w_{2} x_{2}+\cdots+w_{n} x_{n}</script><p>如果用向量的写法，就可以为$z=w^{T} x$，其中x为分类器的输入数据，向量w就是要找的最佳参数。</p>
+<h4 id="5-2-1-梯度上升法"><a href="#5-2-1-梯度上升法" class="headerlink" title="5.2.1 梯度上升法"></a>5.2.1 梯度上升法</h4><p>主要思想：要找到某函数的最大值，最好的方法是沿着该函数的梯度方向探寻。若梯度记为$\nabla$，则函数$f(x, y)$的梯度可为：</p>
+<script type="math/tex; mode=display">
+\nabla f(x, y)=\left(\begin{array}{c}{\frac{\partial f(x, y)}{\partial x}} \\ {\frac{\partial f(x, y)}{\partial y}}\end{array}\right)</script><p>这个梯度的意思就是要沿着x的方向移动$\frac{\partial f(x, y)}{\partial x}$，沿y的方向移动$\frac{\partial f(x, y)}{\partial y}$。其中函数$f(x, y)$必须要在待计算的点上有定义并且可微：<br><img src="/2019/08/30/读书笔记-机器学习实战/5.2.png" alt=""></p>
+<p>可由上图发现，梯度算子总是指向函数值增长最快的方向，而至于移动量的大小，该量值称为步长，记做$\alpha$。用向量来表示，即梯度算法的迭代公式如下：</p>
+<script type="math/tex; mode=display">
+w=w+a \nabla_{w} f(w)</script><p>一直执行迭代，直到某个停止条件为止，比如迭代数达到某个指定值或算法达到某个可以允许的误差范围。</p>
+<blockquote>
+<p>至于梯度下降算法：<br>相反是用来求函数的最小值，$w=w-a \nabla_{w} f(w)$</p>
+</blockquote>
+<h3 id="5-2-2-训练算法：使用梯度上升找到最佳参数"><a href="#5-2-2-训练算法：使用梯度上升找到最佳参数" class="headerlink" title="5.2.2 训练算法：使用梯度上升找到最佳参数"></a>5.2.2 训练算法：使用梯度上升找到最佳参数</h3><p>伪代码如下：</p>
+<blockquote>
+<p>每个回归系数初始化为1<br>重复R次：<br>        计算整个数据集的梯度<br>        使用alpha * gradient更新回归系数的向量<br>        返回回归系数</p>
+</blockquote>
+<h3 id="5-2-4-训练算法：随机梯度上升"><a href="#5-2-4-训练算法：随机梯度上升" class="headerlink" title="5.2.4 训练算法：随机梯度上升"></a>5.2.4 训练算法：随机梯度上升</h3><p>由已知，梯度上升算法在每次更新回归系数时，都需要遍历整个数据集，这在数据集很大时，太不现实了，其中一种改进方法是一次仅用一个样本点来更新回归系数，称为随机梯度上升算法。这样的话，可以在新样本到来时对分类器进行增量式更新，因此随机梯度上升算法是一个在线学习算法。与之对应，一次处理所有数据被称为是“批处理”。<br>随机梯度上升算法：</p>
+<blockquote>
+<p>所有回归系数初始化为1<br>对数据集中每个样本<br>        计算该样本的梯度<br>        使用alpha*gradient更新回归系数值<br>返回回归系数值<br>迭代过程中，局部系数的变化如下所示：<br><img src="/2019/08/30/读书笔记-机器学习实战/5.2.png" alt=""></p>
+</blockquote>
+<p>有些系数很快收敛，有些不是，且大的波动停止后，还有一些小的周期性波动，显然，因为数据集并非线性可分，有一些不能正确分类的样本点，所以每次迭代时会引发系数的剧烈改变。</p>
+<p>所以有了改进的随机梯度上升算法：</p>
+<blockquote>
+<p>一方面，<strong>alpha</strong> 在每次迭代的时候都会调整（由迭代次数，样本下标决定），这能减少高配波动。</p>
+<script type="math/tex; mode=display">
+\text { alpha }=4 /(1.0+3+i)+0.01</script><p>虽然 <strong>alpha</strong> 在减少，但是始终在一个阈值之上，来保证在多次迭代之后，新数据仍有一定的影响。<br>另一方面，通过随机选取样本来更新回归函数，这将减少周期性的波动</p>
+</blockquote>
+<h3 id="5-4-本章小结"><a href="#5-4-本章小结" class="headerlink" title="5.4 本章小结"></a>5.4 本章小结</h3><p><strong>Logistic</strong> 回归的目的是找到一个非线性的函数 <strong>Sigmoid</strong> 的最佳拟合函数，求解时，可以用最优化算法来完成，其中最常用的是梯度上升算法，而它又可以简化为随机梯度上升算法。其效果相当，但是占用更少资源，且其为一个在线算法，可以在新数据到来时就完成参数更新。</p>
+<h2 id="第六章-支持向量机"><a href="#第六章-支持向量机" class="headerlink" title="第六章 支持向量机"></a>第六章 支持向量机</h2><p>有些人认为，SVM是最好的现成的分类器，因为它不加修改即可直接使用。同时也意味着在数据上应用基本形式的SVM分类器就可以得到低错误率的结果。对训练集之外的数据点做出很好的分类决策。</p>
+<h3 id="6-1-基于最大间隔分割数据"><a href="#6-1-基于最大间隔分割数据" class="headerlink" title="6.1 基于最大间隔分割数据"></a>6.1 基于最大间隔分割数据</h3><blockquote>
+<p>优点：泛化错误率低，计算开销不大，结果易解释。<br>缺点：对参数调节和核函数的选择敏感，原始分类器不加修改仅适用于处理二类问题。<br>适用数据类型：数值型和标称型数据。</p>
+</blockquote>
+<p>将数据集分隔开的直线称为<strong>分割超平面</strong>，当然，这是由于数据点都在二维平面上，若数据集是1024维，就需要一个1023维的某某对象来对数据进行分割。该对象就是<strong>超平面</strong>(<strong>hyperplane</strong>)，就是分类的决策界面。<br>现在就是基于这样的方式来构建分类器，即若数据点离决策边界越远，则其预测结果就越可信。<br><img src="/2019/08/30/读书笔记-机器学习实战/6.2.png" alt=""><br>由上图，三条直线都能将它分开，但是哪个最好呢，但是如果用最小化数据点到分割超平面的平均距离，这就又和寻找最佳拟合直线一样了，但这并不是最佳方案，这里希望找到离分割超平面最近的点，确保它们离分割面的距离尽可能远，这个距离被称为<strong>间隔</strong>(<strong>margin</strong>)。目的就是间隔尽可能大。<br><strong>支持向量</strong>(<strong>support vector</strong>)，就是离分割超平面最近的那些点，那么接下来就要试着最大化支持向量到分割面的距离。</p>
+<h3 id="6-2-寻找最大间隔"><a href="#6-2-寻找最大间隔" class="headerlink" title="6.2 寻找最大间隔"></a>6.2 寻找最大间隔</h3><p>由已知分割超平面可以写为$w^{T} \mathbf{x}+b$，b就是截距，所以向量w和常数b就一起描述了所给数据的分割线或超平面。</p>
+<h3 id="6-2-1-分类器求解的优化问题"><a href="#6-2-1-分类器求解的优化问题" class="headerlink" title="6.2.1 分类器求解的优化问题"></a>6.2.1 分类器求解的优化问题</h3><p>与 <strong>Logistic</strong> 回归不同，它使用海维赛德阶跃函数的函数来处理，当u&lt;0，f(u)输出-1，反之输出+1，而不是0或1，这样方便处理（用label * $w^{T} \mathbf{x}+b$来计算）。<br>现在的目标就是找出分类器定义中的w和b，所以要找到具有最小间隔的数据点，即支持向量，一旦找到了，就需要对该间隔最大化:</p>
+<script type="math/tex; mode=display">
+\arg \max _{w, b}\left\{\min _{n}\left(\operatorname{label} \cdot\left(\boldsymbol{w}^{\mathrm{T}} \boldsymbol{x}+b\right)\right) \cdot \frac{1}{\|\boldsymbol{w}\|}\right\}</script><p>而为了最大化以上公式，可以是固定其中一个因子而最大化其他因子。比如令所有支持向量的$\text { Iabel } <em>\left(w^{</em>} x+b\right)$都为1，但是这不太现实，所以可以给定一些约束条件然后求最优值，所以是一个带约束条件的优化问题，这里的约束条件就是$\text { label } *\left(w^{\prime} x+b\right) \geqslant 1.0$，对于这类优化问题，可引入拉格朗日乘子，由于这里的约束条件都是基于数据点的，因此我们可以将超平面写成数据点的形式：</p>
+<script type="math/tex; mode=display">
+\max _{\alpha}\left[\sum_{i=1}^{m} \alpha-\frac{1}{2} \sum_{i, j=1}^{m} \operatorname{label}^{(i)} \cdot \operatorname{label}^{(j)} \cdot a_{i} \cdot a_{j}\left\langle x^{(i)}, x^{(j)}\right\rangle\right]</script><p>尖括号表示两个向量的内积。<br>约束条件为：</p>
+<script type="math/tex; mode=display">
+\alpha \geqslant 0, \sum_{i=1}^{m} \alpha_{i} \cdot \operatorname{label}^{(i)}=0</script><p>但是以上方程有一个假设：数据必须100%线性可分，但是这也是不可能的，这时就要引入松弛变量(slack variable)，来允许部分数据点错误，这时变为</p>
+<script type="math/tex; mode=display">
+C \geqslant \alpha \geqslant 0, \sum_{i=1}^{m} \alpha_{i} \cdot \operatorname{label}^{(i)}=0</script><p>常数C用于控制“最大化间隔”及“保证大部分点的函数间隔小于1.0”这两个目标的权重。</p>
+<h3 id="6-2-2-SVM应用的一般框架"><a href="#6-2-2-SVM应用的一般框架" class="headerlink" title="6.2.2 SVM应用的一般框架"></a>6.2.2 SVM应用的一般框架</h3><p>SVM的一般流程：</p>
+<blockquote>
+<p>收集数据：任意方法。<br>准备数据：需要数值型数据。<br>分析数据：有助于可视化分隔超平面。<br>训练算法：SVM的大部分时间都源自训练，该过程主要实现两个参数的调优。<br>测试算法：十分简单的计算过程就可以实现。<br>使用算法：几乎所有分类问题都可以使用SVM，其实它本身是一个二类分类器，对多类问题应用SVM需要对代码做一些修改。</p>
+</blockquote>
+<h3 id="6-3-SMO高效优化算法"><a href="#6-3-SMO高效优化算法" class="headerlink" title="6.3 SMO高效优化算法"></a>6.3 SMO高效优化算法</h3>
       
     </div>
 
@@ -707,7 +780,7 @@ p\left(c_{i} | w\right)=\frac{p\left(w | c_{i}\right) p\left(c_{i}\right)}{p(w)}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分类"><span class="nav-number">1.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-机器学习基础"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 机器学习基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-何谓机器学习"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 何谓机器学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-k-近邻算法"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 k-近邻算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-k-近邻算法概述"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 k-近邻算法概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-本章小结"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.4 本章小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章-决策树"><span class="nav-number">1.3.</span> <span class="nav-text">第三章 决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-决策树的构造"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 决策树的构造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-信息增益"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.1.1 信息增益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-划分数据集"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.1.2 划分数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-3-递归构建决策树"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.1.3 递归构建决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-在Python中使用Matplotlib注释绘制树形图"><span class="nav-number">1.3.5.</span> <span class="nav-text">3.2 在Python中使用Matplotlib注释绘制树形图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-示例：使用决策树预测隐形眼镜类型"><span class="nav-number">1.3.6.</span> <span class="nav-text">3.4 示例：使用决策树预测隐形眼镜类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-本章小结"><span class="nav-number">1.3.7.</span> <span class="nav-text">3.5 本章小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四章-基于概率论的分类方法：朴素贝叶斯"><span class="nav-number">1.4.</span> <span class="nav-text">第四章 基于概率论的分类方法：朴素贝叶斯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-基于贝叶斯决策理论的分类方法"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 基于贝叶斯决策理论的分类方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-条件概率"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 条件概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-使用条件概率来分类"><span class="nav-number">1.4.3.</span> <span class="nav-text">4.3 使用条件概率来分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-使用朴素贝叶斯进行文档分类"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.4 使用朴素贝叶斯进行文档分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-使用Python进行文本分类"><span class="nav-number">1.4.5.</span> <span class="nav-text">4.5 使用Python进行文本分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-2-训练方法：从词向量计算概率"><span class="nav-number">1.4.6.</span> <span class="nav-text">4.5.2 训练方法：从词向量计算概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-3-测试算法：根据现实情况修改分类器"><span class="nav-number">1.4.7.</span> <span class="nav-text">4.5.3 测试算法：根据现实情况修改分类器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-本章小结"><span class="nav-number">1.4.8.</span> <span class="nav-text">4.8 本章小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五章-Logistic回归"><span class="nav-number">1.5.</span> <span class="nav-text">第五章 Logistic回归</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分类"><span class="nav-number">1.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-机器学习基础"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 机器学习基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-何谓机器学习"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 何谓机器学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-k-近邻算法"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 k-近邻算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-k-近邻算法概述"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 k-近邻算法概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-本章小结"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.4 本章小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章-决策树"><span class="nav-number">1.3.</span> <span class="nav-text">第三章 决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-决策树的构造"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 决策树的构造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-信息增益"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.1.1 信息增益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-划分数据集"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.1.2 划分数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-3-递归构建决策树"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.1.3 递归构建决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-在Python中使用Matplotlib注释绘制树形图"><span class="nav-number">1.3.5.</span> <span class="nav-text">3.2 在Python中使用Matplotlib注释绘制树形图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-示例：使用决策树预测隐形眼镜类型"><span class="nav-number">1.3.6.</span> <span class="nav-text">3.4 示例：使用决策树预测隐形眼镜类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-本章小结"><span class="nav-number">1.3.7.</span> <span class="nav-text">3.5 本章小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四章-基于概率论的分类方法：朴素贝叶斯"><span class="nav-number">1.4.</span> <span class="nav-text">第四章 基于概率论的分类方法：朴素贝叶斯</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-基于贝叶斯决策理论的分类方法"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 基于贝叶斯决策理论的分类方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-条件概率"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 条件概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-使用条件概率来分类"><span class="nav-number">1.4.3.</span> <span class="nav-text">4.3 使用条件概率来分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-使用朴素贝叶斯进行文档分类"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.4 使用朴素贝叶斯进行文档分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-使用Python进行文本分类"><span class="nav-number">1.4.5.</span> <span class="nav-text">4.5 使用Python进行文本分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-2-训练方法：从词向量计算概率"><span class="nav-number">1.4.6.</span> <span class="nav-text">4.5.2 训练方法：从词向量计算概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-3-测试算法：根据现实情况修改分类器"><span class="nav-number">1.4.7.</span> <span class="nav-text">4.5.3 测试算法：根据现实情况修改分类器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-本章小结"><span class="nav-number">1.4.8.</span> <span class="nav-text">4.8 本章小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五章-Logistic回归"><span class="nav-number">1.5.</span> <span class="nav-text">第五章 Logistic回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-基于-Logistic-回归和-Sigmoid-函数的分类"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1 基于 Logistic 回归和 Sigmoid 函数的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-基于最优化方法的最佳回归系数确定"><span class="nav-number">1.5.2.</span> <span class="nav-text">5.2 基于最优化方法的最佳回归系数确定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-梯度上升法"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">5.2.1 梯度上升法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-2-训练算法：使用梯度上升找到最佳参数"><span class="nav-number">1.5.3.</span> <span class="nav-text">5.2.2 训练算法：使用梯度上升找到最佳参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-4-训练算法：随机梯度上升"><span class="nav-number">1.5.4.</span> <span class="nav-text">5.2.4 训练算法：随机梯度上升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-本章小结"><span class="nav-number">1.5.5.</span> <span class="nav-text">5.4 本章小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第六章-支持向量机"><span class="nav-number">1.6.</span> <span class="nav-text">第六章 支持向量机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-基于最大间隔分割数据"><span class="nav-number">1.6.1.</span> <span class="nav-text">6.1 基于最大间隔分割数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-寻找最大间隔"><span class="nav-number">1.6.2.</span> <span class="nav-text">6.2 寻找最大间隔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-1-分类器求解的优化问题"><span class="nav-number">1.6.3.</span> <span class="nav-text">6.2.1 分类器求解的优化问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-2-SVM应用的一般框架"><span class="nav-number">1.6.4.</span> <span class="nav-text">6.2.2 SVM应用的一般框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-SMO高效优化算法"><span class="nav-number">1.6.5.</span> <span class="nav-text">6.3 SMO高效优化算法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
