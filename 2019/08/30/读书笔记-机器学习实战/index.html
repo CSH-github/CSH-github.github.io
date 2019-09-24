@@ -130,7 +130,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/30/读书笔记-机器学习实战/14.1.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/30/读书笔记-机器学习实战/14.2.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/30/读书笔记-机器学习实战/15.1.png">
-<meta property="og:updated_time" content="2019-09-24T01:00:16.342Z">
+<meta property="og:updated_time" content="2019-09-24T01:29:17.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记-机器学习实战">
 <meta name="twitter:description" content="虽然想要做的事情太多，但是还是要踏踏实实的学，近来准备把几本书陆陆续续都看完，但是如果只是看的话，实在是容易走神，所以打算看书也用记笔记的形式好了，这里的笔记不会很详细，大都只是对个人认为重要的章节的一点总结和记录。 今天准备开始看的这本书叫《机器学习实战》，之前看过一遍西瓜书，所以这本书应该不会花很长时间。">
@@ -401,7 +401,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-24 09:00:16" itemprop="dateModified" datetime="2019-09-24T09:00:16+08:00">2019-09-24</time>
+                <time title="Modified: 2019-09-24 09:29:17" itemprop="dateModified" datetime="2019-09-24T09:29:17+08:00">2019-09-24</time>
               </span>
             
           
@@ -551,7 +551,7 @@ w=w+a \nabla_{w} f(w)</script><p>一直执行迭代，直到某个停止条件�
 <blockquote>
 <p>一方面，<strong>alpha</strong> 在每次迭代的时候都会调整（由迭代次数，样本下标决定），这能减少高配波动。</p>
 <script type="math/tex; mode=display">
-\text { alpha }=4 /(1.0+3+i)+0.01</script><p>虽然 <strong>alpha</strong> 在减少，但是始终在一个阈值之上，来保证在多次迭代之后，新数据仍有一定的影响。<br>另一方面，通过随机选取样本来更新回归函数，这将减少周期性的波动</p>
+\text { \alpha }=4 /(1.0+3+i)+0.01</script><p>虽然 <strong>alpha</strong> 在减少，但是始终在一个阈值之上，来保证在多次迭代之后，新数据仍有一定的影响。<br>另一方面，通过随机选取样本来更新回归函数，这将减少周期性的波动</p>
 </blockquote>
 <h3 id="5-4-本章小结"><a href="#5-4-本章小结" class="headerlink" title="5.4 本章小结"></a>5.4 本章小结</h3><p><strong>Logistic</strong> 回归的目的是找到一个非线性的函数 <strong>Sigmoid</strong> 的最佳拟合函数，求解时，可以用最优化算法来完成，其中最常用的是梯度上升算法，而它又可以简化为随机梯度上升算法。其效果相当，但是占用更少资源，且其为一个在线算法，可以在新数据到来时就完成参数更新。</p>
 <h2 id="第六章-支持向量机-support-vector-machines"><a href="#第六章-支持向量机-support-vector-machines" class="headerlink" title="第六章 支持向量机(support vector machines)"></a>第六章 支持向量机(support vector machines)</h2><p>有些人认为，SVM是最好的现成的分类器，因为它不加修改即可直接使用。同时也意味着在数据上应用基本形式的SVM分类器就可以得到低错误率的结果。对训练集之外的数据点做出很好的分类决策。</p>
@@ -562,7 +562,7 @@ w=w+a \nabla_{w} f(w)</script><p>一直执行迭代，直到某个停止条件�
 <h3 id="6-2-寻找最大间隔"><a href="#6-2-寻找最大间隔" class="headerlink" title="6.2 寻找最大间隔"></a>6.2 寻找最大间隔</h3><p>由已知分割超平面可以写为$w^{T} \mathbf{x}+b$，b就是截距，所以向量w和常数b就一起描述了所给数据的分割线或超平面。</p>
 <h4 id="6-2-1-分类器求解的优化问题"><a href="#6-2-1-分类器求解的优化问题" class="headerlink" title="6.2.1 分类器求解的优化问题"></a>6.2.1 分类器求解的优化问题</h4><p>与 <strong>Logistic</strong> 回归不同，它使用海维赛德阶跃函数的函数来处理，当u&lt;0，f(u)输出-1，反之输出+1，而不是0或1，这样方便处理（用label * $w^{T} \mathbf{x}+b$来计算）。<br>现在的目标就是找出分类器定义中的w和b，所以要找到具有最小间隔的数据点，即支持向量，一旦找到了，就需要对该间隔最大化:</p>
 <script type="math/tex; mode=display">
-\arg \max _{w, b}\left\{\min _{n}\left(\operatorname{label} \cdot\left(\boldsymbol{w}^{\mathrm{T}} \boldsymbol{x}+b\right)\right) \cdot \frac{1}{\|\boldsymbol{w}\|}\right\}</script><p>而为了最大化以上公式，可以是固定其中一个因子而最大化其他因子。比如令所有支持向量的$\text { Iabel } <em>\left(w^{</em>} x+b\right)$都为1，但是这不太现实，所以可以给定一些约束条件然后求最优值，所以是一个带约束条件的优化问题，这里的约束条件就是$\text { label } *\left(w^{\prime} x+b\right) \geqslant 1.0$，对于这类优化问题，可引入拉格朗日乘子，由于这里的约束条件都是基于数据点的，因此我们可以将超平面写成数据点的形式：</p>
+\arg \max _{w, b}\left\{\min _{n}\left(\operatorname{label} \cdot\left(\boldsymbol{w}^{\mathrm{T}} \boldsymbol{x}+b\right)\right) \cdot \frac{1}{\|\boldsymbol{w}\|}\right\}</script><p>而为了最大化以上公式，可以是固定其中一个因子而最大化其他因子。比如令所有支持向量的<br>Label $<em>\left(w^{</em>} x+b\right)$都为1，但是这不太现实，所以可以给定一些约束条件然后求最优值，所以是一个带约束条件的优化问题，这里的约束条件就是Label $*\left(w^{\prime} x+b\right) \geqslant 1.0$，对于这类优化问题，可引入拉格朗日乘子，由于这里的约束条件都是基于数据点的，因此我们可以将超平面写成数据点的形式：</p>
 <script type="math/tex; mode=display">
 \max _{\alpha}\left[\sum_{i=1}^{m} \alpha-\frac{1}{2} \sum_{i, j=1}^{m} \operatorname{label}^{(i)} \cdot \operatorname{label}^{(j)} \cdot a_{i} \cdot a_{j}\left\langle x^{(i)}, x^{(j)}\right\rangle\right]</script><p>尖括号表示两个向量的内积。<br>约束条件为：</p>
 <script type="math/tex; mode=display">
@@ -574,9 +574,9 @@ C \geqslant \alpha \geqslant 0, \sum_{i=1}^{m} \alpha_{i} \cdot \operatorname{la
 <p>收集数据：任意方法。<br>准备数据：需要数值型数据。<br>分析数据：有助于可视化分隔超平面。<br>训练算法：SVM的大部分时间都源自训练，该过程主要实现两个参数的调优。<br>测试算法：十分简单的计算过程就可以实现。<br>使用算法：几乎所有分类问题都可以使用SVM，其实它本身是一个二类分类器，对多类问题应用SVM需要对代码做一些修改。</p>
 </blockquote>
 <h3 id="6-3-SMO高效优化算法"><a href="#6-3-SMO高效优化算法" class="headerlink" title="6.3 SMO高效优化算法"></a>6.3 SMO高效优化算法</h3><p>现在的目的是对上面提出的两个公式进行优化：最小化的目标函数和在优化过程中必须遵循的约束条件。</p>
-<h4 id="6-3-1-Platt的SMO算法"><a href="#6-3-1-Platt的SMO算法" class="headerlink" title="6.3.1 Platt的SMO算法"></a>6.3.1 Platt的SMO算法</h4><p>SMO表示序列最优化(Squential Minimal Optimization)，而 <strong>Platt</strong> 的 <strong>SMO</strong> 算法是将大优化问题分解为多个小优化问题来求解，其结果不变且小优化问题往往很容易求解。<br><strong>SMO</strong> 算法的目标是求出一些列 <strong>alpha</strong> 和 <strong>b</strong>，一旦求出来就很容易求出权重向量w，进而得到分割超平面。<br>工作原理即：每次循环中选择两个 <strong>alpha</strong> 进行优化处理，一旦找到“合适”的 <strong>alpha</strong>，就同时增大一个减小另一个，而“合适”就是指两个 <strong>alpha</strong> 必须满足一定的条件，条件之一就是这两个 <strong>alpha</strong> 必须要在间隔边界之外，而第二个条件就是这两个 <strong>alpha</strong> 还没有进行过区间化处理或者不在边界上。<br>之所以会出现要同时改变两个 <strong>alpha</strong> 的情况，是因为 <strong>alpha</strong> 之间要满足以下条件：</p>
+<h4 id="6-3-1-Platt的SMO算法"><a href="#6-3-1-Platt的SMO算法" class="headerlink" title="6.3.1 Platt的SMO算法"></a>6.3.1 Platt的SMO算法</h4><p>SMO表示序列最优化(Squential Minimal Optimization)，而 <strong>Platt</strong> 的 <strong>SMO</strong> 算法是将大优化问题分解为多个小优化问题来求解，其结果不变且小优化问题往往很容易求解。<br><strong>SMO</strong> 算法的目标是求出一些列 <strong>α</strong> 和 <strong>b</strong>，一旦求出来就很容易求出权重向量w，进而得到分割超平面。<br>工作原理即：每次循环中选择两个 <strong>α</strong> 进行优化处理，一旦找到“合适”的 <strong>α</strong>，就同时增大一个减小另一个，而“合适”就是指两个 <strong>α</strong> 必须满足一定的条件，条件之一就是这两个 <strong>α</strong> 必须要在间隔边界之外，而第二个条件就是这两个 <strong>α</strong> 还没有进行过区间化处理或者不在边界上。<br>之所以会出现要同时改变两个 <strong>α</strong> 的情况，是因为 <strong>α</strong> 之间要满足以下条件：</p>
 <script type="math/tex; mode=display">
-\sum_{i=1}^{m} \alpha_{i} \cdot \operatorname{label}^{(i)}=0</script><p>只改变一个 <strong>alpha</strong> 会导致条件失效，所以需要同时改变两个 <strong>alpha</strong>，</p>
+\sum_{i=1}^{m} \alpha_{i} \cdot \operatorname{label}^{(i)}=0</script><p>只改变一个 <strong>α</strong> 会导致条件失效，所以需要同时改变两个 <strong>α</strong>，</p>
 <h3 id="6-5-在复杂数据上应用核函数"><a href="#6-5-在复杂数据上应用核函数" class="headerlink" title="6.5 在复杂数据上应用核函数"></a>6.5 在复杂数据上应用核函数</h3><p>如下图所示：<br><img src="/2019/08/30/读书笔记-机器学习实战/6.6.png" alt=""><br>它描述了非线性可分的情况，显然该数据中存在某种可以识别的模式，但是能否像线性情况一样，利用工具来捕捉数据中的这种模式，这里的工具就是核函数(<strong>kernel</strong>)，它能将数据转换成易于分类器理解的形式。</p>
 <h4 id="6-5-1-利用核函数将数据映射到高维空间"><a href="#6-5-1-利用核函数将数据映射到高维空间" class="headerlink" title="6.5.1 利用核函数将数据映射到高维空间"></a>6.5.1 利用核函数将数据映射到高维空间</h4><p>对于分类器而言，它只能识别分类器的结果是大于0还是小于0，如果只是在x和y轴构成的坐标系中插入直线进行分类的话，不会得到理想的结果，所以或许可以对圆中的数据进行某种形式的转换，即<strong>从一个特征空间到另一个特征空间的映射</strong>，通常是将低维特征空间映射到高维空间。<br><strong>SVM</strong> 优化的一个特点就是，所有的运算都可以写成<strong>内积</strong>(<strong>inner product</strong>)，即点积，可以将内积运算替换成核函数，而不必做简化处理。</p>
 <h4 id="6-5-2-径向基和函数"><a href="#6-5-2-径向基和函数" class="headerlink" title="6.5.2 径向基和函数"></a>6.5.2 径向基和函数</h4><p>这是一个采用向量作为自变量的函数，能后基于向量距离运算输出一个标量，这个距离可以是从<0,0>向量或者其他向量还是计算的距离。其高斯版本的具体公式为：</0,0></p>
@@ -609,7 +609,7 @@ D_{i}^{(t+1)}=\frac{D_{i}^{(t)} \mathrm{e}^{\alpha}}{\operatorname{Sum}(D)}</scr
 <h3 id="7-7-非均衡分类问题"><a href="#7-7-非均衡分类问题" class="headerlink" title="7.7 非均衡分类问题"></a>7.7 非均衡分类问题</h3><p>本书之前谈论的例子都是理论上的分类情况，但是实际上的分类比这个要复杂许多，这体现在大多数情况下不同类别的分类代价并不相等，有时候情愿选择A，都不会尽量不会选择B。</p>
 <h4 id="7-7-1-其他分类性能度量指标：正确率、召回率及ROC曲线"><a href="#7-7-1-其他分类性能度量指标：正确率、召回率及ROC曲线" class="headerlink" title="7.7.1 其他分类性能度量指标：正确率、召回率及ROC曲线"></a>7.7.1 其他分类性能度量指标：正确率、召回率及ROC曲线</h4><p>有时候不能只基于错误率来衡量分类器任务的成功程度的。<br>错误率：在所有测试样例中错分的样例比例。但是这种度量掩盖了样例如何被分错的事实，要解决这样的问题可以考虑使用混淆阶矩阵(confusion matrix)：<br><img src="/2019/08/30/读书笔记-机器学习实战/7.2.png" alt=""><br>这样很好地显示了其中的错误。</p>
 <p><img src="/2019/08/30/读书笔记-机器学习实战/7.3.png" alt=""><br>以二分类为例：<br>在分类时，当某些类别的重要性高于其他类别，就可以定义一些其它的新的指标：<br>正确率(<strong>precision</strong>)：等于TP/(TP+FP)，给出的是预测为正例的样本中的真正正例的比例。<br>召回率(<strong>recall</strong>)：等于TP/(TP+FN)，给出的是预测为正例的真正正例占所有真实正例的比例。<br>（这两者都很好实现，但是要构建一个这两个指标都很高的分类器，就很难了。）<br>ROC曲线(<strong>ROC curve</strong>)：代表接受者操作特征(receiver operating characteristic)，如下所示：<br><img src="/2019/08/30/读书笔记-机器学习实战/7.3.1.png" alt=""><br>其中横轴是伪正例的比例(FP/(FP+TN))，而纵轴是真正例的比例(TP/(TP+FN))，所以ROC曲线给出的是当阈值变化时，伪正率和真正率的变化情况。<br>ROC曲线不但可以用于比较分类器，还可以基于成本效益(<strong>cost-versus-benefit</strong>)分析来做出决策。理想状态下，最佳的分类器应该尽可能在于左上角。<br>为了画出ROC曲线，分类器必须提供每个样例被判为阳性或者阴性的可信程度值，朴素贝叶斯可以这么做，首先要将分类样例按照其预测强度排序，先从排名最低的样例开始，所有排名更低的样例都被判为反例，而所有排名更高的样例都被判为正例。然后，将其移到排名次低的样例中去，如果该样例属于正例，则修改真阳率，反之，修改假阳率。</p>
-<h4 id="7-7-2-基于代价函数的分类器决策控制"><a href="#7-7-2-基于代价函数的分类器决策控制" class="headerlink" title="7.7.2 基于代价函数的分类器决策控制"></a>7.7.2 基于代价函数的分类器决策控制</h4><p>像如下的代价矩阵(代价不是0就是1)：<br><img src="/2019/08/30/读书笔记-机器学习实战/7.4.png" alt=""><br>可以基于第一张表的矩阵计算总代价：$\mathrm{TP}^{<em>} 0+\mathrm{FN}^{</em>} 1+\mathrm{FP}^{<em>} 1+\mathrm{TN}^{</em>} 0$，第二张表为：$\mathrm{TP}^{<em>}(-5)+\mathrm{FN}^{</em>} 1+\mathrm{FP}^{<em>} 50+\mathrm{TN}^{</em>} 0$，这两张表是不一样的。同样的，这两种正确分类所获得的收益也不一样。根据这些代价值就可以训练对应的分类器。<br>相同的，在<strong>AdaBoost</strong>中，也可以基于代价函数来调整错误权重向量$D$。在朴素贝叶斯中，也可以选择具有最小期望代价而不是最大概率的类别作为最后的结果。在<strong>SVM</strong>中，可以在代价函数中对于不同的类别选择不同的参数c。</p>
+<h4 id="7-7-2-基于代价函数的分类器决策控制"><a href="#7-7-2-基于代价函数的分类器决策控制" class="headerlink" title="7.7.2 基于代价函数的分类器决策控制"></a>7.7.2 基于代价函数的分类器决策控制</h4><p>像如下的代价矩阵(代价不是0就是1)：<br><img src="/2019/08/30/读书笔记-机器学习实战/7.4.png" alt=""><br>可以基于第一张表的矩阵计算总代价：TP<em>0 + FN\</em>1 + FP*1 + TN*0，第二张表为：TP*(-5) + FN*1 + FP*50 + TN*0，这两张表是不一样的。同样的，这两种正确分类所获得的收益也不一样。根据这些代价值就可以训练对应的分类器。<br>相同的，在<strong>AdaBoost</strong>中，也可以基于代价函数来调整错误权重向量$D$。在朴素贝叶斯中，也可以选择具有最小期望代价而不是最大概率的类别作为最后的结果。在<strong>SVM</strong>中，可以在代价函数中对于不同的类别选择不同的参数c。</p>
 <h4 id="7-7-3-处理非均衡问题的数据抽样方式"><a href="#7-7-3-处理非均衡问题的数据抽样方式" class="headerlink" title="7.7.3 处理非均衡问题的数据抽样方式"></a>7.7.3 处理非均衡问题的数据抽样方式</h4><p>这主要是对于分类器的训练数据进行改造。分为<em>欠抽样</em>(<strong>undersampling</strong>)和<em>过抽样</em>(<strong>oversampling</strong>)，过抽样意味着复制样例，欠抽样则指删除样例。<br>比如在正例类别属于罕见类别，就要对反例进行欠抽样处理。但是不能确定用哪些样例进行剔除，因为在选择剔除的样例中可能携带了剩余样例中并不包含的有价值信息。</p>
 <h3 id="7-8-本章小结"><a href="#7-8-本章小结" class="headerlink" title="7.8 本章小结"></a>7.8 本章小结</h3><p>除了将同一类分类器集成到一起，也可以将多种分类器组合。<br>多个分类器组合可能会进一步凸显出单分类器的不足，比如过拟合。且如果分类器之间差别显著，则多个分类器组合就可能缓解这一问题。分类器之间的差别可以是算法本身或者是应用于算法上的数据的不同。</p>
 <h1 id="第二部分-利用回归预测数值型数据"><a href="#第二部分-利用回归预测数值型数据" class="headerlink" title="第二部分 利用回归预测数值型数据"></a>第二部分 利用回归预测数值型数据</h1><h2 id="第八章-预测数值型数据：回归"><a href="#第八章-预测数值型数据：回归" class="headerlink" title="第八章 预测数值型数据：回归"></a>第八章 预测数值型数据：回归</h2><p>分类的目标变量是标称型数据，而本章的目标变量将是连续型的数据。</p>
