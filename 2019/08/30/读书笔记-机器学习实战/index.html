@@ -130,7 +130,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/30/读书笔记-机器学习实战/14.1.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/30/读书笔记-机器学习实战/14.2.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/30/读书笔记-机器学习实战/15.1.png">
-<meta property="og:updated_time" content="2019-09-24T01:29:17.995Z">
+<meta property="og:updated_time" content="2019-09-24T03:25:23.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记-机器学习实战">
 <meta name="twitter:description" content="虽然想要做的事情太多，但是还是要踏踏实实的学，近来准备把几本书陆陆续续都看完，但是如果只是看的话，实在是容易走神，所以打算看书也用记笔记的形式好了，这里的笔记不会很详细，大都只是对个人认为重要的章节的一点总结和记录。 今天准备开始看的这本书叫《机器学习实战》，之前看过一遍西瓜书，所以这本书应该不会花很长时间。">
@@ -401,7 +401,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-24 09:29:17" itemprop="dateModified" datetime="2019-09-24T09:29:17+08:00">2019-09-24</time>
+                <time title="Modified: 2019-09-24 11:25:23" itemprop="dateModified" datetime="2019-09-24T11:25:23+08:00">2019-09-24</time>
               </span>
             
           
@@ -543,15 +543,15 @@ w=w+a \nabla_{w} f(w)</script><p>一直执行迭代，直到某个停止条件�
 </blockquote>
 <h4 id="5-2-4-训练算法：随机梯度上升"><a href="#5-2-4-训练算法：随机梯度上升" class="headerlink" title="5.2.4 训练算法：随机梯度上升"></a>5.2.4 训练算法：随机梯度上升</h4><p>由已知，梯度上升算法在每次更新回归系数时，都需要遍历整个数据集，这在数据集很大时，太不现实了，其中一种改进方法是一次仅用一个样本点来更新回归系数，称为随机梯度上升算法。这样的话，可以在新样本到来时对分类器进行增量式更新，因此随机梯度上升算法是一个在线学习算法。与之对应，一次处理所有数据被称为是“批处理”。<br>随机梯度上升算法：</p>
 <blockquote>
-<p>所有回归系数初始化为1<br>对数据集中每个样本<br>        计算该样本的梯度<br>        使用alpha*gradient更新回归系数值<br>返回回归系数值<br>迭代过程中，局部系数的变化如下所示：</p>
+<p>所有回归系数初始化为1<br>对数据集中每个样本<br>        计算该样本的梯度<br>        使用α*gradient更新回归系数值<br>返回回归系数值<br>迭代过程中，局部系数的变化如下所示：</p>
 </blockquote>
 <p><img src="/2019/08/30/读书笔记-机器学习实战/5.2.png" alt=""></p>
 <p>有些系数很快收敛，有些不是，且大的波动停止后，还有一些小的周期性波动，显然，因为数据集并非线性可分，有一些不能正确分类的样本点，所以每次迭代时会引发系数的剧烈改变。</p>
 <p>所以有了改进的随机梯度上升算法：</p>
 <blockquote>
-<p>一方面，<strong>alpha</strong> 在每次迭代的时候都会调整（由迭代次数，样本下标决定），这能减少高配波动。</p>
+<p>一方面，<strong>α</strong> 在每次迭代的时候都会调整（由迭代次数，样本下标决定），这能减少高配波动。</p>
 <script type="math/tex; mode=display">
-\text { \alpha }=4 /(1.0+3+i)+0.01</script><p>虽然 <strong>alpha</strong> 在减少，但是始终在一个阈值之上，来保证在多次迭代之后，新数据仍有一定的影响。<br>另一方面，通过随机选取样本来更新回归函数，这将减少周期性的波动</p>
+\alpha = 4/(1.0+3+i)+0.01</script><p>虽然 <strong>α</strong> 在减少，但是始终在一个阈值之上，来保证在多次迭代之后，新数据仍有一定的影响。<br>另一方面，通过随机选取样本来更新回归函数，这将减少周期性的波动</p>
 </blockquote>
 <h3 id="5-4-本章小结"><a href="#5-4-本章小结" class="headerlink" title="5.4 本章小结"></a>5.4 本章小结</h3><p><strong>Logistic</strong> 回归的目的是找到一个非线性的函数 <strong>Sigmoid</strong> 的最佳拟合函数，求解时，可以用最优化算法来完成，其中最常用的是梯度上升算法，而它又可以简化为随机梯度上升算法。其效果相当，但是占用更少资源，且其为一个在线算法，可以在新数据到来时就完成参数更新。</p>
 <h2 id="第六章-支持向量机-support-vector-machines"><a href="#第六章-支持向量机-support-vector-machines" class="headerlink" title="第六章 支持向量机(support vector machines)"></a>第六章 支持向量机(support vector machines)</h2><p>有些人认为，SVM是最好的现成的分类器，因为它不加修改即可直接使用。同时也意味着在数据上应用基本形式的SVM分类器就可以得到低错误率的结果。对训练集之外的数据点做出很好的分类决策。</p>
@@ -562,7 +562,7 @@ w=w+a \nabla_{w} f(w)</script><p>一直执行迭代，直到某个停止条件�
 <h3 id="6-2-寻找最大间隔"><a href="#6-2-寻找最大间隔" class="headerlink" title="6.2 寻找最大间隔"></a>6.2 寻找最大间隔</h3><p>由已知分割超平面可以写为$w^{T} \mathbf{x}+b$，b就是截距，所以向量w和常数b就一起描述了所给数据的分割线或超平面。</p>
 <h4 id="6-2-1-分类器求解的优化问题"><a href="#6-2-1-分类器求解的优化问题" class="headerlink" title="6.2.1 分类器求解的优化问题"></a>6.2.1 分类器求解的优化问题</h4><p>与 <strong>Logistic</strong> 回归不同，它使用海维赛德阶跃函数的函数来处理，当u&lt;0，f(u)输出-1，反之输出+1，而不是0或1，这样方便处理（用label * $w^{T} \mathbf{x}+b$来计算）。<br>现在的目标就是找出分类器定义中的w和b，所以要找到具有最小间隔的数据点，即支持向量，一旦找到了，就需要对该间隔最大化:</p>
 <script type="math/tex; mode=display">
-\arg \max _{w, b}\left\{\min _{n}\left(\operatorname{label} \cdot\left(\boldsymbol{w}^{\mathrm{T}} \boldsymbol{x}+b\right)\right) \cdot \frac{1}{\|\boldsymbol{w}\|}\right\}</script><p>而为了最大化以上公式，可以是固定其中一个因子而最大化其他因子。比如令所有支持向量的<br>Label $<em>\left(w^{</em>} x+b\right)$都为1，但是这不太现实，所以可以给定一些约束条件然后求最优值，所以是一个带约束条件的优化问题，这里的约束条件就是Label $*\left(w^{\prime} x+b\right) \geqslant 1.0$，对于这类优化问题，可引入拉格朗日乘子，由于这里的约束条件都是基于数据点的，因此我们可以将超平面写成数据点的形式：</p>
+\arg \max _{w, b}\left\{\min _{n}\left(\operatorname{label} \cdot\left(\boldsymbol{w}^{\mathrm{T}} \boldsymbol{x}+b\right)\right) \cdot \frac{1}{\|\boldsymbol{w}\|}\right\}</script><p>而为了最大化以上公式，可以是固定其中一个因子而最大化其他因子。比如令所有支持向量的<br>label × $w^{T} \mathbf{x}+b$都为1，但是这不太现实，所以可以给定一些约束条件然后求最优值，所以是一个带约束条件的优化问题，这里的约束条件就是label × $w^{T} \mathbf{x}+b \geqslant 1.0$，对于这类优化问题，可引入拉格朗日乘子，由于这里的约束条件都是基于数据点的，因此我们可以将超平面写成数据点的形式：</p>
 <script type="math/tex; mode=display">
 \max _{\alpha}\left[\sum_{i=1}^{m} \alpha-\frac{1}{2} \sum_{i, j=1}^{m} \operatorname{label}^{(i)} \cdot \operatorname{label}^{(j)} \cdot a_{i} \cdot a_{j}\left\langle x^{(i)}, x^{(j)}\right\rangle\right]</script><p>尖括号表示两个向量的内积。<br>约束条件为：</p>
 <script type="math/tex; mode=display">
@@ -841,6 +841,10 @@ w(i, i)=\exp \left(\frac{\left|x^{(i)}-x\right|}{-2 k^{2}}\right)</script><p>这
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/09/24/986-Interval-List-Intersections-LeetCode/" rel="prev" title="986. Interval List Intersections-LeetCode">
+                986. Interval List Intersections-LeetCode <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -908,7 +912,7 @@ w(i, i)=\exp \left(\frac{\left|x^{(i)}-x\right|}{-2 k^{2}}\right)</script><p>这
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
