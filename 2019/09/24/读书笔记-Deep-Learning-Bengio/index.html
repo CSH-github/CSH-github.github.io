@@ -95,18 +95,22 @@
 
 
 
-  <meta name="description" content="PAT乙级的题太简单，甲级的题又都差不多做过了，所以今天继续来做做LeetCode的题好了。 题目：Split Array into Consecutive Subsequences">
-<meta name="keywords" content="LeetCode,贪心算法">
+  <meta name="description" content="上一本书的笔记做完之后，想了很多，笔记的作用一是记下自己的理解，方便日后观看，二是能防止自己走神，但是感觉之前做笔记的过程有些变味了，完全变成照抄，完全没有思考，所以这本书的笔记，会精简一些，但是也会尽量表达自己的想法，必要的地方做些摘抄，不过这本书是英文的，想写成中文笔记，本身也需要花费些精神呢。   这本书叫《Deep Learning-Bengio》，以下是笔记部分。">
+<meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="659. Split Array into Consecutive Subsequences-LeetCode">
-<meta property="og:url" content="http://yoursite.com/2019/08/30/659-Split-Array-into-Consecutive-Subsequences-LeetCode/index.html">
+<meta property="og:title" content="读书笔记 - Deep Learning-Bengio">
+<meta property="og:url" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="PAT乙级的题太简单，甲级的题又都差不多做过了，所以今天继续来做做LeetCode的题好了。 题目：Split Array into Consecutive Subsequences">
+<meta property="og:description" content="上一本书的笔记做完之后，想了很多，笔记的作用一是记下自己的理解，方便日后观看，二是能防止自己走神，但是感觉之前做笔记的过程有些变味了，完全变成照抄，完全没有思考，所以这本书的笔记，会精简一些，但是也会尽量表达自己的想法，必要的地方做些摘抄，不过这本书是英文的，想写成中文笔记，本身也需要花费些精神呢。   这本书叫《Deep Learning-Bengio》，以下是笔记部分。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-30T05:51:32.844Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/1.1.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/1.2.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/1.3.png">
+<meta property="og:updated_time" content="2019-09-24T13:11:54.241Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="659. Split Array into Consecutive Subsequences-LeetCode">
-<meta name="twitter:description" content="PAT乙级的题太简单，甲级的题又都差不多做过了，所以今天继续来做做LeetCode的题好了。 题目：Split Array into Consecutive Subsequences">
+<meta name="twitter:title" content="读书笔记 - Deep Learning-Bengio">
+<meta name="twitter:description" content="上一本书的笔记做完之后，想了很多，笔记的作用一是记下自己的理解，方便日后观看，二是能防止自己走神，但是感觉之前做笔记的过程有些变味了，完全变成照抄，完全没有思考，所以这本书的笔记，会精简一些，但是也会尽量表达自己的想法，必要的地方做些摘抄，不过这本书是英文的，想写成中文笔记，本身也需要花费些精神呢。   这本书叫《Deep Learning-Bengio》，以下是笔记部分。">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/1.1.png">
 
 
 
@@ -114,7 +118,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/08/30/659-Split-Array-into-Consecutive-Subsequences-LeetCode/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/">
 
 
 
@@ -124,7 +128,7 @@
   };
 </script>
 
-  <title>659. Split Array into Consecutive Subsequences-LeetCode | Hexo</title>
+  <title>读书笔记 - Deep Learning-Bengio | Hexo</title>
   
 
 
@@ -315,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/30/659-Split-Array-into-Consecutive-Subsequences-LeetCode/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -332,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">659. Split Array into Consecutive Subsequences-LeetCode
+          <h1 class="post-title" itemprop="name headline">读书笔记 - Deep Learning-Bengio
 
               
             
@@ -358,7 +362,7 @@
                 
               
 
-              <time title="Created: 2019-08-30 10:29:44 / Modified: 13:51:32" itemprop="dateCreated datePublished" datetime="2019-08-30T10:29:44+08:00">2019-08-30</time>
+              <time title="Created: 2019-09-24 17:53:20 / Modified: 21:11:54" itemprop="dateCreated datePublished" datetime="2019-09-24T17:53:20+08:00">2019-09-24</time>
             </span>
           
 
@@ -377,7 +381,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/刷题之路/" itemprop="url" rel="index"><span itemprop="name">刷题之路</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/读书笔记/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a></span>
 
                 
                 
@@ -417,22 +421,11 @@
       
 
       
-        <p>PAT乙级的题太简单，甲级的题又都差不多做过了，所以今天继续来做做LeetCode的题好了。</p>
-<p><strong>题目</strong>：Split Array into Consecutive Subsequences</p>
+        <p>上一本书的笔记做完之后，想了很多，笔记的作用一是记下自己的理解，方便日后观看，二是能防止自己走神，但是感觉之前做笔记的过程有些变味了，完全变成照抄，完全没有思考，所以这本书的笔记，会精简一些，但是也会尽量表达自己的想法，必要的地方做些摘抄，不过这本书是英文的，想写成中文笔记，本身也需要花费些精神呢。  </p>
+<p>这本书叫《Deep Learning-Bengio》，以下是笔记部分。</p>
 <a id="more"></a>
-<p><strong>难度</strong>：Medium</p>
-<p><strong>要求</strong>：Given an array nums sorted in ascending order, return true if and only if you can split it into 1 or more subsequences such that each subsequence consists of consecutive integers and has length at least 3.</p>
-<p><strong>用例</strong>：</p>
-<p><strong>Input</strong>: [1,2,3,3,4,5]<br><strong>Output</strong>: True<br><strong>Explanation</strong>:<br>You can split them into two consecutive subsequences :<br>1, 2, 3<br>3, 4, 5</p>
-<p><strong>解读</strong>：<br>刚拿到这道题的时候，确实没想到应该怎么解，看来算法方面的题做得还是太少了，之后知道了这题需要用到贪心算法，具体难度在于要搞清楚在一个数字有多个的时候，应该怎么分配它，是就以它结尾，还是说和后面的数字连在一起，这就需要一个表，可以是哈希表，来记录以每个数字结尾的序列有多少，这样就能随时判断，是否将这一序列与后面的序列接在一起。</p>
-<p><strong>具体思路</strong>：<br>这里借用大多数人的思路，需要维护两个哈希表 <strong>heap</strong> 和 <strong>last</strong>. <strong>heap</strong> 表记录给出的数组中每个数字出现的次数，而 <strong>last</strong> 表则记录以某个数字结尾的长度不小于2的连续序列的个数。</p>
-<p>首先第一次遍历数组，用 <strong>heap</strong> 数组记录每个数字出现的次数，当然，有的人将这一步骤与第二步骤写到了一起，后面会说到。</p>
-<p>然后是第二次遍历数组，对遍历到的每一个数字 <strong>num</strong>，如果 <strong>last</strong>[<strong>num</strong> - 1] &gt; 0 ，说明存在以 <strong>num</strong> - 1 为结尾的连续序列，则把数字 <strong>num</strong> 添加到该连续序列中：代码为 <strong>last</strong>[<strong>num</strong> - 1]—; <strong>last</strong>[<strong>num</strong>]++。其实就算 <strong>num</strong> 是另一连续序列的开始，也不要紧，因为如果是的话，把这两个序列和在一起，分开，对结果并没有什么影响：比如 [1, 2, 3] 和 [4, 5, 6] 两个连续序列是可以合并成 [1, 2, 3, 4, 5, 6] 这个大的连续序列的；当然，如果 <strong>last</strong>[<strong>num</strong> - 1] == 0 ，此时我们就需要以 <strong>num</strong> 为开始数字建立一个新的连续序列。这时就要检查 <strong>num</strong> + 1 和 <strong>num</strong> + 2 这两个数字是否存在，如果不存在，则直接 <strong>return false</strong> ，否则，新建以 <strong>num</strong> + 2 数字为结尾的连续序列。</p>
-<p>如果上述过程能进行到最后，说明所有连续序列都能够找出来，则直接 <strong>return true</strong>。</p>
-<p>具体代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPossible</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; heap, last;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> &amp;num : nums) &#123; heap[num]++; &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> &amp;num : nums) &#123;</span><br><span class="line">            <span class="comment">// 如果 heap[num] &lt;= 0，说明在上一轮循环中新建了</span></span><br><span class="line">            <span class="comment">// 一个包含当前数字 num 的连续序列，直接跳过扫描下一个数字</span></span><br><span class="line">            <span class="keyword">if</span> (heap[num] &lt;= <span class="number">0</span>) &#123; <span class="keyword">continue</span>; &#125;</span><br><span class="line">            heap[num]--;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (last[num - <span class="number">1</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                last[num - <span class="number">1</span>]--;</span><br><span class="line">                last[num]++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (heap[num + <span class="number">1</span>] &amp;&amp; heap[num + <span class="number">2</span>]) &#123;</span><br><span class="line">                <span class="comment">// 新建连续序列，要把包含进新序列的数字的出现次数也减 1</span></span><br><span class="line">                heap[num + <span class="number">1</span>]--;</span><br><span class="line">                heap[num + <span class="number">2</span>]--;</span><br><span class="line">                last[num + <span class="number">2</span>]++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>当然也有 <strong>Python</strong> 版本的解法，它将两个遍历过程弄到一个里面去。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPossible</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        saved = collections.defaultdict(list)</span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">            last = saved[num - <span class="number">1</span>]</span><br><span class="line">            _len = <span class="number">0</span> <span class="keyword">if</span> (<span class="keyword">not</span> last) <span class="keyword">else</span> heapq.heappop(last)</span><br><span class="line">            current = saved[num]</span><br><span class="line">            heapq.heappush(current, _len + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">for</span> values <span class="keyword">in</span> saved.values():</span><br><span class="line">            <span class="keyword">for</span> v <span class="keyword">in</span> values:</span><br><span class="line">                <span class="keyword">if</span> v &lt; <span class="number">3</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<h1 id="Deep-Learning-for-AI"><a href="#Deep-Learning-for-AI" class="headerlink" title="Deep Learning for AI"></a>Deep Learning for AI</h1><p>最开始AI是在一种纯粹的环境下诞生的，比如下棋，就是在一个规则固定且相对简单的环境中寻找制胜策略，这对于计算机来说自然是简单的，也不需要学习，但是这对于人类来说，却是相当抽象且困难。相反，人类日常的简单生活却是需要相当多的主观和直觉信息，这不是简单的几项规则能够概括的，那计算机又要怎样才能做到呢？<br>依赖硬编码知识的AI系统的瓶颈体现在系统需要能从原始数据中提取一定的模式，以获得自己的知识。这也就是机器学习。而机器学习的引进让机器能处理需要真实世界信息的问题，并做出近似主观的判断，出现了像逻辑回归(<em>logistic regression</em>)和朴素贝叶斯(<em>naive Bayes</em>)的方法。<br>但是这些算法不能知道那些特征是有用的，也不能注意到特征本身，如果给的不是一个格式化的报告，而是简单的原数据，算法也不能做出有用的判断。也很正常，数据的展示与结构本身就能对机器学习的效果有巨大的影响，如果特征提取设计的好，效果能大大提升，但是事实上，对于大部分的任务，人们都很难提取出正确的特征，不论是物体识别还是什么任务，人们都很难设计出怎样的像素才是对应的物体，更不用说各种各样的环境对物体表面的影响了。<br>其中一种处理办法就是使用机器学习去不仅仅学习数据表达与输出的对应，还要学习表达本身，这可以理解为表达学习(<em>representation learning</em>)，这就取代了模式特征的设计阶段，且有时能比人类设计的特征更好，并增加了AI系统自主快速适应新任务的能力，大大减少了人们进行特征设计及研究的时间。<br>当人们设计特征的时候，人们往往倾向于寻找因素(<strong>Factors</strong>)，即影响最终结果的因素，因素之间往往不是通过“乘”来实现的，而这些因素大多数不是直接观察到的，而是人们主观想到的，为多种多样的结果解释，比如演讲里面的演讲者的口音、年龄及性别等等。<br>但是有时因素太多，有时特征又太复杂，太抽象，就算是人也设计不出结构化的表达。<br>而深度学习，引入了表达学习，将表达以一种其他地，更简单的方式展示。比如下图：<br><img src="/2019/09/24/读书笔记-Deep-Learning-Bengio/1.1.png" alt=""><br>深度学习让计算机去学习一个多步(multi-step)的计算机程序，每层都能看成是计算机内存的一个状态。<br>总的来说，深度学习就是AI的一种，也是机器学习的一种，让计算机系统从经验和数据中提升，<br><img src="/2019/09/24/读书笔记-Deep-Learning-Bengio/1.2.png" alt=""><br>关系就像上面所形容的那样。<br>而数据的流动过程如下：<br><img src="/2019/09/24/读书笔记-Deep-Learning-Bengio/1.3.png" alt=""></p>
+<h3 id="1-2-Machine-Learning"><a href="#1-2-Machine-Learning" class="headerlink" title="1.2 Machine Learning"></a>1.2 Machine Learning</h3>
       
     </div>
 
@@ -462,9 +455,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
-          
-            <a href="/tags/贪心算法/" rel="tag"># 贪心算法</a>
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
         </div>
       
@@ -477,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/28/1035-插入与归并-25-PAT乙级真题/" rel="next" title="1035. 插入与归并(25)-PAT乙级真题">
-                <i class="fa fa-chevron-left"></i> 1035. 插入与归并(25)-PAT乙级真题
+              <a href="/2019/09/24/986-Interval-List-Intersections-LeetCode/" rel="next" title="986. Interval List Intersections-LeetCode">
+                <i class="fa fa-chevron-left"></i> 986. Interval List Intersections-LeetCode
               </a>
             
           </div>
@@ -487,8 +478,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/30/读书笔记-机器学习实战/" rel="prev" title="读书笔记-机器学习实战">
-                读书笔记-机器学习实战 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/25/474-Ones-and-Zeroes-LeetCode/" rel="prev" title="474. Ones and Zeroes-LeetCode">
+                474. Ones and Zeroes-LeetCode <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -533,8 +524,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -652,6 +652,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Deep-Learning-for-AI"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning for AI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Machine-Learning"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.2 Machine Learning</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
