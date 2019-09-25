@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/1.1.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/1.2.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/1.3.png">
-<meta property="og:updated_time" content="2019-09-24T13:11:54.241Z">
+<meta property="og:updated_time" content="2019-09-25T09:11:49.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记 - Deep Learning-Bengio">
 <meta name="twitter:description" content="上一本书的笔记做完之后，想了很多，笔记的作用一是记下自己的理解，方便日后观看，二是能防止自己走神，但是感觉之前做笔记的过程有些变味了，完全变成照抄，完全没有思考，所以这本书的笔记，会精简一些，但是也会尽量表达自己的想法，必要的地方做些摘抄，不过这本书是英文的，想写成中文笔记，本身也需要花费些精神呢。   这本书叫《Deep Learning-Bengio》，以下是笔记部分。">
@@ -362,13 +362,23 @@
                 
               
 
-              <time title="Created: 2019-09-24 17:53:20 / Modified: 21:11:54" itemprop="dateCreated datePublished" datetime="2019-09-24T17:53:20+08:00">2019-09-24</time>
+              <time title="Created: 2019-09-24 17:53:20" itemprop="dateCreated datePublished" datetime="2019-09-24T17:53:20+08:00">2019-09-24</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-09-25 17:11:49" itemprop="dateModified" datetime="2019-09-25T17:11:49+08:00">2019-09-25</time>
+              </span>
             
           
 
@@ -425,7 +435,16 @@
 <p>这本书叫《Deep Learning-Bengio》，以下是笔记部分。</p>
 <a id="more"></a>
 <h1 id="Deep-Learning-for-AI"><a href="#Deep-Learning-for-AI" class="headerlink" title="Deep Learning for AI"></a>Deep Learning for AI</h1><p>最开始AI是在一种纯粹的环境下诞生的，比如下棋，就是在一个规则固定且相对简单的环境中寻找制胜策略，这对于计算机来说自然是简单的，也不需要学习，但是这对于人类来说，却是相当抽象且困难。相反，人类日常的简单生活却是需要相当多的主观和直觉信息，这不是简单的几项规则能够概括的，那计算机又要怎样才能做到呢？<br>依赖硬编码知识的AI系统的瓶颈体现在系统需要能从原始数据中提取一定的模式，以获得自己的知识。这也就是机器学习。而机器学习的引进让机器能处理需要真实世界信息的问题，并做出近似主观的判断，出现了像逻辑回归(<em>logistic regression</em>)和朴素贝叶斯(<em>naive Bayes</em>)的方法。<br>但是这些算法不能知道那些特征是有用的，也不能注意到特征本身，如果给的不是一个格式化的报告，而是简单的原数据，算法也不能做出有用的判断。也很正常，数据的展示与结构本身就能对机器学习的效果有巨大的影响，如果特征提取设计的好，效果能大大提升，但是事实上，对于大部分的任务，人们都很难提取出正确的特征，不论是物体识别还是什么任务，人们都很难设计出怎样的像素才是对应的物体，更不用说各种各样的环境对物体表面的影响了。<br>其中一种处理办法就是使用机器学习去不仅仅学习数据表达与输出的对应，还要学习表达本身，这可以理解为表达学习(<em>representation learning</em>)，这就取代了模式特征的设计阶段，且有时能比人类设计的特征更好，并增加了AI系统自主快速适应新任务的能力，大大减少了人们进行特征设计及研究的时间。<br>当人们设计特征的时候，人们往往倾向于寻找因素(<strong>Factors</strong>)，即影响最终结果的因素，因素之间往往不是通过“乘”来实现的，而这些因素大多数不是直接观察到的，而是人们主观想到的，为多种多样的结果解释，比如演讲里面的演讲者的口音、年龄及性别等等。<br>但是有时因素太多，有时特征又太复杂，太抽象，就算是人也设计不出结构化的表达。<br>而深度学习，引入了表达学习，将表达以一种其他地，更简单的方式展示。比如下图：<br><img src="/2019/09/24/读书笔记-Deep-Learning-Bengio/1.1.png" alt=""><br>深度学习让计算机去学习一个多步(multi-step)的计算机程序，每层都能看成是计算机内存的一个状态。<br>总的来说，深度学习就是AI的一种，也是机器学习的一种，让计算机系统从经验和数据中提升，<br><img src="/2019/09/24/读书笔记-Deep-Learning-Bengio/1.2.png" alt=""><br>关系就像上面所形容的那样。<br>而数据的流动过程如下：<br><img src="/2019/09/24/读书笔记-Deep-Learning-Bengio/1.3.png" alt=""></p>
-<h3 id="1-2-Machine-Learning"><a href="#1-2-Machine-Learning" class="headerlink" title="1.2 Machine Learning"></a>1.2 Machine Learning</h3>
+<h3 id="1-3-Historical-Perspective-and-Neural-Networks"><a href="#1-3-Historical-Perspective-and-Neural-Networks" class="headerlink" title="1.3 Historical Perspective and Neural Networks"></a>1.3 Historical Perspective and Neural Networks</h3><p>现代的深度学习研究从先前的神经网络的研究获得了很多启示，其它的深度学习里面的研究还有概率建模和图形模型还有其它多种多样的学习工作。</p>
+<h3 id="1-5-Challenges-for-Future-Research"><a href="#1-5-Challenges-for-Future-Research" class="headerlink" title="1.5 Challenges for Future Research"></a>1.5 Challenges for Future Research</h3><p>虽然深度学习已经有这样的成功，但是现有科技仍然与当前的动物的信息处理能力和感知能力有巨大的差距，要了解到这些架构之后的规则就还需要更多基础科学的研究。<br>深度学习是很重要的工具，但它却不是AI的唯一解答。<br>而今后的深度学习的重要的突破口在于：</p>
+<blockquote>
+<ol>
+<li>在无监督学习之后怎么应对基础的问题，比如说困难的推理和采样。</li>
+<li>怎么构建并训练出更大，更具有适应性且可重构的复杂结构，以最大化在更大的数据集上训练的优点。</li>
+<li>怎么提高深度学习算法的能力来弄清变化的潜在因素，或者搞清楚我们周围的这个世界。</li>
+</ol>
+</blockquote>
+<h1 id="Linear-algebra"><a href="#Linear-algebra" class="headerlink" title="Linear algebra"></a>Linear algebra</h1>
       
     </div>
 
@@ -663,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Deep-Learning-for-AI"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning for AI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Machine-Learning"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.2 Machine Learning</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Deep-Learning-for-AI"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning for AI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Historical-Perspective-and-Neural-Networks"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.3 Historical Perspective and Neural Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-Challenges-for-Future-Research"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.5 Challenges for Future Research</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Linear-algebra"><span class="nav-number">2.</span> <span class="nav-text">Linear algebra</span></a></li></div>
             
 
           </div>
