@@ -106,7 +106,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/1.1.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/1.2.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/1.3.png">
-<meta property="og:updated_time" content="2019-09-25T13:31:24.885Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/24/读书笔记-Deep-Learning-Bengio/4.3.png">
+<meta property="og:updated_time" content="2019-09-30T01:26:22.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记 - Deep Learning-Bengio">
 <meta name="twitter:description" content="上一本书的笔记做完之后，想了很多，笔记的作用一是记下自己的理解，方便日后观看，二是能防止自己走神，但是感觉之前做笔记的过程有些变味了，完全变成照抄，完全没有思考，所以这本书的笔记，会精简一些，但是也会尽量表达自己的想法，必要的地方做些摘抄，不过这本书是英文的，想写成中文笔记，本身也需要花费些精神呢。   这本书叫《Deep Learning-Bengio》，以下是笔记部分。">
@@ -377,7 +378,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-25 21:31:24" itemprop="dateModified" datetime="2019-09-25T21:31:24+08:00">2019-09-25</time>
+                <time title="Modified: 2019-09-30 09:26:22" itemprop="dateModified" datetime="2019-09-30T09:26:22+08:00">2019-09-30</time>
               </span>
             
           
@@ -448,6 +449,15 @@
 <p>细节略</p>
 <h1 id="Probalility-and-Information-Theory"><a href="#Probalility-and-Information-Theory" class="headerlink" title="Probalility and Information Theory"></a>Probalility and Information Theory</h1><p>概率论是用来描述不确定性规则的数学工具，它提供了量化不确定性的方法，以及推导新概率的公式。且概率论是许多科学和工程学科的基础工具。</p>
 <p>细节略</p>
+<h1 id="Numerical-Computation"><a href="#Numerical-Computation" class="headerlink" title="Numerical Computation"></a>Numerical Computation</h1><p>机器学习算法通常需要大量的数值运算，这些算法并不是通过公式解析求得正确结果而是通过迭代更新解的估计值。包括线性方程组和最大最小值时的参数值。  </p>
+<h3 id="4-1-Overflow-and-underflow"><a href="#4-1-Overflow-and-underflow" class="headerlink" title="4.1 Overflow and underflow"></a>4.1 Overflow and underflow</h3><p>Underflow是指在计算机中接近0的数因为计算机架构的原因被取整到0，如果该数字之后被用于分母，那么就会出错，而Overflow则是大尺度的数字被估计为∞或-∞，在该数字上无法再进行有效的计算。<br>举个例子，以softmax函数为例：</p>
+<script type="math/tex; mode=display">
+\operatorname{softmax}(\boldsymbol{x})_{i}=\frac{\exp \left(x_{i}\right)}{\sum_{j}^{n} \exp \left(x_{j}\right)}</script><p>如果c是一个很小的负数，那么exp(c)将会underflow，分母将为0，结果将出错，而若c是很大的正数，exp(c)将会overflow，这都将导致错误，当然可以用$\operatorname{softmax}(\boldsymbol{z}) \text { where } \boldsymbol{z}=\boldsymbol{x}-\max _{i} \boldsymbol{x}_{i}$来解决这个问题，</p>
+<h3 id="4-2-Poor-conditioning"><a href="#4-2-Poor-conditioning" class="headerlink" title="4.2 Poor conditioning"></a>4.2 Poor conditioning</h3><p>条件(conditioning)指的是一个方程在输入值轻微变化的时候，做出迅速的改变。这在进行科学运算的时候就会引出一些问题，因为四舍五入的误差会引起输出值的巨大的不同。<br>比如有一个方程为$f(\boldsymbol{x})=\boldsymbol{A}^{-1} \boldsymbol{x}$，当A为一个一个特征值分解，那么它的条件数(最大和最小特征值的大小之比)就是：</p>
+<script type="math/tex; mode=display">
+\max _{i, j}\left|\frac{\lambda_{i}}{\lambda_{j}}\right|</script><p>当这个数大的时候，矩阵的逆就对输入的偏差特别敏感。而且这个是矩阵本身的特性，当我们与真矩阵值相乘时，就会放大这个预先存在的错误。</p>
+<h3 id="4-3-Gradient-Based-Optimization"><a href="#4-3-Gradient-Based-Optimization" class="headerlink" title="4.3 Gradient-Based Optimization"></a>4.3 Gradient-Based Optimization</h3><p>大多数的学习算法都会涉及某种优化，而优化则是通过改变x，来最大化或最小化函数值。这个函数值就是目标函数(<strong>objective function</strong>)，若是最小化，也可以叫它损失函数(<strong>cost/loss/error function</strong>)，通过在使得函数值最大或最小的x值旁边加上<em>，即$x^{</em>}=\arg \min f(\boldsymbol{x})$。<br>通过求导数，可以知道函数在一个点的倾斜度，它表示了y会对于x的小变化做出多少倍的反应，所以导数能够被用来最小化一个函数，因为它告诉了应该怎么改变x值，才能得到更优化的y值。但是当函数值比周围点的函数值都小时，就到达了局部最大(小)值，就很难通过缓慢移动来提升函数值了。<br>除此之外，深度学习也很容易走到局部最小值而非全局最优值，在非常平的地方也会出现问题，或者在很平的地方周围出现很多鞍点，特别是当输入是多维的时候。所以如下图：<br><img src="/2019/09/24/读书笔记-Deep-Learning-Bengio/4.3.png" alt=""><br>当局部极值过多，对于深度学习，有时候也只能接受，只要它和最值接近。  </p>
+<p>当优化方程有众多输入：$f : \mathbb{R}^{n} \rightarrow \mathbb{R}$，那就必须要用到偏导数了，它显示了单个变量在某点对函数值的影响，而一个函数f的梯度则是包含了函数所有偏导数的矩阵，表示为$\nabla_{\boldsymbol{x}} f(\boldsymbol{x})$，其中关键点就是梯度里面的每个元素值都是0。<br>在方向u(单位向量)上的方向导数，是函数f在方向u上的倾斜度，</p>
 
       
     </div>
@@ -572,7 +582,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -599,7 +609,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -652,7 +666,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -686,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Deep-Learning-for-AI"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning for AI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Historical-Perspective-and-Neural-Networks"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.3 Historical Perspective and Neural Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-Challenges-for-Future-Research"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.5 Challenges for Future Research</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Linear-algebra"><span class="nav-number">2.</span> <span class="nav-text">Linear algebra</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Probalility-and-Information-Theory"><span class="nav-number">3.</span> <span class="nav-text">Probalility and Information Theory</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Deep-Learning-for-AI"><span class="nav-number">1.</span> <span class="nav-text">Deep Learning for AI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Historical-Perspective-and-Neural-Networks"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.3 Historical Perspective and Neural Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-Challenges-for-Future-Research"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.5 Challenges for Future Research</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Linear-algebra"><span class="nav-number">2.</span> <span class="nav-text">Linear algebra</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Probalility-and-Information-Theory"><span class="nav-number">3.</span> <span class="nav-text">Probalility and Information Theory</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Numerical-Computation"><span class="nav-number">4.</span> <span class="nav-text">Numerical Computation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Overflow-and-underflow"><span class="nav-number">4.0.1.</span> <span class="nav-text">4.1 Overflow and underflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Poor-conditioning"><span class="nav-number">4.0.2.</span> <span class="nav-text">4.2 Poor conditioning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-Gradient-Based-Optimization"><span class="nav-number">4.0.3.</span> <span class="nav-text">4.3 Gradient-Based Optimization</span></a></li></ol></li></div>
             
 
           </div>
