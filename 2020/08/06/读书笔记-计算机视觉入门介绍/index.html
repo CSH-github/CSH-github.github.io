@@ -103,6 +103,22 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="虽然之前对计算机视觉已经有所了解，但是总是没有系统的学习过计算机视觉，所以这次的暑假学习中，将《A Practical Introduction to COMPUTER VISION WITH OPENCV》这本书放到了第一个，学习了一个月之后，在这篇博客中归纳学习到的内容，内容根据书中的顺序进行安排。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.6.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.7.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.10.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.14.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.15.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.16.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.19.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.17.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.18.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/3.1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/3.2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/3.3.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/3.4.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/3.5.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/3.6.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/3.9.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/3.10.png">
@@ -128,11 +144,11 @@
 <meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/4.27.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/4.28.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/4.29.png">
-<meta property="og:updated_time" content="2020-08-08T11:34:53.837Z">
+<meta property="og:updated_time" content="2020-08-08T11:50:18.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记 - 计算机视觉入门介绍">
 <meta name="twitter:description" content="虽然之前对计算机视觉已经有所了解，但是总是没有系统的学习过计算机视觉，所以这次的暑假学习中，将《A Practical Introduction to COMPUTER VISION WITH OPENCV》这本书放到了第一个，学习了一个月之后，在这篇博客中归纳学习到的内容，内容根据书中的顺序进行安排。">
-<meta name="twitter:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/3.6.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/2.1.png">
 
 
 
@@ -399,7 +415,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-08-08 19:34:53" itemprop="dateModified" datetime="2020-08-08T19:34:53+08:00">2020-08-08</time>
+                <time title="Modified: 2020-08-08 19:50:18" itemprop="dateModified" datetime="2020-08-08T19:50:18+08:00">2020-08-08</time>
               </span>
             
           
@@ -454,44 +470,16 @@
 
       
         <p>虽然之前对计算机视觉已经有所了解，但是总是没有系统的学习过计算机视觉，所以这次的暑假学习中，将《A Practical Introduction to COMPUTER VISION WITH OPENCV》这本书放到了第一个，学习了一个月之后，在这篇博客中归纳学习到的内容，内容根据书中的顺序进行安排。</p>
-<a id="more"></a>\
-
-# Introduction
-
-计算机视觉是由计算机进行的，自动分析图像和视频的过程。它最初根据人类的视觉系统而来，由于人类的视觉系统几乎是出于自然的条件反射，所以最开始人们也认为计算机视觉是一个直截了当的问题，但是事实上，无论是人类的视觉系统，还是计算机视觉的难题都比想象的要更加复杂。  
-
-## A Difficult Problem 
-
-对于计算机视觉的研究来说，首先要知道，这是一项很难的任务，对于计算机来说，图像就是一组值，计算机视觉就是要了解（understand）这一组值，而事实就是这一组值**很大**，很**复杂**，而且**时刻在变化**。  
-
-## The Human Vision System
-
-人们对于计算机视觉，首先想到的是，能否直接复制人类的视觉系统来解决这一问题，但问题是我们目前还不清楚人类的视觉系统大多数时刻在干些啥。  
-首先对于眼睛来说，颜色视觉（6–700万个视锥细胞）集中在眼睛的中心，而其余的由1.2亿个视杆组成。所以在某种成都下，我们可以认为我们看到的，是一个连续的（continuous）图像（没有blind spot盲点），图像中各处都有颜色，但是目前我们也还不清楚这种印象如何在大脑中发生。  
-尽管我们现在能根据电子信息的活动，判断大脑的各部位负责什么任务，但是这也不能为我们提供解决计算机视觉问题的算法或思路。
-
-## Practical Applications of Computer Vision
-
-计算机视觉在工业中有许多应用，特别是在生产线上自动检查制成品。 例如，它已用于质量检测，生物安全识别，车牌识别等。
-
-## The Future of Computer Vision
-
-尽管现在计算机视觉已经有很大的发展，但是仍有不足，比如现在仍然很难生产出可以在小路上行驶的可靠车辆，甚至同时也面临法律问题，如果车辆撞车，谁来负责？另外如果我们开发出一种医学成像系统来诊断癌症，而错误地没有诊断出病情时会发生什么？即使该系统可能比任何医师都更可靠，但是还是会进入法律的雷区。所以最简单的解决方案要么是仅解决非关键性问题，要么开发系统来作为当前人类专家的助手，而不是替代人类专家。另外有可能遇到的问题比如，在某些国家/地区，摄像机的安装和使用被视为侵犯了基本隐私权。  
-所以在未来，我们希望计算机视觉能在更自由更复杂的环境中发挥作用，比如自动驾驶，协助抓贼等等。  
-而计算机视觉的最终目的，是模仿人类视觉的能力，并将这些能力提供给类人机器人（和其他）机器人设备。虽然我们都有自己的良好的视觉系统，但是我们仍然希望自动的实现任何的计算机视觉任务。
-
-# Images
-
-计算机视觉最重要的因素之一是图像，因为它为计算机提供了场景的视觉上的表示，以便计算机后续处理来突出感兴趣的特征，最后提取出信息。
-
-## Cameras
-
-标准的相机由一个感光图像平面（photosensitive image plane）（可感应落在平面上的光量），一个防止杂散光掉落到感光图像平面上的外壳（housing），以及一个镜头罩（lens）组成，镜头允许部分光落图像平面上（镜头能通过控制透镜，将光线聚焦到图像平面上）。
-
-### The Simple Pinhole Camera Model
-
-最简单但合理的模型是针孔照相机模型，如图2.1所示，模型中镜头化简为针孔。该模型是大多数实际成像系统的简化，因为实际系统的各个部分都会在生成的图像中引入失真（变形）。其中从3D世界中的点（x，y，z）到图像平面上的点（i，j）的映射可以建模为：
-$$
+<a id="more"></a>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>计算机视觉是由计算机进行的，自动分析图像和视频的过程。它最初根据人类的视觉系统而来，由于人类的视觉系统几乎是出于自然的条件反射，所以最开始人们也认为计算机视觉是一个直截了当的问题，但是事实上，无论是人类的视觉系统，还是计算机视觉的难题都比想象的要更加复杂。  </p>
+<h2 id="A-Difficult-Problem"><a href="#A-Difficult-Problem" class="headerlink" title="A Difficult Problem"></a>A Difficult Problem</h2><p>对于计算机视觉的研究来说，首先要知道，这是一项很难的任务，对于计算机来说，图像就是一组值，计算机视觉就是要了解（understand）这一组值，而事实就是这一组值<strong>很大</strong>，很<strong>复杂</strong>，而且<strong>时刻在变化</strong>。  </p>
+<h2 id="The-Human-Vision-System"><a href="#The-Human-Vision-System" class="headerlink" title="The Human Vision System"></a>The Human Vision System</h2><p>人们对于计算机视觉，首先想到的是，能否直接复制人类的视觉系统来解决这一问题，但问题是我们目前还不清楚人类的视觉系统大多数时刻在干些啥。<br>首先对于眼睛来说，颜色视觉（6–700万个视锥细胞）集中在眼睛的中心，而其余的由1.2亿个视杆组成。所以在某种成都下，我们可以认为我们看到的，是一个连续的（continuous）图像（没有blind spot盲点），图像中各处都有颜色，但是目前我们也还不清楚这种印象如何在大脑中发生。<br>尽管我们现在能根据电子信息的活动，判断大脑的各部位负责什么任务，但是这也不能为我们提供解决计算机视觉问题的算法或思路。</p>
+<h2 id="Practical-Applications-of-Computer-Vision"><a href="#Practical-Applications-of-Computer-Vision" class="headerlink" title="Practical Applications of Computer Vision"></a>Practical Applications of Computer Vision</h2><p>计算机视觉在工业中有许多应用，特别是在生产线上自动检查制成品。 例如，它已用于质量检测，生物安全识别，车牌识别等。</p>
+<h2 id="The-Future-of-Computer-Vision"><a href="#The-Future-of-Computer-Vision" class="headerlink" title="The Future of Computer Vision"></a>The Future of Computer Vision</h2><p>尽管现在计算机视觉已经有很大的发展，但是仍有不足，比如现在仍然很难生产出可以在小路上行驶的可靠车辆，甚至同时也面临法律问题，如果车辆撞车，谁来负责？另外如果我们开发出一种医学成像系统来诊断癌症，而错误地没有诊断出病情时会发生什么？即使该系统可能比任何医师都更可靠，但是还是会进入法律的雷区。所以最简单的解决方案要么是仅解决非关键性问题，要么开发系统来作为当前人类专家的助手，而不是替代人类专家。另外有可能遇到的问题比如，在某些国家/地区，摄像机的安装和使用被视为侵犯了基本隐私权。<br>所以在未来，我们希望计算机视觉能在更自由更复杂的环境中发挥作用，比如自动驾驶，协助抓贼等等。<br>而计算机视觉的最终目的，是模仿人类视觉的能力，并将这些能力提供给类人机器人（和其他）机器人设备。虽然我们都有自己的良好的视觉系统，但是我们仍然希望自动的实现任何的计算机视觉任务。</p>
+<h1 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h1><p>计算机视觉最重要的因素之一是图像，因为它为计算机提供了场景的视觉上的表示，以便计算机后续处理来突出感兴趣的特征，最后提取出信息。</p>
+<h2 id="Cameras"><a href="#Cameras" class="headerlink" title="Cameras"></a>Cameras</h2><p>标准的相机由一个感光图像平面（photosensitive image plane）（可感应落在平面上的光量），一个防止杂散光掉落到感光图像平面上的外壳（housing），以及一个镜头罩（lens）组成，镜头允许部分光落图像平面上（镜头能通过控制透镜，将光线聚焦到图像平面上）。</p>
+<h3 id="The-Simple-Pinhole-Camera-Model"><a href="#The-Simple-Pinhole-Camera-Model" class="headerlink" title="The Simple Pinhole Camera Model"></a>The Simple Pinhole Camera Model</h3><p>最简单但合理的模型是针孔照相机模型，如图2.1所示，模型中镜头化简为针孔。该模型是大多数实际成像系统的简化，因为实际系统的各个部分都会在生成的图像中引入失真（变形）。其中从3D世界中的点（x，y，z）到图像平面上的点（i，j）的映射可以建模为：</p>
+<script type="math/tex; mode=display">
 \left[\begin{array}{c}
 i . w \\
 j . w \\
@@ -504,201 +492,115 @@ f_{i} & 0 & c_{i} \\
 x \\
 y \\
 z
-\end{array}\right]
-$$
-其中$w$为尺度因子，$f_i$和$f_j$是相机的焦距和像素大小的结合，$（c_i，c_j）$是与图像平面垂直且经过针孔的线与图片平面相交的点的坐标。
-
-![图2.1](./读书笔记-计算机视觉入门介绍/2.1.png)
-
-## Images
-
-图像是由传感器捕捉到的画面（通常是3D场景的2D投影）。而且图像可以看做是图像平面上的，关于两个坐标（（i，y）或（column，row））的连续函数，但是如果要在电脑上处理这样的图像，它必须经过一下操作：
-1. 采样。从传感器信息中采样，并输入一个M×N的矩阵中。
-2. 量化。矩阵中的每个元素都需要设置成整数，所以连续空间被分成一些间隔（通常为256）。
-
-### Sampling
-
-图像本来应该是连续的，尤其是对于人眼来说，但是对于电脑来说，它会将**连续图像采样到离散的元素**中来创建数字图像，以便电脑处理。而数字图像的传感器由2D的光敏元件阵列组成，且每个元件（像素点/采样点/图像点）只在**一定的固定区域上是光敏的**，点之间的边缘区域则不是光敏的，所以传感器会丢失掉这部分的信息（比如远处的物体恰好落在缝隙）。但采样更重要的问题是，该像素代表了离散区域的平均值（亮度/色度），这在现实世界中，可以从单个物体中折射过来，也可能是多个物体反射光的总和。  
-显而易见，像素点的数量会影响分辨率，见图2.2所示，从而限制图像中能识别出的对象，但是过多的数量又会带来超过需求的细节，使处理变的困难，因此需要权衡。
-
-![图2.2](./读书笔记-计算机视觉入门介绍/2.2.png)
-
-### Quantisation
-
-函数$f(x，y)$表示了每个像素的亮度，亮度本应该是连续的，但是我们需要整数值，因此需要离散的表示，通常每个通道的亮度的级别有$k=2^{b}$个，其中b表示比特数（通常为8），b越大，储存图像所需的内存越大，但是越少，信息会丢失，所以实际上取决于储存的图像的目的，通常需要比预期更高的量化级别。
-
-## Colour Images
-
-灰度（单色）图像只有一个通道，只能表示每个点的亮度，而彩色（多光谱）图像具有多个通道，能同时表示场景中的亮度和色度（颜色信息）。 因此，同样的采样和量化下，彩色图像比灰度图像更大，更复杂。而我们总是需要利用彩色图像的多个通道，所以我们必须以某种方式决定如何处理每个信息通道。（也有许多图像处理是专门为灰度图像开发的。）  
-事实上是，由于人类也能理解灰度图像，且灰度图像更小更简单，所以计算机视觉多年来都一直基于灰度图像。但是颜色确实能通过更有用的信息帮助完成图像分割，物体分类等任务。  
-另外人类对于波长为400nm~700nm之间的光敏感，所以大多数相机的传感器被设计为对这些波长敏感，另外彩色图像通常使用三通道的色彩空间进行表示，如下所示。
-
-### Red–Green–Blue (RGB) Images
-
-彩色图像的最常见表示形式是使用三个通道，它们大致对应于红色（700 nm），绿色（546.1 nm）和蓝色（435.8nm）波长。这意味着照相机中的感光元件对以这些颜色为中心的波长才具有光谱敏感性（如图2.6）。
-
-![图2.6](./读书笔记-计算机视觉入门介绍/2.6.png)
-
-值得注意的是，由于量化，尽管该色彩空间有1680万多种（256\*256\*256），有些颜色仍无法表示。  
-RGB颜色信息可以转换为灰度图：
-$$
-Y=0.299 R+0.587 G+0.114 B
-$$
-另外，感光平面上的一个位置只有一个元件，一个元件只对一种波长有光谱敏感性，所以对不同波长感光的元件并非位于同一位置，而是以规则模式显示，如图2.7所示，而RGB值则是以某种方式，从这些感应值内插得到。这意味着接收到的图像甚至不是连续图像的正确采样（错位），而是从传感器元件接收到的数据中插入得到的。
-
-![图2.7](./读书笔记-计算机视觉入门介绍/2.7.png)
-
-### Cyan–Magenta–Yellow (CMY) Images
-
-CMY模型基于二次色（secondary colour，通过混合两个主次色得来）（RGB是主次色），其中C，M和Y的值，通过从纯白色中减去R，G，B的值得来。 所以，它通常在以白色为起点的打印机中用作颜色模型。
-$$
-C=255-R, \quad M=255-G, \quad Y=255-B
-$$
-
-### YUV Images
-
-YUV颜色模型用于模拟电视信号（PAL，NTSC…），它由亮度（Y）以及两个颜色分量组成：蓝色减去亮度（U）和红色减去亮度（V）。 从RGB的转换方程如下：
-
-* $Y=0.299 R+0.587 G+0.114 B$
-* $U=0.492^{*}(B-Y)$
-* $V=0.492^{*}(R-Y)$
-人类的视觉系统对亮度比对色度更加敏感，而电视信号的编码需要以减少传输的数据量为目的，所以会用到这个色彩空间。
-
-### Hue Luminance Saturation (HLS) Images
-
-HLS模型在计算机视觉中经常使用，因为它除了将亮度和色度分开外，还将色度分为色相和饱和度，所以能够更加贴切的描述（例如深蓝色，浅红色等）。通常来说，亮度在0到1之间，色相描述了颜色，在0到360°之间，饱和度S是颜色的强度或纯度，在0到1之间。但在实际实现中，这些量会映射到到0到25​​5的范围（OpenCV内，色相值的范围是0到179）。直观的色彩空间的显示如图2.10。
-
-![图2.10](./读书笔记-计算机视觉入门介绍/2.10.png)
-
-从图2.10中可以明显发现，色相轴的圆形性质，这意味着最小（0）和最大（179）的色相值仅相差1，所以它们在颜色上没有太大区别，都对应于红色像素，但是单单看色相图，一个是黑色一个是白色，这意味着，如果要处理色相通道，则必须格外小心。例如，如果0、178、1、177和179的平均色相值应为179，而不是107。  
-另外，RGB和HLS之间的转换方程如下（RGB都被规范化到0.0和1.0之间）：
-$$
+\end{array}\right]</script><p>其中$w$为尺度因子，$f_i$和$f_j$是相机的焦距和像素大小的结合，$（c_i，c_j）$是与图像平面垂直且经过针孔的线与图片平面相交的点的坐标。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/2.1.png" alt="图2.1"></p>
+<h2 id="Images-1"><a href="#Images-1" class="headerlink" title="Images"></a>Images</h2><p>图像是由传感器捕捉到的画面（通常是3D场景的2D投影）。而且图像可以看做是图像平面上的，关于两个坐标（（i，y）或（column，row））的连续函数，但是如果要在电脑上处理这样的图像，它必须经过一下操作：</p>
+<ol>
+<li>采样。从传感器信息中采样，并输入一个M×N的矩阵中。</li>
+<li>量化。矩阵中的每个元素都需要设置成整数，所以连续空间被分成一些间隔（通常为256）。</li>
+</ol>
+<h3 id="Sampling"><a href="#Sampling" class="headerlink" title="Sampling"></a>Sampling</h3><p>图像本来应该是连续的，尤其是对于人眼来说，但是对于电脑来说，它会将<strong>连续图像采样到离散的元素</strong>中来创建数字图像，以便电脑处理。而数字图像的传感器由2D的光敏元件阵列组成，且每个元件（像素点/采样点/图像点）只在<strong>一定的固定区域上是光敏的</strong>，点之间的边缘区域则不是光敏的，所以传感器会丢失掉这部分的信息（比如远处的物体恰好落在缝隙）。但采样更重要的问题是，该像素代表了离散区域的平均值（亮度/色度），这在现实世界中，可以从单个物体中折射过来，也可能是多个物体反射光的总和。<br>显而易见，像素点的数量会影响分辨率，见图2.2所示，从而限制图像中能识别出的对象，但是过多的数量又会带来超过需求的细节，使处理变的困难，因此需要权衡。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/2.2.png" alt="图2.2"></p>
+<h3 id="Quantisation"><a href="#Quantisation" class="headerlink" title="Quantisation"></a>Quantisation</h3><p>函数$f(x，y)$表示了每个像素的亮度，亮度本应该是连续的，但是我们需要整数值，因此需要离散的表示，通常每个通道的亮度的级别有$k=2^{b}$个，其中b表示比特数（通常为8），b越大，储存图像所需的内存越大，但是越少，信息会丢失，所以实际上取决于储存的图像的目的，通常需要比预期更高的量化级别。</p>
+<h2 id="Colour-Images"><a href="#Colour-Images" class="headerlink" title="Colour Images"></a>Colour Images</h2><p>灰度（单色）图像只有一个通道，只能表示每个点的亮度，而彩色（多光谱）图像具有多个通道，能同时表示场景中的亮度和色度（颜色信息）。 因此，同样的采样和量化下，彩色图像比灰度图像更大，更复杂。而我们总是需要利用彩色图像的多个通道，所以我们必须以某种方式决定如何处理每个信息通道。（也有许多图像处理是专门为灰度图像开发的。）<br>事实上是，由于人类也能理解灰度图像，且灰度图像更小更简单，所以计算机视觉多年来都一直基于灰度图像。但是颜色确实能通过更有用的信息帮助完成图像分割，物体分类等任务。<br>另外人类对于波长为400nm~700nm之间的光敏感，所以大多数相机的传感器被设计为对这些波长敏感，另外彩色图像通常使用三通道的色彩空间进行表示，如下所示。</p>
+<h3 id="Red–Green–Blue-RGB-Images"><a href="#Red–Green–Blue-RGB-Images" class="headerlink" title="Red–Green–Blue (RGB) Images"></a>Red–Green–Blue (RGB) Images</h3><p>彩色图像的最常见表示形式是使用三个通道，它们大致对应于红色（700 nm），绿色（546.1 nm）和蓝色（435.8nm）波长。这意味着照相机中的感光元件对以这些颜色为中心的波长才具有光谱敏感性（如图2.6）。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/2.6.png" alt="图2.6"></p>
+<p>值得注意的是，由于量化，尽管该色彩空间有1680万多种（256*256*256），有些颜色仍无法表示。<br>RGB颜色信息可以转换为灰度图：</p>
+<script type="math/tex; mode=display">
+Y=0.299 R+0.587 G+0.114 B</script><p>另外，感光平面上的一个位置只有一个元件，一个元件只对一种波长有光谱敏感性，所以对不同波长感光的元件并非位于同一位置，而是以规则模式显示，如图2.7所示，而RGB值则是以某种方式，从这些感应值内插得到。这意味着接收到的图像甚至不是连续图像的正确采样（错位），而是从传感器元件接收到的数据中插入得到的。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/2.7.png" alt="图2.7"></p>
+<h3 id="Cyan–Magenta–Yellow-CMY-Images"><a href="#Cyan–Magenta–Yellow-CMY-Images" class="headerlink" title="Cyan–Magenta–Yellow (CMY) Images"></a>Cyan–Magenta–Yellow (CMY) Images</h3><p>CMY模型基于二次色（secondary colour，通过混合两个主次色得来）（RGB是主次色），其中C，M和Y的值，通过从纯白色中减去R，G，B的值得来。 所以，它通常在以白色为起点的打印机中用作颜色模型。</p>
+<script type="math/tex; mode=display">
+C=255-R, \quad M=255-G, \quad Y=255-B</script><h3 id="YUV-Images"><a href="#YUV-Images" class="headerlink" title="YUV Images"></a>YUV Images</h3><p>YUV颜色模型用于模拟电视信号（PAL，NTSC…），它由亮度（Y）以及两个颜色分量组成：蓝色减去亮度（U）和红色减去亮度（V）。 从RGB的转换方程如下：</p>
+<ul>
+<li>$Y=0.299 R+0.587 G+0.114 B$</li>
+<li>$U=0.492^{*}(B-Y)$</li>
+<li>$V=0.492^{*}(R-Y)$</li>
+</ul>
+<p>人类的视觉系统对亮度比对色度更加敏感，而电视信号的编码需要以减少传输的数据量为目的，所以会用到这个色彩空间。</p>
+<h3 id="Hue-Luminance-Saturation-HLS-Images"><a href="#Hue-Luminance-Saturation-HLS-Images" class="headerlink" title="Hue Luminance Saturation (HLS) Images"></a>Hue Luminance Saturation (HLS) Images</h3><p>HLS模型在计算机视觉中经常使用，因为它除了将亮度和色度分开外，还将色度分为色相和饱和度，所以能够更加贴切的描述（例如深蓝色，浅红色等）。通常来说，亮度在0到1之间，色相描述了颜色，在0到360°之间，饱和度S是颜色的强度或纯度，在0到1之间。但在实际实现中，这些量会映射到到0到25​​5的范围（OpenCV内，色相值的范围是0到179）。直观的色彩空间的显示如图2.10。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/2.10.png" alt="图2.10"></p>
+<p>从图2.10中可以明显发现，色相轴的圆形性质，这意味着最小（0）和最大（179）的色相值仅相差1，所以它们在颜色上没有太大区别，都对应于红色像素，但是单单看色相图，一个是黑色一个是白色，这意味着，如果要处理色相通道，则必须格外小心。例如，如果0、178、1、177和179的平均色相值应为179，而不是107。<br>另外，RGB和HLS之间的转换方程如下（RGB都被规范化到0.0和1.0之间）：</p>
+<script type="math/tex; mode=display">
 \begin{array}{l}
 L=\operatorname{Max}(R, G, B)+\operatorname{Min}(R, G, B) / 2 \\
 S=\left\{\begin{array}{ll}
-\operatorname{Max}(R, G, B)-\operatorname{Min}(R, G, B) / \operatorname{Max}(R, G, B)+\operatorname{Min}(R, G, B) & \text { if } L<0.5 60="" \\="" \operatorname{max}(r,="" g,="" b)-\operatorname{min}(r,="" b)="" 2-(\operatorname{max}(r,="" b)+\operatorname{min}(r,="" b))="" &="" \text="" {="" if="" }="" l="" \geq="" 0.5="" \end{array}\right.="" h="\left\{\begin{array}{ll}" .(g-b)="" s="" r="\operatorname{Max}(R," 120+60="" .(b-r)="" g="\operatorname{Max}(R," 240+60="" .(r-g)="" b="\operatorname{Max}(R," \end{array}="" $$="" 根据上面的公式，l和s值将在0.0到1.0之间，h值应在0.0到360.0之间。="" ###="" other="" colour="" spaces="" opencv提供对其他六个颜色空间的支持（就转换功能而言）：="" 1.="" hsv。="" 2.="" ycrcb="" 缩放了的yuv，用于图像和视频压缩。="" 3.="" cie="" xyz="" 标准的参考色彩空间，其中通道响应类似于人眼中不同的圆锥响应。="" 4.="" $\mathrm{l}^{*}="" \mathrm{u}^{*}="" \mathrm{v}^{*}$="" cie定义的另一种标准颜色空间，旨在提供一种感知上统一的颜色空间，其中颜色之间的差异与我们感知到的差异成比例。="" $\mathrm{l}^{*}$是亮度的量度，$\mathrm{u}^{*}$和$\mathrm{v}^{*}$是色度值。="" 5.="" \mathrm{a}^{*}="" \mathrm{b}^{*}$="" 与设备无关的色彩空间，其中包括人类可以感知的所有颜色。="" 6.="" 拜耳（bayer）是ccd传感器中广泛使用的模式，如果我们有原始传感器数据（即尚未插值），则使用拜耳模式。="" some="" applications="" 在某些应用中，我们需要确定哪些像素代表特定颜色。例如，要查找路标，我们会对红色，黄色，蓝色，黑色和白色特别感兴趣。我们可以通过创建用于识别特定颜色的简单公式来识别特定颜色，如以下的介绍，但应注意的是，标准本身真的太粗糙了，很容易失效，也因为该标准不是基于足够数量的图像，所以实际上应该以更严格的方式进行处理。="" ####="" skin="" detection="" 简单的通过以下公式：="" (saturation="">=0.2 ) AND (0.5<\text {="" luminance="" }="" \text="" saturation="" }<3.0="" )="" and="" (hue="" <="28^{\circ}" or="" hue="">=330^{\circ} )
-$$
-将识别许多皮肤像素。 但是，很明显，这也会识别其他像素。
-
-#### Red Eye Detection
-
-同样通过以下公式：
-$$
-(Luminance >=0.25 ) AND (Saturation >=0.4 ) AND \left.\qquad(0.5<\text {="" luminance="" saturation="" }<1.5)="" \text="" and="" (hue="" }<="14^{\circ}" or="" hue="" }="">=324^{\circ}\right)
-$$
-识别红眼像素，通过实验可以确定，这还需加以改进，但是它是识别红眼的良好起点。
-
-## Noise
-
-图像通常会受到某种程度的噪声（噪声可以是任何会降低图像质量的因素）的影响，且这种噪声会对处理过程产生影响。总的来说，噪声能来源于环境，成像设备，电气干扰，数字化过程等。而对于噪声，我们需要能够测量它，并以某种方式对它进行校正。  
-首先对噪声大小的衡量标准，我们使用信噪比（the signal to noise ratio）来衡量。对于一幅图像$f(i, j)$，信噪比定义为：
-$$
-S / \text {Nratio}=\Sigma_{(i, j)} f^{2}(i, j) / \Sigma_{(i, j)} v^{2}(i, j)
-$$
-其中$v(i, j)$代表噪声。
-
-### Types of Noise
-
-两种最常见的噪声类型是高斯噪声和椒盐噪声。
-
-#### Gaussian Noise
-
-高斯噪声能很好的拟合许多的实际噪声。其中，噪声$v(i, j)$被建模为一个平均值为$\mu$（通常为0），标准差为$\sigma$的高斯分布，如图2.14所示。
-
-![图2.14](./读书笔记-计算机视觉入门介绍/2.14.png)
-
-#### Salt and Pepper Noise
-
-椒盐噪声是脉冲噪声的一种，通过对单个像素的损坏，使其亮度与周围区域的亮度差异很大，其中饱和脉冲噪声会影响图像（即，纯白色和黑色像素会破坏图像），如图2.15所示。
-
-![图2.15](./读书笔记-计算机视觉入门介绍/2.15.png)
-
-### Noise Models
-
-噪声必须以某种方式与图像数据结合在一起，根据噪声是与数据无关还是与数据有关可以将之分为两类。
-
-#### Additive Noise 
-
-这类噪声模型用于数据独立的噪声（噪声量与图像数据本身无关），其中附加噪声模型能表示为：
-$$
-f(i, j)=g(i, j)+v(i, j)
-$$
-其中$g(i, j)$是原始图像，$v(i, j)$是噪声，而$f(i, j)$是实际图像。
-
-#### Multiplicative Noise
-
-这类噪声模型用于数据依赖的噪声（噪声量与图像数据本身有关），其中乘法噪声模型能表示为：
-$$
-f(i, j)=g(i, j)+g(i, j) \cdot v(i, j)
-$$
-其中$g(i, j)$是原始图像，$v(i, j)$是噪声，而$f(i, j)$是实际图像。
-
-### Noise Generation
-
-为了评估消除噪声的算法，我们经常需要先模拟噪声，以便可以消除/减少噪声后，评估算法成功的程度。首先假设我们生成的噪声具有高斯分布，均值为0，标准差为$\sigma$。  
-我们首先确定，能从最大可能的负变化到最大可能的正变化（通常k = -255..255）之间的所有可能噪声值的概率分布$p(k)$和累积概率分布$p_cum(k)$。
-$$
+\operatorname{Max}(R, G, B)-\operatorname{Min}(R, G, B) / \operatorname{Max}(R, G, B)+\operatorname{Min}(R, G, B) & \text { if } L<0.5 \\
+\operatorname{Max}(R, G, B)-\operatorname{Min}(R, G, B) / 2-(\operatorname{Max}(R, G, B)+\operatorname{Min}(R, G, B)) & \text { if } L \geq 0.5
+\end{array}\right. \\
+H=\left\{\begin{array}{ll}
+60 .(G-B) / S & \text { if } R=\operatorname{Max}(R, G, B) \\
+120+60 .(B-R) / S & \text { if } G=\operatorname{Max}(R, G, B) \\
+240+60 .(R-G) / S & \text { if } B=\operatorname{Max}(R, G, B)
+\end{array}\right.
+\end{array}</script><p>根据上面的公式，L和S值将在0.0到1.0之间，H值应在0.0到360.0之间。</p>
+<h3 id="Other-Colour-Spaces"><a href="#Other-Colour-Spaces" class="headerlink" title="Other Colour Spaces"></a>Other Colour Spaces</h3><p>OpenCV提供对其他六个颜色空间的支持（就转换功能而言）：</p>
+<ol>
+<li>HSV。</li>
+<li>YCrCb 缩放了的YUV，用于图像和视频压缩。</li>
+<li>CIE XYZ 标准的参考色彩空间，其中通道响应类似于人眼中不同的圆锥响应。</li>
+<li>CIE ${L}^{<em>}$${u}^{</em>}$${v}^{<em>}$ CIE定义的另一种标准颜色空间，旨在提供一种感知上统一的颜色空间，其中颜色之间的差异与我们感知到的差异成比例。 $\mathrm{L}^{</em>}$是亮度的量度，$\mathrm{u}^{<em>}$和$\mathrm{v}^{</em>}$是色度值。</li>
+<li>CIE $\mathrm{L}^{<em>}$ $\mathrm{a}^{</em>}$ $\mathrm{b}^{*}$ 与设备无关的色彩空间，其中包括人类可以感知的所有颜色。</li>
+<li>拜耳（Bayer）是CCD传感器中广泛使用的模式，如果我们有原始传感器数据（即尚未插值），则使用拜耳模式。</li>
+</ol>
+<h3 id="Some-Colour-Applications"><a href="#Some-Colour-Applications" class="headerlink" title="Some Colour Applications"></a>Some Colour Applications</h3><p>在某些应用中，我们需要确定哪些像素代表特定颜色。例如，要查找路标，我们会对红色，黄色，蓝色，黑色和白色特别感兴趣。我们可以通过创建用于识别特定颜色的简单公式来识别特定颜色，如以下的介绍，但应注意的是，标准本身真的太粗糙了，很容易失效，也因为该标准不是基于足够数量的图像，所以实际上应该以更严格的方式进行处理。</p>
+<h4 id="Skin-Detection"><a href="#Skin-Detection" class="headerlink" title="Skin Detection"></a>Skin Detection</h4><p>简单的通过以下公式：</p>
+<script type="math/tex; mode=display">
+(Saturation >=0.2 ) AND (0.5<\text { Luminance } / \text { Saturation }<3.0 ) AND (Hue <=28^{\circ} OR Hue >=330^{\circ} )</script><p>将识别许多皮肤像素。 但是，很明显，这也会识别其他像素。</p>
+<h4 id="Red-Eye-Detection"><a href="#Red-Eye-Detection" class="headerlink" title="Red Eye Detection"></a>Red Eye Detection</h4><p>同样通过以下公式：</p>
+<script type="math/tex; mode=display">
+(Luminance >=0.25 ) AND (Saturation >=0.4 ) AND \left.\qquad(0.5<\text { Luminance/Saturation }<1.5) \text { AND (Hue }<=14^{\circ} \text { OR Hue }>=324^{\circ}\right)</script><p>识别红眼像素，通过实验可以确定，这还需加以改进，但是它是识别红眼的良好起点。</p>
+<h2 id="Noise"><a href="#Noise" class="headerlink" title="Noise"></a>Noise</h2><p>图像通常会受到某种程度的噪声（噪声可以是任何会降低图像质量的因素）的影响，且这种噪声会对处理过程产生影响。总的来说，噪声能来源于环境，成像设备，电气干扰，数字化过程等。而对于噪声，我们需要能够测量它，并以某种方式对它进行校正。<br>首先对噪声大小的衡量标准，我们使用信噪比（the signal to noise ratio）来衡量。对于一幅图像$f(i, j)$，信噪比定义为：</p>
+<script type="math/tex; mode=display">
+S / \text {Nratio}=\Sigma_{(i, j)} f^{2}(i, j) / \Sigma_{(i, j)} v^{2}(i, j)</script><p>其中$v(i, j)$代表噪声。</p>
+<h3 id="Types-of-Noise"><a href="#Types-of-Noise" class="headerlink" title="Types of Noise"></a>Types of Noise</h3><p>两种最常见的噪声类型是高斯噪声和椒盐噪声。</p>
+<h4 id="Gaussian-Noise"><a href="#Gaussian-Noise" class="headerlink" title="Gaussian Noise"></a>Gaussian Noise</h4><p>高斯噪声能很好的拟合许多的实际噪声。其中，噪声$v(i, j)$被建模为一个平均值为$\mu$（通常为0），标准差为$\sigma$的高斯分布，如图2.14所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/2.14.png" alt="图2.14"></p>
+<h4 id="Salt-and-Pepper-Noise"><a href="#Salt-and-Pepper-Noise" class="headerlink" title="Salt and Pepper Noise"></a>Salt and Pepper Noise</h4><p>椒盐噪声是脉冲噪声的一种，通过对单个像素的损坏，使其亮度与周围区域的亮度差异很大，其中饱和脉冲噪声会影响图像（即，纯白色和黑色像素会破坏图像），如图2.15所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/2.15.png" alt="图2.15"></p>
+<h3 id="Noise-Models"><a href="#Noise-Models" class="headerlink" title="Noise Models"></a>Noise Models</h3><p>噪声必须以某种方式与图像数据结合在一起，根据噪声是与数据无关还是与数据有关可以将之分为两类。</p>
+<h4 id="Additive-Noise"><a href="#Additive-Noise" class="headerlink" title="Additive Noise"></a>Additive Noise</h4><p>这类噪声模型用于数据独立的噪声（噪声量与图像数据本身无关），其中附加噪声模型能表示为：</p>
+<script type="math/tex; mode=display">
+f(i, j)=g(i, j)+v(i, j)</script><p>其中$g(i, j)$是原始图像，$v(i, j)$是噪声，而$f(i, j)$是实际图像。</p>
+<h4 id="Multiplicative-Noise"><a href="#Multiplicative-Noise" class="headerlink" title="Multiplicative Noise"></a>Multiplicative Noise</h4><p>这类噪声模型用于数据依赖的噪声（噪声量与图像数据本身有关），其中乘法噪声模型能表示为：</p>
+<script type="math/tex; mode=display">
+f(i, j)=g(i, j)+g(i, j) \cdot v(i, j)</script><p>其中$g(i, j)$是原始图像，$v(i, j)$是噪声，而$f(i, j)$是实际图像。</p>
+<h3 id="Noise-Generation"><a href="#Noise-Generation" class="headerlink" title="Noise Generation"></a>Noise Generation</h3><p>为了评估消除噪声的算法，我们经常需要先模拟噪声，以便可以消除/减少噪声后，评估算法成功的程度。首先假设我们生成的噪声具有高斯分布，均值为0，标准差为$\sigma$。<br>我们首先确定，能从最大可能的负变化到最大可能的正变化（通常k = -255..255）之间的所有可能噪声值的概率分布$p(k)$和累积概率分布$p_cum(k)$。</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
 p(k) &=e^{-k^{2} / 2 \sigma^{2}} / \sigma \sqrt{2 \pi} \quad k=-(G-1), \ldots,-1,0,1, \ldots, G-1 \\
 p_{\mathrm{cum}}(k) &=p_{\mathrm{cum}}(k-1)+p(k) \\
 p_{\mathrm{cum}}(-(G-1)) &=p(-(G-1))
-\end{aligned}
-$$
-累积概率分布确定后，我们就能计算图像中，每个像素的噪声值了。  
-对于每个像素$(x，y)$，可以设置其值为：
-$$
-f^{*}(i, j)=g(i, j)+\operatorname{argmin}_{\mathrm{k}}\left(\operatorname{rand} 0-p_{\mathrm{cum}}[k]\right)
-$$
-其中：
-$$
+\end{aligned}</script><p>累积概率分布确定后，我们就能计算图像中，每个像素的噪声值了。<br>对于每个像素$(x，y)$，可以设置其值为：</p>
+<script type="math/tex; mode=display">
+f^{*}(i, j)=g(i, j)+\operatorname{argmin}_{\mathrm{k}}\left(\operatorname{rand} 0-p_{\mathrm{cum}}[k]\right)</script><p>其中：</p>
+<script type="math/tex; mode=display">
 \begin{array}{ll}
-f^{\prime}(x, y)=0 & \text { if } f^{*}(x, y)<0 \\="" f^{\prime}(x,="" y)="G-1" &="" \text="" {="" if="" }="" f^{*}(x,="">G-1 \\
+f^{\prime}(x, y)=0 & \text { if } f^{*}(x, y)<0 \\
+f^{\prime}(x, y)=G-1 & \text { if } f^{*}(x, y)>G-1 \\
 f^{\prime}(x, y)=f^{*}(x, y) & \text { otherwise }
-\end{array}
-$$
-注意，argmin函数给出最小值的索引，在这种情况下，将在累积分布内选择值最接近随机数的k。另外，截断（为确保值保持在0到255之间）其实会稍微改变噪声的高斯性质。
-
-### Noise Evaluation
-
-噪声的评估可以主观或客观地进行。 在主观评估中，将图像显示给观察者，观察者根据一系列标准对其进行评估并给出评分。但是在客观评估中，给定图像$f(i, j)$和已知参考图像$g(i, j)$，我们可以对它们之间差异进行度量，例如：
-$$
+\end{array}</script><p>注意，argmin函数给出最小值的索引，在这种情况下，将在累积分布内选择值最接近随机数的k。另外，截断（为确保值保持在0到255之间）其实会稍微改变噪声的高斯性质。</p>
+<h3 id="Noise-Evaluation"><a href="#Noise-Evaluation" class="headerlink" title="Noise Evaluation"></a>Noise Evaluation</h3><p>噪声的评估可以主观或客观地进行。 在主观评估中，将图像显示给观察者，观察者根据一系列标准对其进行评估并给出评分。但是在客观评估中，给定图像$f(i, j)$和已知参考图像$g(i, j)$，我们可以对它们之间差异进行度量，例如：</p>
+<script type="math/tex; mode=display">
 \begin{array}{l}
 \text { Mean Quadratic Difference }=\sum \sum(g(i, j)-f(i, j))^{2} \\
 \text { Mean Absolute Difference }=\sum \sum|g(i, j)-f(i, j)| \\
 \text { Or we can compute the signal to noise ratio assuming} v(i, j)=f(i, j)-g(i, j)
-\end{array} 
-$$
-显然，这种客观评估需要我们事先知道原始图像或添加的噪声。因此，实验中经常人为地添加噪声，以检验现有技术在去除噪声方面的表现如何。
-
-## Smoothing
-
-消除噪声的方法有很多种，但是由于技术原理的不同或图像数据性质的不同，在不同情况下应该使用不同的技术。  
-其中，减少噪声最常用的方法是线性平滑变换，其中的计算可以表示为线性和，但是这样的噪声会导致锐边模糊，因此有些方法提出了非线性变换（不能表示为简单的线性和，逻辑操作等）。  
-注意这些技术面对像是大斑点或者后条纹，都无法起作用，这时需要用到的是图像恢复技术。
-
-### Image Averaging
-
-如果对完全相同场景，存在多个图像，则将它们进行平均处理，就可以减少噪声。比如现有n张图像，其平均值为：
-$$
-f^{\prime}(i, j)=\frac{1}{n} \sum_{k=1 . . n} f_{k}(i, j)=\frac{1}{n} \sum_{k=1 . . n} g_{k}(i, j)+v_{k}(i, j)
-$$
-这种消除噪声的算法假设噪声是数据独立的。同样也假设：
-
-* 所有图像的原始图像$g_{\mathrm{k}}(i, j)$是相同的（即场景和摄像机是静态的）。
-* 每个图像中的噪声$v_{\mathrm{k}}(i, j)$之间存在统计独立性。
-* 噪声$v_{\mathrm{k}}(i, j)$具有高斯分布，且均值为0和标准差为𝜎。
-
-如果以上假设成立，那么图像平均之后，将保持高斯性质，但标准偏差将减小$\sqrt{n}$倍，如图2.16所示。
-
-![图2.16](./读书笔记-计算机视觉入门介绍/2.16.png)
-
-由以上假设可知，该方法不适用于椒盐噪声，且当场景非静态时，将引入模糊。
-
-### Local Averaging and Gaussian Smoothing
-
-如果只有一个图像可用，则仍然可以执行平均，但不是全局，而是对图像中的每个点，计算以当前点为中心的像素块（而不是使用多个图像中的对应点）的平均值，最简单的比如3×3。  
-若每个点都均等权重，该技术称为局部平均（local averaging），也就是**加入模糊效果**，滤波器的蒙版越大，效果越明显。但是也可以更改权重，以便为更接近当前点的点赋予更高的权重，其中非常常见的加权方法是由高斯分布定义的。 例如，以下所示：
-$$
+\end{array}</script><p>显然，这种客观评估需要我们事先知道原始图像或添加的噪声。因此，实验中经常人为地添加噪声，以检验现有技术在去除噪声方面的表现如何。</p>
+<h2 id="Smoothing"><a href="#Smoothing" class="headerlink" title="Smoothing"></a>Smoothing</h2><p>消除噪声的方法有很多种，但是由于技术原理的不同或图像数据性质的不同，在不同情况下应该使用不同的技术。<br>其中，减少噪声最常用的方法是线性平滑变换，其中的计算可以表示为线性和，但是这样的噪声会导致锐边模糊，因此有些方法提出了非线性变换（不能表示为简单的线性和，逻辑操作等）。<br>注意这些技术面对像是大斑点或者后条纹，都无法起作用，这时需要用到的是图像恢复技术。</p>
+<h3 id="Image-Averaging"><a href="#Image-Averaging" class="headerlink" title="Image Averaging"></a>Image Averaging</h3><p>如果对完全相同场景，存在多个图像，则将它们进行平均处理，就可以减少噪声。比如现有n张图像，其平均值为：</p>
+<script type="math/tex; mode=display">
+f^{\prime}(i, j)=\frac{1}{n} \sum_{k=1 . . n} f_{k}(i, j)=\frac{1}{n} \sum_{k=1 . . n} g_{k}(i, j)+v_{k}(i, j)</script><p>这种消除噪声的算法假设噪声是数据独立的。同样也假设：</p>
+<ul>
+<li>所有图像的原始图像$g_{\mathrm{k}}(i, j)$是相同的（即场景和摄像机是静态的）。</li>
+<li>每个图像中的噪声$v_{\mathrm{k}}(i, j)$之间存在统计独立性。</li>
+<li>噪声$v_{\mathrm{k}}(i, j)$具有高斯分布，且均值为0和标准差为𝜎。</li>
+</ul>
+<p>如果以上假设成立，那么图像平均之后，将保持高斯性质，但标准偏差将减小$\sqrt{n}$倍，如图2.16所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/2.16.png" alt="图2.16"></p>
+<p>由以上假设可知，该方法不适用于椒盐噪声，且当场景非静态时，将引入模糊。</p>
+<h3 id="Local-Averaging-and-Gaussian-Smoothing"><a href="#Local-Averaging-and-Gaussian-Smoothing" class="headerlink" title="Local Averaging and Gaussian Smoothing"></a>Local Averaging and Gaussian Smoothing</h3><p>如果只有一个图像可用，则仍然可以执行平均，但不是全局，而是对图像中的每个点，计算以当前点为中心的像素块（而不是使用多个图像中的对应点）的平均值，最简单的比如3×3。<br>若每个点都均等权重，该技术称为局部平均（local averaging），也就是<strong>加入模糊效果</strong>，滤波器的蒙版越大，效果越明显。但是也可以更改权重，以便为更接近当前点的点赋予更高的权重，其中非常常见的加权方法是由高斯分布定义的。 例如，以下所示：</p>
+<script type="math/tex; mode=display">
 h_{1}=\frac{1}{9}\left[\begin{array}{lll}
 1 & 1 & 1 \\
 1 & 1 & 1 \\
@@ -711,83 +613,33 @@ h_{1}=\frac{1}{9}\left[\begin{array}{lll}
 1 & 2 & 1 \\
 2 & 4 & 2 \\
 1 & 2 & 1
-\end{array}\right]
-$$
-$h_1$是一个3×3的局部平均滤波器，$h_2$和$h_3$都是3×3的高斯平滑滤波器，但前者的$\Sigma$更小。
-
-很明显，局部像素进行平均时，会引入模糊从而降低可见的（高斯）噪声，但是它也会对边缘（灰度或颜色变化很大）产生影响，反而使图像更模糊，反而更难处理，但有时这都无可厚非，都是需要平衡的点。  
-值得注意的是，对于椒盐噪声，平均后，噪声也会再次平滑到图像中，局部平均滤波器并不适用于此类噪声。  
-另外，对于这种平均操作，通常使用卷积技术来执行，将掩码（通常为正方形且以当前点为中心）与所有可能位置进行卷积：
-$$
-f^{\prime}(i, j)=\sum_{\mathrm{m}} \sum_{\mathrm{n}} f(i, j) \cdot h(i-m, j-n)
-$$
-
-### Rotating Mask
-
-旋转遮罩是一种非线性算子，它首先分别在九个预设的包含当前点的mask内进行计算，选出其中最均匀的（即自相似的）mask，然后在mask内，应用平均滤波器。其中所有的mask如图2.19所示，其形状和大小可以变化。
-
-![图2.19](./读书笔记-计算机视觉入门介绍/2.19.png)
-
-对于每一个mask，我们计算与mask中的点相对应的点的局部平均值（色散）来衡量其自似性，然后选择色散最小的mask来进行平均化操作。这样的目的是减少当前点的噪声，让当前点与来自相同物理刺激（例如表面或物体）的其他类似点取平均值。  
-该技术可以迭代着来使用，直到没有变化或变化很小。掩码越大，收敛越快，但尽管该技术要慢得多，但它能同时**抑制噪声和锐化图像边缘**。其中色散可通过计算每个点的平方差的均值得来：
-$$
-D=\frac{1}{n} \sum_{(i, j) \in M a s k}\left(f(i, j)-1 / n \sum_{\left(i^{\prime}, j^{\prime}\right) \in \text { Mask }} f\left(i^{\prime}, j^{\prime}\right)\right)^{2}
-$$
-化简为；
-$$
-D=\frac{1}{n}\left(\sum_{(i, j) \in \text { Mask }} f(i, j)^{2}-1 / n\left(\sum_{\left(i^{\prime}, j^{\prime}\right) \in \text { Mask }} f\left(i^{\prime}, j^{\prime}\right)\right)^{2}\right)
-$$
-化简后，计算cost显着降低。  
-另外，该技术可以应用于，具有椒盐噪声的图像，但是会导致不良效果，尤其是当噪声存在于物体边缘时。
-
-### Median Filter
-
-另一种非线性平滑操作是将每个像素替换为，以该像素为中心的小区域（例如3x3）中的像素中位值。例如，3x3区域包含像素值（25 21 23 25 18 18 255 30 13 22），排序后为（13 18 22 21 23 25 25 30 255），其中位数为23，而均值为48。可见该技术非常擅长处理噪声，且该技术不会使边缘模糊太多，所以可迭代应用。而实际上，中值滤波与旋转mask的效果非常相似。如图2.17和2.18所示。
-
-![图2.17](./读书笔记-计算机视觉入门介绍/2.17.png)
-
-![图2.18](./读书笔记-计算机视觉入门介绍/2.18.png)
-
-虽然也可将其与上一个，在非矩形区域计算的技术结合，但是它还是会损坏细线和角，而且其时间复杂度为$O\left(k^{2} \log k\right)$，所以计算上也很昂贵。拓展的优化技术可看[Median Filtering in Constant Time by Perreault](http://vision.gel.ulaval.ca/~perreaul/publications/Id699_2007.pdf)
-
-# Histograms
-
-一个图像的直方图是对该图像的抽象描述，其中包含了各个图像值（亮度/强度）的频率。
-
-## 1D Histograms
-
-对于灰度图像，其中灰度强度有256种（0-255），而每个强度对应的值，表示图像中属于该灰度的，有多少个像素。如图3.1所示。
-
-![图3.1](./读书笔记-计算机视觉入门介绍/3.1.png)
-
-图像的直方图中包含了该图像的全局信息，并且该信息完全独立于场景中各个对象的位置和方向，所以同一直方图对应的图像不是唯一的，许多非常不同的图像可能具有相似（甚至相同）的直方图。另外，直方图中得出的信息（例如平均强度及其标准偏差）可用于执行分类。
-
-### Histogram Smoothing
-
-直方图中，无论是全局还是局部的最大值和最小值都能提供有用的信息，但是局部的极值太多了。为了减少此数字，可以对直方图进行平滑处理。首先创建一个新的直方图，其中每个值，都是以原始直方图中的相应值为中心的多个值的平均值。此过程通常称为过滤。如图3.2。
-
-![图3.2](./读书笔记-计算机视觉入门介绍/3.2.png)
-
-### Colour Histograms
-
-对于彩色图像这样的多通道图像来说，通常为每个通道独立确定直方图，如图3.3，图3.4。
-
-![图3.3](./读书笔记-计算机视觉入门介绍/3.3.png)
-
-![图3.4](./读书笔记-计算机视觉入门介绍/3.4.png)
-
-由上可知，不同的颜色模型，直方图也有很大的区别，进而对其有用性产生巨大影响。比如图3.4中可以直接发现，红色和绿色很显著。
-
-## 3D Histograms
-
-对于色彩图像的直方图处理，若是均独立处理，则不会实现最佳的颜色分割。比如相似颜色的点都具有较高的饱和度和色相值，这时需要更好的分割，则需要用到3D直方图，如图3.5。
-
-![图3.5](./读书笔记-计算机视觉入门介绍/3.5.png)
-
-其中，(0,0,0)点显示在左下角的顶层。绿轴从顶层的左下角到右下角，蓝轴从顶层的左下角到左上角，红轴从顶层的左下角到最底层的左下角。每个单元内显示的灰度强度表示每个单元中的相对像素数（黑色= 0，白色=最大）。  
-另外就是直方图中的**单元数的设置**。如果我们假设每个通道8位，则直方图中将有近1,680万个单元，这作为图像中信息的摘要来说太多了，所以我们需要减少了直方图的量化。比如图3.5中，每个通道只有2位，所以直方图中只有64个单元。  
-OpenCV中的代码可写为：
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MatND histogram;</span><br><span class="line"><span class="keyword">int</span> channel_numbers[] = &#123; <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> * number_bins = <span class="keyword">new</span> <span class="keyword">int</span>[image.channels()]; </span><br><span class="line"><span class="keyword">for</span> (ch=<span class="number">0</span>; ch &lt; image.channels(); ch++)</span><br><span class="line">	number_bins[ch] = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">float</span> ch_range[] = &#123; <span class="number">0.0</span>, <span class="number">255.0</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">float</span> * channel_ranges[] = &#123;ch_range,ch_range,ch_range&#125;;</span><br><span class="line">calcHist( &amp;image, <span class="number">1</span>, channel_numbers, Mat(), histogram, image.channels(), a_number_bins, channel_ranges );</span><br></pre></td></tr></table></figure>
+\end{array}\right]</script><p>$h_1$是一个3×3的局部平均滤波器，$h_2$和$h_3$都是3×3的高斯平滑滤波器，但前者的$\Sigma$更小。</p>
+<p>很明显，局部像素进行平均时，会引入模糊从而降低可见的（高斯）噪声，但是它也会对边缘（灰度或颜色变化很大）产生影响，反而使图像更模糊，反而更难处理，但有时这都无可厚非，都是需要平衡的点。<br>值得注意的是，对于椒盐噪声，平均后，噪声也会再次平滑到图像中，局部平均滤波器并不适用于此类噪声。<br>另外，对于这种平均操作，通常使用卷积技术来执行，将掩码（通常为正方形且以当前点为中心）与所有可能位置进行卷积：</p>
+<script type="math/tex; mode=display">
+f^{\prime}(i, j)=\sum_{\mathrm{m}} \sum_{\mathrm{n}} f(i, j) \cdot h(i-m, j-n)</script><h3 id="Rotating-Mask"><a href="#Rotating-Mask" class="headerlink" title="Rotating Mask"></a>Rotating Mask</h3><p>旋转遮罩是一种非线性算子，它首先分别在九个预设的包含当前点的mask内进行计算，选出其中最均匀的（即自相似的）mask，然后在mask内，应用平均滤波器。其中所有的mask如图2.19所示，其形状和大小可以变化。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/2.19.png" alt="图2.19"></p>
+<p>对于每一个mask，我们计算与mask中的点相对应的点的局部平均值（色散）来衡量其自似性，然后选择色散最小的mask来进行平均化操作。这样的目的是减少当前点的噪声，让当前点与来自相同物理刺激（例如表面或物体）的其他类似点取平均值。<br>该技术可以迭代着来使用，直到没有变化或变化很小。掩码越大，收敛越快，但尽管该技术要慢得多，但它能同时<strong>抑制噪声和锐化图像边缘</strong>。其中色散可通过计算每个点的平方差的均值得来：</p>
+<script type="math/tex; mode=display">
+D=\frac{1}{n} \sum_{(i, j) \in M a s k}\left(f(i, j)-1 / n \sum_{\left(i^{\prime}, j^{\prime}\right) \in \text { Mask }} f\left(i^{\prime}, j^{\prime}\right)\right)^{2}</script><p>化简为；</p>
+<script type="math/tex; mode=display">
+D=\frac{1}{n}\left(\sum_{(i, j) \in \text { Mask }} f(i, j)^{2}-1 / n\left(\sum_{\left(i^{\prime}, j^{\prime}\right) \in \text { Mask }} f\left(i^{\prime}, j^{\prime}\right)\right)^{2}\right)</script><p>化简后，计算cost显着降低。<br>另外，该技术可以应用于，具有椒盐噪声的图像，但是会导致不良效果，尤其是当噪声存在于物体边缘时。</p>
+<h3 id="Median-Filter"><a href="#Median-Filter" class="headerlink" title="Median Filter"></a>Median Filter</h3><p>另一种非线性平滑操作是将每个像素替换为，以该像素为中心的小区域（例如3x3）中的像素中位值。例如，3x3区域包含像素值（25 21 23 25 18 18 255 30 13 22），排序后为（13 18 22 21 23 25 25 30 255），其中位数为23，而均值为48。可见该技术非常擅长处理噪声，且该技术不会使边缘模糊太多，所以可迭代应用。而实际上，中值滤波与旋转mask的效果非常相似。如图2.17和2.18所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/2.17.png" alt="图2.17"></p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/2.18.png" alt="图2.18"></p>
+<p>虽然也可将其与上一个，在非矩形区域计算的技术结合，但是它还是会损坏细线和角，而且其时间复杂度为$O\left(k^{2} \log k\right)$，所以计算上也很昂贵。拓展的优化技术可看<a href="http://vision.gel.ulaval.ca/~perreaul/publications/Id699_2007.pdf" target="_blank" rel="noopener">Median Filtering in Constant Time by Perreault</a></p>
+<h1 id="Histograms"><a href="#Histograms" class="headerlink" title="Histograms"></a>Histograms</h1><p>一个图像的直方图是对该图像的抽象描述，其中包含了各个图像值（亮度/强度）的频率。</p>
+<h2 id="1D-Histograms"><a href="#1D-Histograms" class="headerlink" title="1D Histograms"></a>1D Histograms</h2><p>对于灰度图像，其中灰度强度有256种（0-255），而每个强度对应的值，表示图像中属于该灰度的，有多少个像素。如图3.1所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/3.1.png" alt="图3.1"></p>
+<p>图像的直方图中包含了该图像的全局信息，并且该信息完全独立于场景中各个对象的位置和方向，所以同一直方图对应的图像不是唯一的，许多非常不同的图像可能具有相似（甚至相同）的直方图。另外，直方图中得出的信息（例如平均强度及其标准偏差）可用于执行分类。</p>
+<h3 id="Histogram-Smoothing"><a href="#Histogram-Smoothing" class="headerlink" title="Histogram Smoothing"></a>Histogram Smoothing</h3><p>直方图中，无论是全局还是局部的最大值和最小值都能提供有用的信息，但是局部的极值太多了。为了减少此数字，可以对直方图进行平滑处理。首先创建一个新的直方图，其中每个值，都是以原始直方图中的相应值为中心的多个值的平均值。此过程通常称为过滤。如图3.2。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/3.2.png" alt="图3.2"></p>
+<h3 id="Colour-Histograms"><a href="#Colour-Histograms" class="headerlink" title="Colour Histograms"></a>Colour Histograms</h3><p>对于彩色图像这样的多通道图像来说，通常为每个通道独立确定直方图，如图3.3，图3.4。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/3.3.png" alt="图3.3"></p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/3.4.png" alt="图3.4"></p>
+<p>由上可知，不同的颜色模型，直方图也有很大的区别，进而对其有用性产生巨大影响。比如图3.4中可以直接发现，红色和绿色很显著。</p>
+<h2 id="3D-Histograms"><a href="#3D-Histograms" class="headerlink" title="3D Histograms"></a>3D Histograms</h2><p>对于色彩图像的直方图处理，若是均独立处理，则不会实现最佳的颜色分割。比如相似颜色的点都具有较高的饱和度和色相值，这时需要更好的分割，则需要用到3D直方图，如图3.5。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/3.5.png" alt="图3.5"></p>
+<p>其中，(0,0,0)点显示在左下角的顶层。绿轴从顶层的左下角到右下角，蓝轴从顶层的左下角到左上角，红轴从顶层的左下角到最底层的左下角。每个单元内显示的灰度强度表示每个单元中的相对像素数（黑色= 0，白色=最大）。<br>另外就是直方图中的<strong>单元数的设置</strong>。如果我们假设每个通道8位，则直方图中将有近1,680万个单元，这作为图像中信息的摘要来说太多了，所以我们需要减少了直方图的量化。比如图3.5中，每个通道只有2位，所以直方图中只有64个单元。<br>OpenCV中的代码可写为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MatND histogram;</span><br><span class="line"><span class="keyword">int</span> channel_numbers[] = &#123; <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> * number_bins = <span class="keyword">new</span> <span class="keyword">int</span>[image.channels()]; </span><br><span class="line"><span class="keyword">for</span> (ch=<span class="number">0</span>; ch &lt; image.channels(); ch++)</span><br><span class="line">	number_bins[ch] = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">float</span> ch_range[] = &#123; <span class="number">0.0</span>, <span class="number">255.0</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">float</span> * channel_ranges[] = &#123;ch_range,ch_range,ch_range&#125;;</span><br><span class="line">calcHist( &amp;image, <span class="number">1</span>, channel_numbers, Mat(), histogram, image.channels(), a_number_bins, channel_ranges );</span><br></pre></td></tr></table></figure></p>
 <h2 id="Histogram-Image-Equalisation"><a href="#Histogram-Image-Equalisation" class="headerlink" title="Histogram/Image Equalisation"></a>Histogram/Image Equalisation</h2><p>在最佳观看条件下，人类可以区分700到900种灰度，但是在图像的非常黑或非常亮的区域，just noticeable difference（JND）将大大降低，人类也将很难解读图像，然而，很明显，人类更容易区分较大的差异，因此，如果改善图像中的灰度分布，这将有助于人类观察者的理解。<br>而改善图像中的灰度分布的一种技术是<strong>直方图均衡化</strong>，它通过在图像中均匀分布灰度，使生成的直方图变得平坦（即各个灰度具有完全相同的点数），但绝对的平坦是不可能的，实际情况是，有些像素没有值，而有较高值的灰度图散落在直方图中。见图3.6。</p>
 <p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/3.6.png" alt="图3.6"></p>
 <p>另外，对于彩色图像时，我们通常仅均衡亮度通道的直方图，以免颜色失真。</p>
@@ -978,7 +830,7 @@ X \cdot B=(X \oplus B) \ominus B</script><p>闭运算能连接互相接近的对
 <p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/4.28.png" alt="图4.28"></p>
 <p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/4.29.png" alt="图4.29"></p>
 <p>总的来说，我们用阈值来处理图像时，能将之分成不同的两个区域，再使用CCA（连接成分分析），能让我们走的更远，并能标记连接起来的二元区域，而分出来的区域会更加多且细。<br>另外，通常情况是会同时标记物体的点和背景的点，所以应该对物体使用8邻原则，对背景/孔使用4邻原则。</p>
-<h1 id="Geometric-Transformations"><a href="#Geometric-Transformations" class="headerlink" title="Geometric Transformations"></a>Geometric Transformations</h1></0></\text></\text></0.5>
+<h1 id="Geometric-Transformations"><a href="#Geometric-Transformations" class="headerlink" title="Geometric Transformations"></a>Geometric Transformations</h1>
       
     </div>
 
@@ -1222,7 +1074,7 @@ X \cdot B=(X \oplus B) \ominus B</script><p>闭运算能连接互相接近的对
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram-Image-Equalisation"><span class="nav-number">1.</span> <span class="nav-text">Histogram/Image Equalisation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram-Comparison"><span class="nav-number">2.</span> <span class="nav-text">Histogram Comparison</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Back-projection"><span class="nav-number">3.</span> <span class="nav-text">Back-projection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-means-Clustering"><span class="nav-number">4.</span> <span class="nav-text">k-means Clustering</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary-Vision"><span class="nav-number"></span> <span class="nav-text">Binary Vision</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Thresholding"><span class="nav-number">1.</span> <span class="nav-text">Thresholding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thresholding-Problems"><span class="nav-number">1.1.</span> <span class="nav-text">Thresholding Problems</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Threshold-Detection-Methods"><span class="nav-number">2.</span> <span class="nav-text">Threshold Detection Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bimodal-Histogram-Analysis"><span class="nav-number">2.1.</span> <span class="nav-text">Bimodal Histogram Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimal-Thresholding"><span class="nav-number">2.2.</span> <span class="nav-text">Optimal Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Otsu-Thresholding"><span class="nav-number">2.3.</span> <span class="nav-text">Otsu Thresholding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variations-on-Thresholding"><span class="nav-number">3.</span> <span class="nav-text">Variations on Thresholding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaptive-Thresholding"><span class="nav-number">3.1.</span> <span class="nav-text">Adaptive Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Band-Thresholding"><span class="nav-number">3.2.</span> <span class="nav-text">Band Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semi-Thresholding"><span class="nav-number">3.3.</span> <span class="nav-text">Semi-Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multispectral-Thresholding"><span class="nav-number">3.4.</span> <span class="nav-text">Multispectral Thresholding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mathematical-Morphology"><span class="nav-number">4.</span> <span class="nav-text">Mathematical Morphology</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dilation"><span class="nav-number">4.1.</span> <span class="nav-text">Dilation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Erosion"><span class="nav-number">4.2.</span> <span class="nav-text">Erosion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Opening-and-Closing"><span class="nav-number">4.3.</span> <span class="nav-text">Opening and Closing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grey-Scale-and-Colour-Morphology"><span class="nav-number">4.4.</span> <span class="nav-text">Grey-Scale and Colour Morphology</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connectivity"><span class="nav-number">5.</span> <span class="nav-text">Connectivity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connectedness-Paradoxes-and-Solutions"><span class="nav-number">5.1.</span> <span class="nav-text">Connectedness: Paradoxes and Solutions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connected-Components-Analysis"><span class="nav-number">5.2.</span> <span class="nav-text">Connected Components Analysis</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Geometric-Transformations"><span class="nav-number"></span> <span class="nav-text">Geometric Transformations</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Difficult-Problem"><span class="nav-number">1.1.</span> <span class="nav-text">A Difficult Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Human-Vision-System"><span class="nav-number">1.2.</span> <span class="nav-text">The Human Vision System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practical-Applications-of-Computer-Vision"><span class="nav-number">1.3.</span> <span class="nav-text">Practical Applications of Computer Vision</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Future-of-Computer-Vision"><span class="nav-number">1.4.</span> <span class="nav-text">The Future of Computer Vision</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Images"><span class="nav-number">2.</span> <span class="nav-text">Images</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cameras"><span class="nav-number">2.1.</span> <span class="nav-text">Cameras</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Simple-Pinhole-Camera-Model"><span class="nav-number">2.1.1.</span> <span class="nav-text">The Simple Pinhole Camera Model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Images-1"><span class="nav-number">2.2.</span> <span class="nav-text">Images</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sampling"><span class="nav-number">2.2.1.</span> <span class="nav-text">Sampling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quantisation"><span class="nav-number">2.2.2.</span> <span class="nav-text">Quantisation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Colour-Images"><span class="nav-number">2.3.</span> <span class="nav-text">Colour Images</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Red–Green–Blue-RGB-Images"><span class="nav-number">2.3.1.</span> <span class="nav-text">Red–Green–Blue (RGB) Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cyan–Magenta–Yellow-CMY-Images"><span class="nav-number">2.3.2.</span> <span class="nav-text">Cyan–Magenta–Yellow (CMY) Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YUV-Images"><span class="nav-number">2.3.3.</span> <span class="nav-text">YUV Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hue-Luminance-Saturation-HLS-Images"><span class="nav-number">2.3.4.</span> <span class="nav-text">Hue Luminance Saturation (HLS) Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Colour-Spaces"><span class="nav-number">2.3.5.</span> <span class="nav-text">Other Colour Spaces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Some-Colour-Applications"><span class="nav-number">2.3.6.</span> <span class="nav-text">Some Colour Applications</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Skin-Detection"><span class="nav-number">2.3.6.1.</span> <span class="nav-text">Skin Detection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Red-Eye-Detection"><span class="nav-number">2.3.6.2.</span> <span class="nav-text">Red Eye Detection</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noise"><span class="nav-number">2.4.</span> <span class="nav-text">Noise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Types-of-Noise"><span class="nav-number">2.4.1.</span> <span class="nav-text">Types of Noise</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gaussian-Noise"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">Gaussian Noise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Salt-and-Pepper-Noise"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">Salt and Pepper Noise</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Noise-Models"><span class="nav-number">2.4.2.</span> <span class="nav-text">Noise Models</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Additive-Noise"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">Additive Noise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiplicative-Noise"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">Multiplicative Noise</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Noise-Generation"><span class="nav-number">2.4.3.</span> <span class="nav-text">Noise Generation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Noise-Evaluation"><span class="nav-number">2.4.4.</span> <span class="nav-text">Noise Evaluation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smoothing"><span class="nav-number">2.5.</span> <span class="nav-text">Smoothing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Image-Averaging"><span class="nav-number">2.5.1.</span> <span class="nav-text">Image Averaging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-Averaging-and-Gaussian-Smoothing"><span class="nav-number">2.5.2.</span> <span class="nav-text">Local Averaging and Gaussian Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rotating-Mask"><span class="nav-number">2.5.3.</span> <span class="nav-text">Rotating Mask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Median-Filter"><span class="nav-number">2.5.4.</span> <span class="nav-text">Median Filter</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Histograms"><span class="nav-number">3.</span> <span class="nav-text">Histograms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1D-Histograms"><span class="nav-number">3.1.</span> <span class="nav-text">1D Histograms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Histogram-Smoothing"><span class="nav-number">3.1.1.</span> <span class="nav-text">Histogram Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Colour-Histograms"><span class="nav-number">3.1.2.</span> <span class="nav-text">Colour Histograms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D-Histograms"><span class="nav-number">3.2.</span> <span class="nav-text">3D Histograms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram-Image-Equalisation"><span class="nav-number">3.3.</span> <span class="nav-text">Histogram/Image Equalisation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram-Comparison"><span class="nav-number">3.4.</span> <span class="nav-text">Histogram Comparison</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Back-projection"><span class="nav-number">3.5.</span> <span class="nav-text">Back-projection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-means-Clustering"><span class="nav-number">3.6.</span> <span class="nav-text">k-means Clustering</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary-Vision"><span class="nav-number">4.</span> <span class="nav-text">Binary Vision</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Thresholding"><span class="nav-number">4.1.</span> <span class="nav-text">Thresholding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thresholding-Problems"><span class="nav-number">4.1.1.</span> <span class="nav-text">Thresholding Problems</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Threshold-Detection-Methods"><span class="nav-number">4.2.</span> <span class="nav-text">Threshold Detection Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bimodal-Histogram-Analysis"><span class="nav-number">4.2.1.</span> <span class="nav-text">Bimodal Histogram Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimal-Thresholding"><span class="nav-number">4.2.2.</span> <span class="nav-text">Optimal Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Otsu-Thresholding"><span class="nav-number">4.2.3.</span> <span class="nav-text">Otsu Thresholding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variations-on-Thresholding"><span class="nav-number">4.3.</span> <span class="nav-text">Variations on Thresholding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaptive-Thresholding"><span class="nav-number">4.3.1.</span> <span class="nav-text">Adaptive Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Band-Thresholding"><span class="nav-number">4.3.2.</span> <span class="nav-text">Band Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semi-Thresholding"><span class="nav-number">4.3.3.</span> <span class="nav-text">Semi-Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multispectral-Thresholding"><span class="nav-number">4.3.4.</span> <span class="nav-text">Multispectral Thresholding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mathematical-Morphology"><span class="nav-number">4.4.</span> <span class="nav-text">Mathematical Morphology</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dilation"><span class="nav-number">4.4.1.</span> <span class="nav-text">Dilation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Erosion"><span class="nav-number">4.4.2.</span> <span class="nav-text">Erosion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Opening-and-Closing"><span class="nav-number">4.4.3.</span> <span class="nav-text">Opening and Closing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grey-Scale-and-Colour-Morphology"><span class="nav-number">4.4.4.</span> <span class="nav-text">Grey-Scale and Colour Morphology</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connectivity"><span class="nav-number">4.5.</span> <span class="nav-text">Connectivity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connectedness-Paradoxes-and-Solutions"><span class="nav-number">4.5.1.</span> <span class="nav-text">Connectedness: Paradoxes and Solutions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connected-Components-Analysis"><span class="nav-number">4.5.2.</span> <span class="nav-text">Connected Components Analysis</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Geometric-Transformations"><span class="nav-number">5.</span> <span class="nav-text">Geometric Transformations</span></a></li></ol></div>
             
 
           </div>
