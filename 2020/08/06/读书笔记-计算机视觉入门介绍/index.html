@@ -144,7 +144,30 @@
 <meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/4.27.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/4.28.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/4.29.png">
-<meta property="og:updated_time" content="2020-08-08T11:50:18.582Z">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/5.1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/5.2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/5.3.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/5.4.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/5.5.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/5.6.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/5.7.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/5.8.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/5.9.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.3.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.4.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.5.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.6.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.7.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.8.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.9.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.10.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.11.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.12.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.13.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/06/读书笔记-计算机视觉入门介绍/6.14.png">
+<meta property="og:updated_time" content="2020-08-12T01:58:48.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记 - 计算机视觉入门介绍">
 <meta name="twitter:description" content="虽然之前对计算机视觉已经有所了解，但是总是没有系统的学习过计算机视觉，所以这次的暑假学习中，将《A Practical Introduction to COMPUTER VISION WITH OPENCV》这本书放到了第一个，学习了一个月之后，在这篇博客中归纳学习到的内容，内容根据书中的顺序进行安排。">
@@ -415,7 +438,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-08-08 19:50:18" itemprop="dateModified" datetime="2020-08-08T19:50:18+08:00">2020-08-08</time>
+                <time title="Modified: 2020-08-12 09:58:48" itemprop="dateModified" datetime="2020-08-12T09:58:48+08:00">2020-08-12</time>
               </span>
             
           
@@ -830,7 +853,378 @@ X \cdot B=(X \oplus B) \ominus B</script><p>闭运算能连接互相接近的对
 <p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/4.28.png" alt="图4.28"></p>
 <p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/4.29.png" alt="图4.29"></p>
 <p>总的来说，我们用阈值来处理图像时，能将之分成不同的两个区域，再使用CCA（连接成分分析），能让我们走的更远，并能标记连接起来的二元区域，而分出来的区域会更加多且细。<br>另外，通常情况是会同时标记物体的点和背景的点，所以应该对物体使用8邻原则，对背景/孔使用4邻原则。</p>
-<h1 id="Geometric-Transformations"><a href="#Geometric-Transformations" class="headerlink" title="Geometric Transformations"></a>Geometric Transformations</h1>
+<h1 id="Geometric-Transformations"><a href="#Geometric-Transformations" class="headerlink" title="Geometric Transformations"></a>Geometric Transformations</h1><p>图像处理中常常用到几何变换（操作），比如将多个图像带入同一参照系中，以便组合或比较，也可用于消除失真和畸变来使像素间距变得均匀，甚至可以用来简化之后的处理过程，如图5.1中，使平面物体的图像与图像内的轴对齐后，能方便后序处理。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/5.1.png" alt="图5.1"></p>
+<h2 id="Problem-Specification-and-Algorithm"><a href="#Problem-Specification-and-Algorithm" class="headerlink" title="Problem Specification and Algorithm"></a>Problem Specification and Algorithm</h2><p>给定一个变形的图像$f(i, j)$和一个校正的图像$f^{\prime}\left(i^{\prime}, j^{\prime}\right)$，我们可以将其坐标之间的几何变换建模为$i=T_{i}\left(i^{\prime}, j^{\prime}\right)$和$j=T_{j}\left(i^{\prime}, j^{\prime}\right)$，值得注意的是，这里的公式让我们在已知校正图像的坐标后，计算出对应的畸变图像的坐标。<br>在变换图像前，我们必须事先定义变换的方式，比如变换可以是已知的，也可以是通过失真的样本图像和校正的样本图像之间的一对对的对应点来决定的，对于后面一种情况，主要有两种方案来确定对应关系：</p>
+<ul>
+<li>通过对已知的一个图案（例如图5.2）进行成像，获取失真后的图像，而校正后的图像可以直接从已知图案中获取。</li>
+<li>获取同一物体的两幅图像，其中一个图像（称为失真图像）将被映射给另一幅图像（称为校正图像），作为参考的框架。</li>
+</ul>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/5.2.png" alt="图5.2"></p>
+<p>一旦获取了充分的样本失真图像和样本校正图像之间的对应关系，就可以相对简单地计算几何变换函数了，而变换一旦确立，就可以将其应用于失真的图像以及需要相同类型的“校正”的任何其他图像（比如设置固定的相机，其拍摄的所有图像都将具有相同的失真）。<br>    几何变换的应用方式如下：</p>
+<ul>
+<li>对于输出/校正图像$\left(i^{\prime}, j^{\prime}\right)$的每一点：<ul>
+<li>使用$T_{i}\left(\right)$和$T_{j}\left(\right)$，来计算它从哪个坐标$(i, j)$变换而来。</li>
+<li>根据输入图像中的邻近点，为输出点插值，其中$T_{i}\left(\right)$和$T_{j}\left(\right)$有可能计算出小数，所以坐标有可能在像素点之间。</li>
+</ul>
+</li>
+</ul>
+<p>对于变换，按照一般图像处理的顺序，应该是对于输入图像的每一点，计算其对应输出点的值，但是这样可能会造成输出图像中的部分像素缺失，所以通常的做法是将其反向应用，对每一个输出点，都从输入图像中为其计算一个值。但反向执行计算的<strong>唯一缺点</strong>是，我们将在变形失真的图像的域内进行插值，而不是在校正后的图像域内。但通常这样做的偏差不大。</p>
+<h2 id="Affine-Transformations"><a href="#Affine-Transformations" class="headerlink" title="Affine Transformations"></a>Affine Transformations</h2><p>一般的变换都可使用仿射（Affine）变换来描述：</p>
+<script type="math/tex; mode=display">
+\left[\begin{array}{l}
+i \\
+j
+\end{array}\right]=\left[\begin{array}{lll}
+a_{00} & a_{01} & a_{02} \\
+a_{10} & a_{11} & a_{12}
+\end{array}\right]\left[\begin{array}{l}
+i^{\prime} \\
+j^{\prime} \\
+1
+\end{array}\right]</script><p>仿射变换通常用于简单且常规的变换，例如缩放，旋转等，但也可基于样本的映射（变形和校正图像的点之间的对应关系）来确定未知的变换。</p>
+<h3 id="Known-Affine-Transformations"><a href="#Known-Affine-Transformations" class="headerlink" title="Known Affine Transformations"></a>Known Affine Transformations</h3><p>以下是一些常见的已知变换：</p>
+<h4 id="Translation"><a href="#Translation" class="headerlink" title="Translation"></a>Translation</h4><script type="math/tex; mode=display">
+\left[\begin{array}{l}
+i \\
+j
+\end{array}\right]=\left[\begin{array}{lll}
+1 & 0 & m \\
+0 & 1 & n
+\end{array}\right]\left[\begin{array}{l}
+i^{\prime} \\
+j^{\prime} \\
+1
+\end{array}\right]</script><p>该方程描述的变换是沿水平轴平移m个单位，沿垂直轴平移n个单位。</p>
+<h4 id="Change-of-Scale-Expand-Shrink"><a href="#Change-of-Scale-Expand-Shrink" class="headerlink" title="Change of Scale (Expand/Shrink)"></a>Change of Scale (Expand/Shrink)</h4><script type="math/tex; mode=display">
+\left[\begin{array}{l}
+i \\
+j
+\end{array}\right]=\left[\begin{array}{lll}
+a & 0 & 0 \\
+0 & b & 0
+\end{array}\right]\left[\begin{array}{l}
+i^{\prime} \\
+j^{\prime} \\
+1
+\end{array}\right]</script><p>该方程描述的变换是在水平轴上缩放比例a，在垂直轴上缩放比例b，这么做通常是为了规范图像中的对象的大小。</p>
+<h4 id="Rotation"><a href="#Rotation" class="headerlink" title="Rotation"></a>Rotation</h4><script type="math/tex; mode=display">
+\left[\begin{array}{l}
+i \\
+j
+\end{array}\right]=\left[\begin{array}{ccc}
+\cos \phi & \sin \phi & 0 \\
+-\sin \phi & \cos \phi & 0
+\end{array}\right]\left[\begin{array}{l}
+i^{\prime} \\
+j^{\prime} \\
+1
+\end{array}\right]</script><p>该方程描述的变换是绕原点旋转角度𝜙，它可使图像与轴对齐以便简化后续处理，见图5.3。</p>
+<h4 id="Skewing"><a href="#Skewing" class="headerlink" title="Skewing"></a>Skewing</h4><script type="math/tex; mode=display">
+\left[\begin{array}{l}
+i \\
+j
+\end{array}\right]=\left[\begin{array}{ccc}
+1 & \tan \phi & 0 \\
+0 & 1 & 0
+\end{array}\right]\left[\begin{array}{l}
+i^{\prime} \\
+j^{\prime} \\
+1
+\end{array}\right]</script><p>该方程描述的变换是将图像<strong>倾斜</strong>角度𝜙，能用来消除非线性效果，例如线性扫描相机生成的效果，见图5.3。</p>
+<h4 id="Panoramic-Distortion"><a href="#Panoramic-Distortion" class="headerlink" title="Panoramic Distortion"></a>Panoramic Distortion</h4><script type="math/tex; mode=display">
+\left[\begin{array}{l}
+i \\
+j
+\end{array}\right]=\left[\begin{array}{lll}
+a & 0 & 0 \\
+0 & 1 & 0
+\end{array}\right]\left[\begin{array}{l}
+i^{\prime} \\
+j^{\prime} \\
+1
+\end{array}\right]</script><p>全景失真/变形是指图像的宽高比不正确，当镜片（mirror）以不正确的速度旋转时，在线性扫描仪中就会出现，见图5.3。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/5.3.png" alt="图5.3"></p>
+<h3 id="Unknown-Affine-Transformations"><a href="#Unknown-Affine-Transformations" class="headerlink" title="Unknown Affine Transformations"></a>Unknown Affine Transformations</h3><p>在很多情况下，要用到的变换是未知的，但是仍然可以使用刚才提到的仿射变换来描述它。然后问题就等效成了求仿射变换中的六个未知参数$a_{00} \ldots a_{12}$。因为是六个未知数，所以我们至少需要三对观测值来确定这些系数，当然观测值越多，得到的变换方程就更精准。具体来说，如果观测到的映射为：$\left(i_{1}, j_{1}\right) \leftrightarrow\left(i_{1}^{\prime}, j_{1}^{\prime}\right)$，$\left(i_{2}, j_{2}\right) \leftrightarrow\left(i_{2}^{\prime}, j_{2}^{\prime}\right)$和$\left(i_{3}, j_{3}\right) \leftrightarrow\left(i_{3}^{\prime}, j_{3}^{\prime}\right)$，则对于：</p>
+<script type="math/tex; mode=display">
+\left[\begin{array}{l}
+i \\
+j
+\end{array}\right]=\left[\begin{array}{lll}
+a_{00} & a_{01} & a_{02} \\
+a_{10} & a_{11} & a_{12}
+\end{array}\right]\left[\begin{array}{c}
+i^{\prime} \\
+j^{\prime} \\
+1
+\end{array}\right]</script><p>我们可以重新排列为：</p>
+<script type="math/tex; mode=display">
+\left[\begin{array}{c}
+i_{1} \\
+j_{1} \\
+i_{2} \\
+j_{2} \\
+i_{3} \\
+j_{3}
+\end{array}\right]=\left[\begin{array}{cccccc}
+i_{1}^{\prime} & j_{1}^{\prime} & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & i_{1}^{\prime} & j_{1}^{\prime} & 1 \\
+i_{2}^{\prime} & j_{2}^{\prime} & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & i_{2}^{\prime} & j_{2}^{\prime} & 1 \\
+i_{3}^{\prime} & j_{3}^{\prime} & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & i_{3}^{\prime} & j_{3}^{\prime} & 1
+\end{array}\right]\left[\begin{array}{c}
+a_{00} \\
+a_{01} \\
+a_{02} \\
+a_{10} \\
+a_{11} \\
+a_{12}
+\end{array}\right]</script><p>将两边都乘以正方矩阵的逆，就能求解系数，如图5.4所示。但是如果有更多的观测值，那么矩阵将不是正方形，我们必须使用伪逆。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/5.4.png" alt="图5.4"></p>
+<h2 id="Perspective-Transformations"><a href="#Perspective-Transformations" class="headerlink" title="Perspective Transformations"></a>Perspective Transformations</h2><p>大多数摄像机都是通过透视投影来形成图像的，因为3D世界的光线都是通过单个点（小孔成像）或镜头投影到图像平面上。但如果观察的平面与相机的平面不平行时，仅依靠仿射变换，将无法正确校准该平面的试图（如图5.4仿射变换校正的车牌的右下方），所以我们就需要更复杂的变换模型：</p>
+<script type="math/tex; mode=display">
+\left[\begin{array}{c}
+i \cdot w \\
+j \cdot w \\
+w
+\end{array}\right]=\left[\begin{array}{ccc}
+p_{00} & p_{01} & p_{02} \\
+p_{10} & p_{11} & p_{12} \\
+p_{20} & p_{21} & 1
+\end{array}\right]\left[\begin{array}{c}
+i^{\prime} \\
+j^{\prime} \\
+1
+\end{array}\right]</script><p>对于此变换，我们至少需要四对观测点，可通过以下所示计算出系数：<br>其中$i \cdot w=p_{00} \cdot i^{\prime}+p_{01} \cdot j^{\prime}+p_{02}$以及$w=p_{20} \cdot i^{\prime}+p_{21} \cdot j^{\prime}+1$<br>所以$i=p_{00} \cdot i^{\prime}+p_{01} \cdot j^{\prime}+p_{02}-p_{20} \cdot i \cdot i^{\prime}-p_{21} \cdot i \cdot j^{\prime}$<br>同样的，可得出$j=p_{10} \cdot i^{\prime}+p_{11} \cdot j^{\prime}+p_{12}-p_{20} \cdot j \cdot i^{\prime}-p_{21} \cdot j \cdot j^{\prime}$。  </p>
+<p>所以使用四对观察之后可得到：</p>
+<script type="math/tex; mode=display">
+\left[\begin{array}{c}
+i_{1} \\
+j_{1} \\
+i_{2} \\
+j_{2} \\
+i_{3} \\
+j_{3} \\
+i_{4} \\
+j_{4}
+\end{array}\right]=\left[\begin{array}{cccccccc}
+i_{1}^{\prime} & j_{1}^{\prime} & 1 & 0 & 0 & 0 & -i_{1} i_{1}^{\prime} & -i_{1} j_{1}^{\prime} \\
+0 & 0 & 0 & i_{1}^{\prime} & j_{1}^{\prime} & 1 & -j_{1} i_{1}^{\prime} & -j_{1} j_{1}^{\prime} \\
+i_{2}^{\prime} & j_{2}^{\prime} & 1 & 0 & 0 & 0 & -i_{2} i_{2}^{\prime} & -i_{2} j_{2}^{\prime} \\
+0 & 0 & 0 & i_{2}^{\prime} & j_{2}^{\prime} & 1 & -j_{2} i_{2}^{\prime} & -j_{2} j_{2}^{\prime} \\
+i_{3}^{\prime} & j_{3}^{\prime} & 1 & 0 & 0 & 0 & -i_{3} i_{3}^{\prime} & -i_{3} j_{3}^{\prime} \\
+0 & 0 & 0 & i_{3}^{\prime} & j_{3}^{\prime} & 1 & -j_{3} i_{3}^{\prime} & -j_{3} j_{3}^{\prime} \\
+i_{4}^{\prime} & j_{4}^{\prime} & 1 & 0 & 0 & 0 & -i_{4} i_{4}^{\prime} & -i_{4} j_{4}^{\prime} \\
+0 & 0 & 0 & i_{4}^{\prime} & j_{4}^{\prime} & 1 & -j_{4} i_{4}^{\prime} & -j_{4} j_{4}^{\prime}
+\end{array}\right]\left[\begin{array}{c}
+p_{00} \\
+p_{01} \\
+p_{02} \\
+p_{10} \\
+p_{11} \\
+p_{12} \\
+p_{20} \\
+p_{21}
+\end{array}\right]</script><p>与仿射变换相似，我们也可以通过将两边乘以方矩阵的逆，来确定系数。效果如图5.4和图5.5所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/5.5.png" alt="图5.5"></p>
+<h2 id="Specification-of-More-Complex-Transformations"><a href="#Specification-of-More-Complex-Transformations" class="headerlink" title="Specification of More Complex Transformations"></a>Specification of More Complex Transformations</h2><p>仿射变换和透视变换都是线性变换，都可以通过矩阵来计算，但在某些情况下（例如，将不同时间或用不同设备拍摄的两个医学图像对齐），就需要更复杂的转换。</p>
+<p>这些变换通常使用，项目数量预定义的多项式来近似表示：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+i=T_{i}\left(i^{\prime}, j^{\prime}\right)=& a_{00}+a_{10} i^{\prime}+a_{01} j^{\prime}+a_{11} i^{\prime} j^{\prime}+a_{02}\left(j^{\prime}\right)^{2}+a_{20}\left(i^{\prime}\right)^{2}+a_{12} i^{\prime}\left(j^{\prime}\right)^{2}+a_{21}\left(i^{\prime}\right)^{2} j^{\prime} \\
+&+a_{22}\left(i^{\prime}\right)^{2}\left(j^{\prime}\right)^{2}+\ldots \\
+j=T_{j}\left(i^{\prime}, j^{\prime}\right)=& b_{00}+b_{10} i^{\prime}+b_{01} j^{\prime}+b_{11} i^{\prime} j^{\prime}+b_{02}\left(j^{\prime}\right)^{2}+b_{20}\left(i^{\prime}\right)^{2}+b_{12} i^{\prime}\left(j^{\prime}\right)^{2}+b_{21}\left(i^{\prime}\right)^{2} j^{\prime} \\
+&+b_{22}\left(i^{\prime}\right)^{2}\left(j^{\prime}\right)^{2}+\ldots
+\end{aligned}</script><p>同样的，为了求解多项式的系数，也需要知道失真和校正图像之间的一些对应关系，其最小数量由多项式的阶数定义（至少是项数的一半），解决方程式中所涉及的数学与前两个相似，而为了准确的计算系数：</p>
+<ul>
+<li>找到的对应关系的点必须在整个图像上均匀分布；</li>
+<li>不能包括不正确的对应关系；</li>
+<li>使用的对应点越多越好；</li>
+<li>对应关系的点的位置，应该尽量以最高的精度表示；</li>
+<li>当计算逆矩阵或伪逆矩阵时，必须非常小心地处理矩阵，因为可能会存在数值不稳定的问题（因为大数和小数被组合在一起运算，而其中小数的准确性对于结果至关重要）。</li>
+</ul>
+<p>如果几何运算太复杂而无法用多项式近似，可将图像进行分区，然后为每个分区确定一个变换来近似估计图像。</p>
+<h2 id="Interpolation"><a href="#Interpolation" class="headerlink" title="Interpolation"></a>Interpolation</h2><p>对于变换函数映射出的失真图像中的坐标而言，它不太可能精确地对应于任何一个像素，所以我们需要根据对应坐标附近的像素值来进行插值。插值有很多方案，这里详细介绍三种：</p>
+<h3 id="Nearest-Neighbour-Interpolation"><a href="#Nearest-Neighbour-Interpolation" class="headerlink" title="Nearest Neighbour Interpolation"></a>Nearest Neighbour Interpolation</h3><script type="math/tex; mode=display">
+f^{\prime}\left(i^{\prime}, j^{\prime}\right)=f(\text { round }(i), \text { round}(j))</script><p>在最近点插值法中，仅对真实坐标进行四舍五入，取最近的像素点的值。虽然简单，但这种方案会经常导致非常明显的块状效应，如图5.6。特别是对于具有直线边界的对象而言，会更明显，出现像阶梯一样的效果，因此很少使用。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/5.6.png" alt="图5.6"></p>
+<h3 id="Bilinear-Interpolation"><a href="#Bilinear-Interpolation" class="headerlink" title="Bilinear Interpolation"></a>Bilinear Interpolation</h3><script type="math/tex; mode=display">
+\begin{aligned}
+f^{\prime}\left(i^{\prime}, j^{\prime}\right)=&(\operatorname{trunc}(i)+1-i)(\operatorname{trunc}(j)+1-j) f(\operatorname{trunc}(i), \operatorname{trunc}(j)) \\
+&+(i-\operatorname{trunc}(i))(\operatorname{trunc}(j)+1-j) f(\operatorname{trunc}(i)+1, \operatorname{trunc}(j)) \\
+&+(\operatorname{trunc}(i)+1-i)(j-\operatorname{trunc}(j)) f(\operatorname{trunc}(i), \operatorname{trunc}(j)+1) \\
+&+(i-\operatorname{trunc}(i))(j-\operatorname{trunc}(j)) f(\operatorname{trunc}(i)+1, \operatorname{trunc}(j)+1)
+\end{aligned}</script><p>该插值方案基于四个最接近的相邻像素$f(t r u n c(i), t r u n c(j)), f(t r u n c(i)+1, t r u n c(j)), f(t r u n c(i), t r u n c(j)+1), f(t r u n c(i)+1, t r u n c(j)+1)$，根据它们与实际点$(i, j)$的距离，加权求和得来，权重与它们到实际点$(i, j)$的绝对距离成比例关系（介于 0.0和1.0），另外该插值方案假定亮度函数是双线性的，所以权重分别取了水平和竖直方向上的距离的乘积，另外，由于离得越近权重越高，所以权重使用了实际点到对称的点的距离的值，以提供与该点的实际距离的反向衡量。<br>线性插值克服了最邻点插值所引起的块效应，但是会轻微的降低分辨率以及造成模糊，如图5.7所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/5.7.png" alt="图5.7"></p>
+<h3 id="Bi-Cubic-Interpolation"><a href="#Bi-Cubic-Interpolation" class="headerlink" title="Bi-Cubic Interpolation"></a>Bi-Cubic Interpolation</h3><p>双三次插值不仅克服了最近点插值中出现的阶梯状边界问题，也解决了双线性插值的模糊问题。它通过使用双三次多项式曲面上的16个邻近点，来局部估计，改善插值。该函数与拉普拉斯算子（能用于锐化图像）非常相似。<br>双三次插值经常在栅格显示中使用，这就是为什么图像在显示屏上极具放大后很少会出现块状的原因，如5.8所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/5.8.png" alt="图5.8"></p>
+<h2 id="Modelling-and-Removing-Distortion-from-Cameras"><a href="#Modelling-and-Removing-Distortion-from-Cameras" class="headerlink" title="Modelling and Removing Distortion from Cameras"></a>Modelling and Removing Distortion from Cameras</h2><p>在照相机系统（即照相机和镜头）中发生的几何变形和校正，是计算机视觉中常见的几何变形和校正形式之一。<br>针孔相机提供了一个照相机系统的简化模型，但实际上，许多真实的摄像机系统都无法使用该模型进行精确建模，因此还需要对由于物理设置以及镜头引起的失真进行建模。</p>
+<h3 id="Camera-Distortions"><a href="#Camera-Distortions" class="headerlink" title="Camera Distortions"></a>Camera Distortions</h3><p>相机系统中经常会出现两种形式的畸变：（i）径向畸变（辐射型变形）和（ii）切向畸变。<br>Radial distortion，<strong>径向畸变</strong>是径向（放射状）对称的畸变，其畸变的程度与该点到相机光轴（通常在图像中心附近）的距离有关。这种畸变实际上是由于放大倍数在变化。如果放大倍数随着与光轴的距离的增加而减小，该变形应称为barrel distortion，桶状畸变(广角)。 另一方面，放大倍数反而增加了，则称为pincushion distortion，枕状畸变（长焦）。<br>如果我们假设图像$f(i, j)$的原点就在光轴上，则：</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+i^{\prime}=i\left(1+k_{1} r^{2}+k_{2} r^{4}+k_{3} r^{6}\right) \\
+j^{\prime}=j\left(1+k_{1} r^{2}+k_{2} r^{4}+k_{3} r^{6}\right)
+\end{array}</script><p>其中$f^{\prime}\left(i^{\prime}, j^{\prime}\right)$是校正的图像，$r=\sqrt{i^{2}+j^{2}}$是到光轴的距离，$k_{1}, k_{2}, k_{3}$是形容该畸变的参数。</p>
+<p>Tangential distortion，<strong>切向畸变</strong>是当透镜未完全平行于成像平面时会发生的畸变，它会导致放大倍率不均匀，在这种情况下，放大倍率会从成像平面的一侧到另一侧变化，再次假设图像的原点在光轴上，则可以将切向畸变建模为：</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+i^{\prime}=i+\left(2 p_{1} i j+p_{2}\left(r^{2}+2 i^{2}\right)\right) \\
+j^{\prime}=j+\left(2 p_{2} i j+p_{1}\left(r^{2}+2 j^{2}\right)\right)
+\end{array}</script><p>其中$r=\sqrt{i^{2}+j^{2}}$是到光轴的距离，$p_{1}, p_{2}$是形容该畸变的参数。</p>
+<h3 id="Camera-Calibration-and-Removing-Distortion"><a href="#Camera-Calibration-and-Removing-Distortion" class="headerlink" title="Camera Calibration and Removing Distortion"></a>Camera Calibration and Removing Distortion</h3><p>为了确定是哪些参数造成的成像系统的各种畸变，有必要对其进行校准。通常，这意味着同时确定畸变参数和摄像机型号。首先给相机系统展示一个已知的校准对象，如图5.9所示，并不断的变换位置和方向。然后可以使用，与之前从样本点中确定仿射变换和透视变换过程中使用到的，类似的数学方法来提取模型参数。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/5.9.png" alt="图5.9"></p>
+<p>校准后，只需根据公式将其变形，即可消除该相机拍摄的图像中的任何畸变。</p>
+<h1 id="Edges"><a href="#Edges" class="headerlink" title="Edges"></a>Edges</h1><p>图像的分割是指将图像分成多个部分的过程，以便分离不同的对象，或将对象的各个部分分离，是理解图像内容（<strong>image understanding</strong>的目标）中必不可少的步骤之一。解决图像分割主要有两种方法：</p>
+<ol>
+<li>边缘处理，即识别图像中的不连续性（边缘）。</li>
+<li>区域处理，我们在图像中寻找同质区域（或部分），其中最简单的示例比如二元视觉，当然也有更为复杂的方法。</li>
+</ol>
+<p>这些表示可以，也应该是互补的，即边缘能描绘出同质区域。但事实上，很难确定边缘在哪里，因为如果它是可确定的，意味着边缘图像要是唯一的，但是对于大多数图像，没有绝对正确的答案，因为答案通常是主观的，这取决于观察者，也取决于分割的目的，所以基于边缘的视觉的许多技术的目标，都是根据边缘或区域确定场景的最佳表示。</p>
+<h2 id="Edge-Detection"><a href="#Edge-Detection" class="headerlink" title="Edge Detection"></a>Edge Detection</h2><p>边缘检测通常是针对单个通道（灰度）图像展开的，其中边缘是指亮度突然变化的位置，所以我们通常从2D导数（即变化率）的角度来考虑它。另外，因为图像是处于<strong>离散域</strong>中，所以尽管亮度变化通常发生在像素之间而不是在具体像素上，我们还是将亮度突然变化的位置视为边缘像素，其中，sobel边缘检测的示例如图6.1所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.1.png" alt="图6.1"></p>
+<p>由上图，我们也可以发现，每个边缘像素，既有梯度大小/gradient（变化率），也有方向/orientation（最快增长的方向），如图6.2所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.2.png" alt="图6.2"></p>
+<p>通常，要么使用一阶导数运算符，要么使用二阶导数运算符（或者两者的某种组合）来执行边缘检测。一阶导数能得到边缘上的局部最大值（变化率最大的地方），二阶导数能得到边缘上的“跨零点（zero-crossing）”（函数从正无穷到负无穷，或者反过来的地方），如图6.3所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.3.png" alt="图6.3"></p>
+<p>这里值得一提的是，导数是运用在连续的函数的，但是图像是在离散域中处理的，所以为了近似的估计导数（第一、第二），我们使用图像像素之间的差值。</p>
+<h3 id="First-Derivative-Edge-Detectors"><a href="#First-Derivative-Edge-Detectors" class="headerlink" title="First Derivative Edge Detectors"></a>First Derivative Edge Detectors</h3><p>一阶导数的边缘检测器（其实有很多，本文只介绍几个效果明显的）先计算出两个偏导数，然后再将它们组合起来，以确定每个边缘点的梯度和方向值。最后的梯度结果，必须进行非最大值抑制以及阈值处理。</p>
+<h4 id="Roberts-Edge-Detector"><a href="#Roberts-Edge-Detector" class="headerlink" title="Roberts Edge Detector"></a>Roberts Edge Detector</h4><p>该边缘检测器的两个偏导数考虑了对角线上的像素差异：</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+\delta_{1}(i, j)=f(i, j)-f(i+1, j+1) \\
+\delta_{2}(i, j)=f(i+1, j)-f(i, j+1)
+\end{array}</script><p>此类函数通常是用与图像卷积的滤波器来表示的，以便在整个图像上计算该函数（将卷积滤波器移至图像中每个可能的位置，与对应的像素进行卷积操作）:</p>
+<script type="math/tex; mode=display">
+\delta_{1}(i, j)=\left[\begin{array}{rr}
+1 & 0 \\
+0 & -1
+\end{array}\right] \quad \delta_{2}(i, j)=\left[\begin{array}{rr}
+0 & 1 \\
+-1 & 0
+\end{array}\right]</script><p>而梯度则以两个偏导数的RMS（Root-Mean-Square，均方根）或绝对差之和来计算。至于方向，则使用反正切tan函数计算。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.4.png" alt="图6.4"></p>
+<p>对于二进制图像（图6.4），Roberts算子得到的结果非常好，很干净（其中的点要么是边缘点要么不是），且边缘只有一个像素宽。其实在本文中，Roberts是唯一一个，能用在，也是应该用在二进制图像上的一阶边缘检测器。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.5.png" alt="图6.5"></p>
+<p>对于灰度图像（图6.5），Roberts算子得到的结果似乎很差。主要因为在真实图像中，边缘对应的变化不会突然出现（在两个像素之间突然出现），而是在几个像素上完成变化，而Roberts算子是基于相邻点的。另外也因为图像中的任何噪声都能严重影响其偏导数的计算。<br>另外，计算出的梯度，只是根据I轴和J轴的二分之一个像素计算而来的，其中的中点位于两个偏导数之间，正由于偏导数的这种相交方式，Roberts运算符通常被称为Roberts cross-operator、Roberts交叉运算符。</p>
+<h4 id="Compass-Edge-Detectors"><a href="#Compass-Edge-Detectors" class="headerlink" title="Compass Edge Detectors"></a>Compass Edge Detectors</h4><p>Compass边缘检测器中，最著名的两个例子是Sobel和Prewitt，它们分别定义了八个偏导数，其中Prewitt定义的八个偏导数为：</p>
+<script type="math/tex; mode=display">
+h_{1}(i, j)=\left[\begin{array}{rrr}
+1 & 1 & 1 \\
+0 & 0 & 0 \\
+-1 & -1 & -1
+\end{array}\right] \quad h_{2}(i, j)=\left[\begin{array}{rrr}
+0 & 1 & 1 \\
+-1 & 0 & 1 \\
+-1 & -1 & 0
+\end{array}\right] \quad h_{3}(i, j)=\left[\begin{array}{ccc}
+-1 & 0 & 1 \\
+-1 & 0 & 1 \\
+-1 & 0 & 1
+\end{array}\right]</script><script type="math/tex; mode=display">
+h_{4}(i, j)=\left[\begin{array}{rrr}
+-1 & -1 & 0 \\
+-1 & 0 & 1 \\
+0 & 1 & 1
+\end{array}\right] \quad h_{5}(i, j)=\left[\begin{array}{rrr}
+-1 & -1 & -1 \\
+0 & 0 & 0 \\
+1 & 1 & 1
+\end{array}\right] \quad h_{6}(i, j)=\left[\begin{array}{rrr}
+0 & -1 & -1 \\
+1 & 0 & -1 \\
+1 & 1 & 0
+\end{array}\right]</script><script type="math/tex; mode=display">
+h_{7}(i, j)=\left[\begin{array}{rrr}
+1 & 0 & -1 \\
+1 & 0 & -1 \\
+1 & 0 & -1
+\end{array}\right] \quad h_{8}(i, j)=\left[\begin{array}{rrr}
+1 & 1 & 0 \\
+1 & 0 & -1 \\
+0 & -1 & -1
+\end{array}\right]</script><p>在这8个偏导数中，只有两个正交的偏导数是真正需要的$h_1$和$h_3$。示例见图6.6，其中（b）代表水平偏导数，（c）代表垂直偏导数。另外，由于偏导数可以是正数或负数，所以图中灰色表示0，白色表示最大正值，黑色表示最大负值。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.6.png" alt="图6.6"></p>
+<p>而至于Sobel，对应的偏导数为：</p>
+<script type="math/tex; mode=display">
+h_{1}(i, j)=\left[\begin{array}{rrr}
+1 & 2 & 1 \\
+0 & 0 & 0 \\
+-1 & -2 & -1
+\end{array}\right] \quad h_{3}(i, j)=\left[\begin{array}{ccc}
+-1 & 0 & 1 \\
+-2 & 0 & 2 \\
+-1 & 0 & 1
+\end{array}\right]</script><p>分别用于Sobel或Prewitt的两个偏导数，都可用于计算梯度和方向。如图6.7所示，其中（c）是所有点的方向图，（d）是阈值处理的梯度，（e）是边缘点的方法，另外，由于方向是个圆形的方向，其中$0^{\circ}$是黑色，$1^{\circ}$到$359^{\circ}$是白色。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.7.png" alt="图6.7"></p>
+<p>Sobel和Prewitt都在偏导数的卷积mask中，有效地整合了平滑因子，另外，它们也考虑了那些稍微分开的点，这两个因素共同提高了它们在真实的灰度图像上的表现（与Roberts算子的表现相比）。另外这两种算子的偏导数都以特定像素为中心，因此它确定的边缘的位置不会发生偏移（而Roberts算子会导致1/2个像素的偏移）。<br>Sobel和Prewitt之间的唯一区别，是在偏导数两边的平滑滤波器的权重，所以它们之间的结果差异不大。</p>
+<h4 id="Computing-Gradient-and-Orientation"><a href="#Computing-Gradient-and-Orientation" class="headerlink" title="Computing Gradient and Orientation"></a>Computing Gradient and Orientation</h4><p>一阶导数的边缘检测器，通过将两个<strong>正交</strong>的偏导数结合（通常是Root-Mean-Square，也称为$l^{2}$ <em>-norm</em>、$l^{2}$ 范数），来计算边缘的梯度：</p>
+<script type="math/tex; mode=display">
+\nabla f(i, j)=\sqrt{\left(\frac{\delta f(i, j)}{\delta i}\right)^{2}+\left(\frac{\delta f(i, j)}{\delta j}\right)^{2}}</script><p>出于速度原因，有时使用偏导数的绝对值之和来近似估算：</p>
+<script type="math/tex; mode=display">
+\nabla f(i, j)=\left|\frac{\delta f(i, j)}{\delta i}\right|+\left|\frac{\delta f(i, j)}{\delta j}\right|</script><p>至于边缘点的方向，则使用带有两个参数的反正切函数计算出（以区分所有360度）：</p>
+<script type="math/tex; mode=display">
+\phi(i, j)=\arctan \left(\frac{\delta f(i, j)}{\delta j}, \frac{\delta f(i, j)}{\delta i}\right)</script><p>在计算机中应使用atan2，对编程更方便。</p>
+<h4 id="Edge-Image-Thresholding"><a href="#Edge-Image-Thresholding" class="headerlink" title="Edge Image Thresholding"></a>Edge Image Thresholding</h4><p>边缘图像的阈值化是应用于梯度图像的二元阈值操作。但事实上，边缘有几个像素宽，且这些像素通常都会导致梯度响应，因此阈值处理后，在边缘也会产生多个响应，如图6.8所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.8.png" alt="图6.8"></p>
+<p>因此，我们需要在对其阈值处理之前，添加一个额外的阶段，在该阶段中，中心最大值以外的所有梯度响应（对于任何给定的边缘点）都将被抑制，也就是non-maxima suppression、非最大值抑制。</p>
+<h4 id="Non-maxima-Suppression"><a href="#Non-maxima-Suppression" class="headerlink" title="Non-maxima Suppression"></a>Non-maxima Suppression</h4><p>首先是要确定哪些边缘点是中心点（即沿边缘轮廓上的每个点的主要响应），该算法是通过梯度大小和方向信息来判断的。通过当前点的方向，它能知道当前点的两边是哪些点，如果该点的梯度小于任何一边的梯度，则抑制该点，示例见图6.9，详细介绍见图6.10。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.9.png" alt="图6.9"></p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.10.png" alt="图6.10"></p>
+<p>具体算法：</p>
+<ul>
+<li>量化边缘方向（将所有方向分类为八个方向，因为仅考虑八个边界点）</li>
+<li>对所有的点$(i, j)$<ul>
+<li>寻找与边正交（垂直）的两个点</li>
+<li>如果gradient$(i, j)$&lt;这两点的任何一个梯度<ul>
+<li>output $(i, j)=0$</li>
+<li>否则output $(i, j)=\operatorname{gradient}(i, j)$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Second-Derivative-Edge-Detectors"><a href="#Second-Derivative-Edge-Detectors" class="headerlink" title="Second Derivative Edge Detectors"></a>Second Derivative Edge Detectors</h3><p>二阶导数的边缘检测器，得到的是变化率的变化率，但实际上也是使用单个卷积滤波器在图像的离散域中进行卷积计算。其中最常见的二阶导数滤波器之一是拉普拉斯算子，它的两个离散估计分别为：</p>
+<script type="math/tex; mode=display">
+h(i, j)=\left[\begin{array}{rrr}
+0 & 1 & 0 \\
+1 & -4 & 1 \\
+0 & 1 & 0
+\end{array}\right]</script><p>或者:</p>
+<script type="math/tex; mode=display">
+h(i, j)=\left[\begin{array}{rrr}
+2 & -1 & 2 \\
+-1 & -4 & -1 \\
+2 & -1 & 2
+\end{array}\right]</script><p>值得注意的是，这些估计给了中心像素很大的权重，所以如果存在噪声时会出现问题。因此，通常在拉普拉斯滤波之前，先进行某种类型的平滑处理。<br>二阶导数边缘检测器可以用于确定梯度的大小和位置，但是它不能用于确定梯度的方向。而且就算是梯度大小，也需要知道在zero crossing处的二阶导数函数的斜率，这有点复杂，因此经常使用一阶导数函数来求梯度大小。那二阶导数边缘算子还有什么用途呢，实际上它的目的是高精度的确定边缘位置。如接下来所展示的两种算子。</p>
+<h4 id="Laplacian-of-Gaussian"><a href="#Laplacian-of-Gaussian" class="headerlink" title="Laplacian of Gaussian"></a>Laplacian of Gaussian</h4><p>高斯拉普拉斯算子现在仍是使用最广泛的检测器之一。如前所述，二阶导数的边缘检测器易受噪声影响，因此需要在它之前通过平滑处理来降低噪声水平。 平滑滤波器必须满足两个条件：（i）它是平滑的，并且在频域中受频带限制（即它必须限制图像中边缘出现的频率）；（ii）它表现出良好的空间定位性（即平滑滤波器禁止移动任何边缘，或更改它们之间的空间关系）。 解决此问题的最佳方法是使用高斯平滑，其中$\sigma^{2}$表示高斯函数的宽度：</p>
+<script type="math/tex; mode=display">
+G(i, j)=e^{-\frac{i^{2}+j^{2}}{2 \sigma^{2}}}</script><p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.11.png" alt="图6.11"></p>
+<p>为了计算二阶导数，应首先将高斯平滑算子应用于图像，然后再应用拉普拉斯算子，如图6.11所示。但是，可以将这两个运算符组合在一起，并将它们作为单个“高斯拉普拉斯算子”同时应用于图像。此运算符的卷积过滤器定义如下：</p>
+<script type="math/tex; mode=display">
+h(i, j)=\frac{1}{\pi \sigma^{4}}\left(\frac{i^{2}+j^{2}}{2 \sigma^{2}}-1\right) e^{-\frac{i^{2}+j^{2}}{2 \sigma^{2}}}</script><p>该卷积mask的形状，在中心为正，而在附近为负，再远一点逐渐变为零。所以它也常常被称为<strong>墨西哥帽</strong>过滤器，见图6.12所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.12.png" alt="图6.12"></p>
+<p>与普通边缘算子相比，该算子可以考虑更大的面积，但这并不总是件好事，因为并不知道该区域中是否存在许多边缘。此外，有时过多进行的平滑处理，会丢失诸如拐角之类的精细细节。另外，该算子给出了保证的边缘闭环（guaranteed closed loops of edges），这个优点很重要，但对某些应用程序（或某些类型的后处理）会造成问题。另外，神经生理学实验已经表明，人类的视觉系统（以神经节细胞的形式）执行的操作与Laplacian of Gaussian十分相似。<br>为了在实践中使用该滤波器，需要提出一种有效的应用方法，因为滤镜的mask通常很大（取决于$\sigma$的值），所以可以将二维的Laplacian of Gaussian函数分成四个一维的卷积操作，这样能计算的更快。另外，Laplacian of Gaussian通常用高斯的差（两个用不同的$\sigma$值平滑处理后的图像之间的差）来近似估计。<br>在二阶导数图像中找到zero crossings并不简单。我们不能只寻找零（因为域并不连续）。不过，如果一个点的符号（+ ve或–ve）与该行上的上一个点，或者该列中的上一个点的符号不同，将可以将它们标记为zero crossing。但是如果这样做，我们将舍弃二阶导数的主要优势之一（即，可以高精度的确定边缘位置）。</p>
+<h4 id="Multiple-Scales"><a href="#Multiple-Scales" class="headerlink" title="Multiple Scales"></a>Multiple Scales</h4><p>许多图像处理技术要么使用局部的单个像素，要么使用一个局部区域中的频繁像素。但一个主要问题，是要知道使用多大的邻域，以及“正确”的领域大小取决于所调查对象的大小。这实际上是图像内的尺度问题。知道对象/物体是什么，就可以清楚地理解应该如何解释图像，这对于工业应用是可以接受的，因为工业要求固定，物体已知，但对于一般的视觉而言似乎是棘手的（鸡和鸡蛋类型的问题）。所以一种解决方案是同时研究不同分辨率（比例）下的图像。通过创建具有多种分辨率的模型，然后研究模型在不同分辨率下改变的方式，以获得在一个尺度上无法获取的元知识。<br>回到Laplacian of Gaussian，David Marr（Marr，1982）提出了一种可能性，即，应该使用不同的高斯算子对图像进行平滑处理，然后，跨多个尺度的对应关系可以被用来识别明显的不连续性（即，zero crossings）。有关在两个尺度下处理的图像的示例，见图6.13。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.13.png" alt="图6.13"></p>
+<h4 id="Canny-Edge-Detection"><a href="#Canny-Edge-Detection" class="headerlink" title="Canny Edge Detection"></a>Canny Edge Detection</h4><p>Canny边缘检测器将一阶导数和二阶导数的边缘检测相结合，以计算边缘梯度和方向，它旨在优化以下三个标准：</p>
+<ol>
+<li>Detection - 边不能被遗漏。</li>
+<li>Localisation - 实际的边缘和确定的边缘之间的距离应最小化。</li>
+<li>One response - 对单个边的多个响应应最小化。</li>
+</ol>
+<p>具体算法：</p>
+<ol>
+<li>以标准偏差𝜎，来用高斯进行卷积增加模糊，去噪声。</li>
+<li>使用高斯卷积后的图像的一阶导数，去估算边的法向量方向（即orientation）。</li>
+<li>找到边，抑制non-maxima值。首先在高斯卷积图像的二阶导数中搜索zero-crossings得到准确的边缘信息，再通过上一步中计算出的边缘方向来抑制非最大值。</li>
+<li>边的梯度是根据高斯卷积图像的一阶导数计算的。</li>
+<li>利用hysteresis、磁滞现象来对边缘进行阈值处理。这里的设想是边缘点是存在于连接着的点的轮廓中的。那么使用两个阈值 – 高梯度阈值（在该阈值上所有点都明确地分类为边缘点）以及低阈值，在该阈值下且与确定为边缘点的点连接的点，也分类为边缘点。这样能解决那些，由于阈值太简单，而将边缘轮廓分裂成多个未连接的片段的问题。</li>
+<li>与Marr的探测器类似，我们也可以针对多个尺度（使用不同的高斯）来处理，然后使用“feature synthesis、特征合成”来将不同尺度下的边组合到一起。</li>
+</ol>
+<p>Canny检测的边缘图如图6.14所示。</p>
+<p><img src="/2020/08/06/读书笔记-计算机视觉入门介绍/6.14.png" alt="图6.14"></p>
+
       
     </div>
 
@@ -1074,7 +1468,7 @@ X \cdot B=(X \oplus B) \ominus B</script><p>闭运算能连接互相接近的对
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Difficult-Problem"><span class="nav-number">1.1.</span> <span class="nav-text">A Difficult Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Human-Vision-System"><span class="nav-number">1.2.</span> <span class="nav-text">The Human Vision System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practical-Applications-of-Computer-Vision"><span class="nav-number">1.3.</span> <span class="nav-text">Practical Applications of Computer Vision</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Future-of-Computer-Vision"><span class="nav-number">1.4.</span> <span class="nav-text">The Future of Computer Vision</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Images"><span class="nav-number">2.</span> <span class="nav-text">Images</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cameras"><span class="nav-number">2.1.</span> <span class="nav-text">Cameras</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Simple-Pinhole-Camera-Model"><span class="nav-number">2.1.1.</span> <span class="nav-text">The Simple Pinhole Camera Model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Images-1"><span class="nav-number">2.2.</span> <span class="nav-text">Images</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sampling"><span class="nav-number">2.2.1.</span> <span class="nav-text">Sampling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quantisation"><span class="nav-number">2.2.2.</span> <span class="nav-text">Quantisation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Colour-Images"><span class="nav-number">2.3.</span> <span class="nav-text">Colour Images</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Red–Green–Blue-RGB-Images"><span class="nav-number">2.3.1.</span> <span class="nav-text">Red–Green–Blue (RGB) Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cyan–Magenta–Yellow-CMY-Images"><span class="nav-number">2.3.2.</span> <span class="nav-text">Cyan–Magenta–Yellow (CMY) Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YUV-Images"><span class="nav-number">2.3.3.</span> <span class="nav-text">YUV Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hue-Luminance-Saturation-HLS-Images"><span class="nav-number">2.3.4.</span> <span class="nav-text">Hue Luminance Saturation (HLS) Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Colour-Spaces"><span class="nav-number">2.3.5.</span> <span class="nav-text">Other Colour Spaces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Some-Colour-Applications"><span class="nav-number">2.3.6.</span> <span class="nav-text">Some Colour Applications</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Skin-Detection"><span class="nav-number">2.3.6.1.</span> <span class="nav-text">Skin Detection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Red-Eye-Detection"><span class="nav-number">2.3.6.2.</span> <span class="nav-text">Red Eye Detection</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noise"><span class="nav-number">2.4.</span> <span class="nav-text">Noise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Types-of-Noise"><span class="nav-number">2.4.1.</span> <span class="nav-text">Types of Noise</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gaussian-Noise"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">Gaussian Noise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Salt-and-Pepper-Noise"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">Salt and Pepper Noise</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Noise-Models"><span class="nav-number">2.4.2.</span> <span class="nav-text">Noise Models</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Additive-Noise"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">Additive Noise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiplicative-Noise"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">Multiplicative Noise</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Noise-Generation"><span class="nav-number">2.4.3.</span> <span class="nav-text">Noise Generation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Noise-Evaluation"><span class="nav-number">2.4.4.</span> <span class="nav-text">Noise Evaluation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smoothing"><span class="nav-number">2.5.</span> <span class="nav-text">Smoothing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Image-Averaging"><span class="nav-number">2.5.1.</span> <span class="nav-text">Image Averaging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-Averaging-and-Gaussian-Smoothing"><span class="nav-number">2.5.2.</span> <span class="nav-text">Local Averaging and Gaussian Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rotating-Mask"><span class="nav-number">2.5.3.</span> <span class="nav-text">Rotating Mask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Median-Filter"><span class="nav-number">2.5.4.</span> <span class="nav-text">Median Filter</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Histograms"><span class="nav-number">3.</span> <span class="nav-text">Histograms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1D-Histograms"><span class="nav-number">3.1.</span> <span class="nav-text">1D Histograms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Histogram-Smoothing"><span class="nav-number">3.1.1.</span> <span class="nav-text">Histogram Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Colour-Histograms"><span class="nav-number">3.1.2.</span> <span class="nav-text">Colour Histograms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D-Histograms"><span class="nav-number">3.2.</span> <span class="nav-text">3D Histograms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram-Image-Equalisation"><span class="nav-number">3.3.</span> <span class="nav-text">Histogram/Image Equalisation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram-Comparison"><span class="nav-number">3.4.</span> <span class="nav-text">Histogram Comparison</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Back-projection"><span class="nav-number">3.5.</span> <span class="nav-text">Back-projection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-means-Clustering"><span class="nav-number">3.6.</span> <span class="nav-text">k-means Clustering</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary-Vision"><span class="nav-number">4.</span> <span class="nav-text">Binary Vision</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Thresholding"><span class="nav-number">4.1.</span> <span class="nav-text">Thresholding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thresholding-Problems"><span class="nav-number">4.1.1.</span> <span class="nav-text">Thresholding Problems</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Threshold-Detection-Methods"><span class="nav-number">4.2.</span> <span class="nav-text">Threshold Detection Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bimodal-Histogram-Analysis"><span class="nav-number">4.2.1.</span> <span class="nav-text">Bimodal Histogram Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimal-Thresholding"><span class="nav-number">4.2.2.</span> <span class="nav-text">Optimal Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Otsu-Thresholding"><span class="nav-number">4.2.3.</span> <span class="nav-text">Otsu Thresholding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variations-on-Thresholding"><span class="nav-number">4.3.</span> <span class="nav-text">Variations on Thresholding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaptive-Thresholding"><span class="nav-number">4.3.1.</span> <span class="nav-text">Adaptive Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Band-Thresholding"><span class="nav-number">4.3.2.</span> <span class="nav-text">Band Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semi-Thresholding"><span class="nav-number">4.3.3.</span> <span class="nav-text">Semi-Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multispectral-Thresholding"><span class="nav-number">4.3.4.</span> <span class="nav-text">Multispectral Thresholding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mathematical-Morphology"><span class="nav-number">4.4.</span> <span class="nav-text">Mathematical Morphology</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dilation"><span class="nav-number">4.4.1.</span> <span class="nav-text">Dilation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Erosion"><span class="nav-number">4.4.2.</span> <span class="nav-text">Erosion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Opening-and-Closing"><span class="nav-number">4.4.3.</span> <span class="nav-text">Opening and Closing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grey-Scale-and-Colour-Morphology"><span class="nav-number">4.4.4.</span> <span class="nav-text">Grey-Scale and Colour Morphology</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connectivity"><span class="nav-number">4.5.</span> <span class="nav-text">Connectivity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connectedness-Paradoxes-and-Solutions"><span class="nav-number">4.5.1.</span> <span class="nav-text">Connectedness: Paradoxes and Solutions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connected-Components-Analysis"><span class="nav-number">4.5.2.</span> <span class="nav-text">Connected Components Analysis</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Geometric-Transformations"><span class="nav-number">5.</span> <span class="nav-text">Geometric Transformations</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Difficult-Problem"><span class="nav-number">1.1.</span> <span class="nav-text">A Difficult Problem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Human-Vision-System"><span class="nav-number">1.2.</span> <span class="nav-text">The Human Vision System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Practical-Applications-of-Computer-Vision"><span class="nav-number">1.3.</span> <span class="nav-text">Practical Applications of Computer Vision</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Future-of-Computer-Vision"><span class="nav-number">1.4.</span> <span class="nav-text">The Future of Computer Vision</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Images"><span class="nav-number">2.</span> <span class="nav-text">Images</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cameras"><span class="nav-number">2.1.</span> <span class="nav-text">Cameras</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Simple-Pinhole-Camera-Model"><span class="nav-number">2.1.1.</span> <span class="nav-text">The Simple Pinhole Camera Model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Images-1"><span class="nav-number">2.2.</span> <span class="nav-text">Images</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sampling"><span class="nav-number">2.2.1.</span> <span class="nav-text">Sampling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quantisation"><span class="nav-number">2.2.2.</span> <span class="nav-text">Quantisation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Colour-Images"><span class="nav-number">2.3.</span> <span class="nav-text">Colour Images</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Red–Green–Blue-RGB-Images"><span class="nav-number">2.3.1.</span> <span class="nav-text">Red–Green–Blue (RGB) Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cyan–Magenta–Yellow-CMY-Images"><span class="nav-number">2.3.2.</span> <span class="nav-text">Cyan–Magenta–Yellow (CMY) Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YUV-Images"><span class="nav-number">2.3.3.</span> <span class="nav-text">YUV Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hue-Luminance-Saturation-HLS-Images"><span class="nav-number">2.3.4.</span> <span class="nav-text">Hue Luminance Saturation (HLS) Images</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Colour-Spaces"><span class="nav-number">2.3.5.</span> <span class="nav-text">Other Colour Spaces</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Some-Colour-Applications"><span class="nav-number">2.3.6.</span> <span class="nav-text">Some Colour Applications</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Skin-Detection"><span class="nav-number">2.3.6.1.</span> <span class="nav-text">Skin Detection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Red-Eye-Detection"><span class="nav-number">2.3.6.2.</span> <span class="nav-text">Red Eye Detection</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Noise"><span class="nav-number">2.4.</span> <span class="nav-text">Noise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Types-of-Noise"><span class="nav-number">2.4.1.</span> <span class="nav-text">Types of Noise</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gaussian-Noise"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">Gaussian Noise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Salt-and-Pepper-Noise"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">Salt and Pepper Noise</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Noise-Models"><span class="nav-number">2.4.2.</span> <span class="nav-text">Noise Models</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Additive-Noise"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">Additive Noise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiplicative-Noise"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">Multiplicative Noise</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Noise-Generation"><span class="nav-number">2.4.3.</span> <span class="nav-text">Noise Generation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Noise-Evaluation"><span class="nav-number">2.4.4.</span> <span class="nav-text">Noise Evaluation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smoothing"><span class="nav-number">2.5.</span> <span class="nav-text">Smoothing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Image-Averaging"><span class="nav-number">2.5.1.</span> <span class="nav-text">Image Averaging</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-Averaging-and-Gaussian-Smoothing"><span class="nav-number">2.5.2.</span> <span class="nav-text">Local Averaging and Gaussian Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rotating-Mask"><span class="nav-number">2.5.3.</span> <span class="nav-text">Rotating Mask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Median-Filter"><span class="nav-number">2.5.4.</span> <span class="nav-text">Median Filter</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Histograms"><span class="nav-number">3.</span> <span class="nav-text">Histograms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1D-Histograms"><span class="nav-number">3.1.</span> <span class="nav-text">1D Histograms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Histogram-Smoothing"><span class="nav-number">3.1.1.</span> <span class="nav-text">Histogram Smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Colour-Histograms"><span class="nav-number">3.1.2.</span> <span class="nav-text">Colour Histograms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D-Histograms"><span class="nav-number">3.2.</span> <span class="nav-text">3D Histograms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram-Image-Equalisation"><span class="nav-number">3.3.</span> <span class="nav-text">Histogram/Image Equalisation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Histogram-Comparison"><span class="nav-number">3.4.</span> <span class="nav-text">Histogram Comparison</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Back-projection"><span class="nav-number">3.5.</span> <span class="nav-text">Back-projection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-means-Clustering"><span class="nav-number">3.6.</span> <span class="nav-text">k-means Clustering</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Binary-Vision"><span class="nav-number">4.</span> <span class="nav-text">Binary Vision</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Thresholding"><span class="nav-number">4.1.</span> <span class="nav-text">Thresholding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Thresholding-Problems"><span class="nav-number">4.1.1.</span> <span class="nav-text">Thresholding Problems</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Threshold-Detection-Methods"><span class="nav-number">4.2.</span> <span class="nav-text">Threshold Detection Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bimodal-Histogram-Analysis"><span class="nav-number">4.2.1.</span> <span class="nav-text">Bimodal Histogram Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimal-Thresholding"><span class="nav-number">4.2.2.</span> <span class="nav-text">Optimal Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Otsu-Thresholding"><span class="nav-number">4.2.3.</span> <span class="nav-text">Otsu Thresholding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Variations-on-Thresholding"><span class="nav-number">4.3.</span> <span class="nav-text">Variations on Thresholding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaptive-Thresholding"><span class="nav-number">4.3.1.</span> <span class="nav-text">Adaptive Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Band-Thresholding"><span class="nav-number">4.3.2.</span> <span class="nav-text">Band Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semi-Thresholding"><span class="nav-number">4.3.3.</span> <span class="nav-text">Semi-Thresholding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multispectral-Thresholding"><span class="nav-number">4.3.4.</span> <span class="nav-text">Multispectral Thresholding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mathematical-Morphology"><span class="nav-number">4.4.</span> <span class="nav-text">Mathematical Morphology</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dilation"><span class="nav-number">4.4.1.</span> <span class="nav-text">Dilation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Erosion"><span class="nav-number">4.4.2.</span> <span class="nav-text">Erosion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Opening-and-Closing"><span class="nav-number">4.4.3.</span> <span class="nav-text">Opening and Closing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grey-Scale-and-Colour-Morphology"><span class="nav-number">4.4.4.</span> <span class="nav-text">Grey-Scale and Colour Morphology</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connectivity"><span class="nav-number">4.5.</span> <span class="nav-text">Connectivity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connectedness-Paradoxes-and-Solutions"><span class="nav-number">4.5.1.</span> <span class="nav-text">Connectedness: Paradoxes and Solutions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connected-Components-Analysis"><span class="nav-number">4.5.2.</span> <span class="nav-text">Connected Components Analysis</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Geometric-Transformations"><span class="nav-number">5.</span> <span class="nav-text">Geometric Transformations</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-Specification-and-Algorithm"><span class="nav-number">5.1.</span> <span class="nav-text">Problem Specification and Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Affine-Transformations"><span class="nav-number">5.2.</span> <span class="nav-text">Affine Transformations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Known-Affine-Transformations"><span class="nav-number">5.2.1.</span> <span class="nav-text">Known Affine Transformations</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Translation"><span class="nav-number">5.2.1.1.</span> <span class="nav-text">Translation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Change-of-Scale-Expand-Shrink"><span class="nav-number">5.2.1.2.</span> <span class="nav-text">Change of Scale (Expand/Shrink)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rotation"><span class="nav-number">5.2.1.3.</span> <span class="nav-text">Rotation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Skewing"><span class="nav-number">5.2.1.4.</span> <span class="nav-text">Skewing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Panoramic-Distortion"><span class="nav-number">5.2.1.5.</span> <span class="nav-text">Panoramic Distortion</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unknown-Affine-Transformations"><span class="nav-number">5.2.2.</span> <span class="nav-text">Unknown Affine Transformations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Perspective-Transformations"><span class="nav-number">5.3.</span> <span class="nav-text">Perspective Transformations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Specification-of-More-Complex-Transformations"><span class="nav-number">5.4.</span> <span class="nav-text">Specification of More Complex Transformations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interpolation"><span class="nav-number">5.5.</span> <span class="nav-text">Interpolation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nearest-Neighbour-Interpolation"><span class="nav-number">5.5.1.</span> <span class="nav-text">Nearest Neighbour Interpolation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bilinear-Interpolation"><span class="nav-number">5.5.2.</span> <span class="nav-text">Bilinear Interpolation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bi-Cubic-Interpolation"><span class="nav-number">5.5.3.</span> <span class="nav-text">Bi-Cubic Interpolation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modelling-and-Removing-Distortion-from-Cameras"><span class="nav-number">5.6.</span> <span class="nav-text">Modelling and Removing Distortion from Cameras</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Camera-Distortions"><span class="nav-number">5.6.1.</span> <span class="nav-text">Camera Distortions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Camera-Calibration-and-Removing-Distortion"><span class="nav-number">5.6.2.</span> <span class="nav-text">Camera Calibration and Removing Distortion</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Edges"><span class="nav-number">6.</span> <span class="nav-text">Edges</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Edge-Detection"><span class="nav-number">6.1.</span> <span class="nav-text">Edge Detection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#First-Derivative-Edge-Detectors"><span class="nav-number">6.1.1.</span> <span class="nav-text">First Derivative Edge Detectors</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Roberts-Edge-Detector"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">Roberts Edge Detector</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Compass-Edge-Detectors"><span class="nav-number">6.1.1.2.</span> <span class="nav-text">Compass Edge Detectors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Computing-Gradient-and-Orientation"><span class="nav-number">6.1.1.3.</span> <span class="nav-text">Computing Gradient and Orientation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Edge-Image-Thresholding"><span class="nav-number">6.1.1.4.</span> <span class="nav-text">Edge Image Thresholding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Non-maxima-Suppression"><span class="nav-number">6.1.1.5.</span> <span class="nav-text">Non-maxima Suppression</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Second-Derivative-Edge-Detectors"><span class="nav-number">6.1.2.</span> <span class="nav-text">Second Derivative Edge Detectors</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Laplacian-of-Gaussian"><span class="nav-number">6.1.2.1.</span> <span class="nav-text">Laplacian of Gaussian</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiple-Scales"><span class="nav-number">6.1.2.2.</span> <span class="nav-text">Multiple Scales</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Canny-Edge-Detection"><span class="nav-number">6.1.2.3.</span> <span class="nav-text">Canny Edge Detection</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
